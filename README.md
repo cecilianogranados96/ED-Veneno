@@ -1,6 +1,6 @@
 # Veneno Game
 
-[![N|Solid](http://i68.tinypic.com/30dec7p.png)](https://nodesource.com/products/nsolid)
+[![N|Solid](http://i68.tinypic.com/30dec7p.png)
 
 Veneno es un juego de cartas clasico, el cual presenta algunas soluciones y problemas, el sofware se encuentra escrito principalmente en: 
 
