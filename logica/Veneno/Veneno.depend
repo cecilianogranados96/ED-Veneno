@@ -1,0 +1,15 @@
+# depslib dependency file v1.0
+1491208459 source:c:\xampp\htdocs\veneno\logica\veneno\main.cpp
+	<iostream>
+	<string>
+	<cstdlib>
+	<sstream>
+	<player.h>
+
+1491213791 c:\xampp\htdocs\veneno\logica\veneno\include\player.h
+	<iostream>
+
+1491208566 source:c:\xampp\htdocs\veneno\logica\veneno\src\player.cpp
+	<iostream>
+	"player.h"
+

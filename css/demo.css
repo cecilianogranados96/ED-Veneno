@@ -45,8 +45,9 @@ a:hover, a:focus { color: #666c7b; }
 	color: #fff;
 }
 
-.demo-2 a {	color: #f3ef8b; }
-.demo-2 a:hover, .demo-2 a:focus { color: #fff; }
+.demo-2 a {	color: #000000; font-weight: 700;}
+
+.demo-2 a:hover, .demo-2 a:focus { color: #00000; }
 
 .demo-3 {
 	background: #e8e8ec;
@@ -168,33 +169,131 @@ a:hover, a:focus { color: #666c7b; }
     background: #0f27b7;
 }
 
+
+
 .calero1 {
-    margin: calc(10vh + 1px) 0 0 calc(10% + 1px);
+    margin: calc(10vh + 1px) 0 0 calc(15% + 1px);
     padding: 2em;
     width: calc(20vw - 0px);
-    min-height: calc(60vh - 1px);
+    height: 60vh;
     position: relative;
     z-index: 100;
     background: #0f27b7;
 }
 .calero2 {
-    margin: calc(-60vh + 1px) 0 0 calc(40% + 1px);
+	margin: calc(-60vh + 1px) 0 0 calc(40% + 7px);
     padding: 2em;
     width: calc(20vw - 0px);
-    min-height: calc(60vh - 1px);
+    height: 60vh;
     position: relative;
     z-index: 100;
     background: #0f27b7;
 }
 .calero3 {
-    margin: calc(-60vh + 1px) 0 0 calc(70% + 1px);
+    margin: calc(-60vh + 1px) 0 0 calc(65% + 1px);
     padding: 2em;
     width: calc(20vw - 0px);
-    min-height: calc(60vh - 1px);
+    height: 60vh;
     position: relative;
     z-index: 100;
     background: #0f27b7;
 }
+
+
+.puntos {
+    margin: calc(19vh + 0px) 0 0 calc(0% + 0px);
+    padding: 2em;
+    width: calc(10vw - 0px);
+    min-height: calc(60vh - 1px);
+    position: absolute;
+    z-index: 100;
+    background: #FFFFFF;
+	color:#000000;
+}
+
+.anterior {
+    margin: calc(20vh + 0px) 0 0 calc(88% + 0px);
+    padding: 1.5em 4em 1em 1em;
+    width: calc(10vw - 0px);
+    min-height: calc(11vh - 0px);
+    position: absolute;
+    z-index: 100;
+    color: #FFFFFF;
+    background-image: 	linear-gradient(to bottom,#337ab7 0,#265a88 100%);
+    font-size: medium;
+	border-radius: 10px 10px 10px 10px;
+-moz-border-radius: 10px 10px 10px 10px;
+-webkit-border-radius: 10px 10px 10px 10px;
+border: 0px solid #000000;
+}
+
+
+.siguiente {
+    margin: calc(35vh + 0px) 0 0 calc(88% + 0px);
+    padding: 1.5em 4em 1em 1em;
+    width: calc(10vw - 0px);
+    min-height: calc(11vh - 0px);
+    position: absolute;
+    z-index: 100;
+    color: #FFFFFF;
+    background-image: linear-gradient(to bottom,#5bc0de 0,#2aabd2 100%);
+    font-size: medium;
+	border-radius: 10px 10px 10px 10px;
+-moz-border-radius: 10px 10px 10px 10px;
+-webkit-border-radius: 10px 10px 10px 10px;
+border: 0px solid #000000;
+}
+.jugar {
+    margin: calc(50vh + 0px) 0 0 calc(88% + 0px);
+    padding: 1.5em 4em 1em 1em;
+    width: calc(10vw - 0px);
+    min-height: calc(11vh - 0px);
+    position: absolute;
+    z-index: 100;
+    color: #000000;
+    background-image: linear-gradient(to bottom,#fff 0,#e0e0e0 100%);
+    font-size: medium;
+	border-radius: 10px 10px 10px 10px;
+	-moz-border-radius: 10px 10px 10px 10px;
+	-webkit-border-radius: 10px 10px 10px 10px;
+	border: 0px solid #000000;
+}
+
+.jugar_activo {
+    margin: calc(50vh + 0px) 0 0 calc(88% + 0px);
+    padding: 1.5em 4em 1em 1em;
+    width: calc(10vw - 0px);
+    min-height: calc(11vh - 0px);
+    position: absolute;
+    z-index: 100;
+    color: #FFFFFF;
+    background-image: linear-gradient(to bottom,#5cb85c 0,#419641 100%);
+    font-size: medium;
+	border-radius: 10px 10px 10px 10px;
+	-moz-border-radius: 10px 10px 10px 10px;
+	-webkit-border-radius: 10px 10px 10px 10px;
+	border: 0px solid #000000;
+}
+
+
+
+/*linear-gradient(to bottom,#fff 0,#e0e0e0 100%)*/
+
+.c1{
+	z-index: 0;
+    position: static;
+}
+.c2{
+	z-index: 1;
+    position: relative;
+    margin-top: -135%;
+}
+.c3{
+	z-index: 1;
+    position: relative;
+    margin-top: -135%;
+}
+
 
 .dock {
     margin: calc(9vh + 5px) 0 0 calc(10% + 3px);
