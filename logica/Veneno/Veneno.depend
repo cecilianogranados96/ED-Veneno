@@ -1,15 +1,285 @@
 # depslib dependency file v1.0
-1491208459 source:c:\xampp\htdocs\veneno\logica\veneno\main.cpp
+1491686052 source:c:\users\admin\desktop\veneno\main.cpp
 	<iostream>
+	"DCircleList.h"
+	"Jugador.h"
+
+1491678083 source:c:\users\admin\desktop\veneno\src\baraja.cpp
+	"Baraja.h"
+
+1491678068 c:\users\admin\desktop\veneno\include\baraja.h
+	"Naipe.h"
+	<iostream>
+
+1491685730 source:c:\users\admin\desktop\veneno\src\jugador.cpp
+	"Jugador.h"
+
+1491685730 c:\users\admin\desktop\veneno\include\jugador.h
+	"Baraja.h"
+
+1491616263 source:c:\users\admin\desktop\veneno\src\movimiento.cpp
+	"Movimiento.h"
+
+1491616263 c:\users\admin\desktop\veneno\include\movimiento.h
+
+1491616250 source:c:\users\admin\desktop\veneno\src\ronda.cpp
+	"Ronda.h"
+
+1491616250 c:\users\admin\desktop\veneno\include\ronda.h
+
+1491619954 source:c:\users\admin\desktop\veneno\src\naipe.cpp
+	"Naipe.h"
+	<iostream>
+
+1491677941 c:\users\admin\desktop\veneno\include\naipe.h
+	<iostream>
+
+1491678554 source:c:\users\admin\desktop\veneno\src\controladora.cpp
+	"Controladora.h"
+
+1491680950 c:\users\admin\desktop\veneno\include\controladora.h
+
+1491684916 source:c:\users\admin\desktop\veneno\src\dcirclelist.cpp
+	"DCircleList.h"
+
+1491684916 c:\users\admin\desktop\veneno\include\dcirclelist.h
+	"DLinkedListJ.h"
+	"DNodeJ.h"
+	<cstddef>
+
+1491681570 source:c:\users\admin\desktop\veneno\src\dlinkedlist.cpp
+	"DLinkedList.h"
+	"DNode.h"
+	"Baraja.h"
+	"Naipe.h"
+	"Jugador.h"
+	<stdexcept>
+	<cstddef>
+
+1491681559 c:\users\admin\desktop\veneno\include\dlinkedlist.h
+	"DNode.h"
+
+1491681487 c:\users\admin\desktop\veneno\include\dnode.h
+	<iostream>
+
+1491682433 source:c:\users\admin\desktop\veneno\src\arraylist.cpp
+	"ArrayList.h"
+	<iostream>
+	<stdexcept>
+
+1491682419 c:\users\admin\desktop\veneno\include\arraylist.h
+
+1491685867 c:\users\admin\desktop\veneno\include\dlinkedlistj.h
+	"DNodeJ.h"
+	"Jugador.h"
+
+1491684792 c:\users\admin\desktop\veneno\include\dnodej.h
+	<iostream>
+	"Jugador.h"
+
+1491686020 source:c:\users\admin\desktop\veneno\src\dlinkedlistj.cpp
+	"DLinkedListJ.h"
+	"DNodeJ.h"
+	"Jugador.h"
+	<stdexcept>
+	<cstddef>
+
+1491684405 source:c:\users\admin\desktop\veneno\src\dlinkedlistt.cpp
+	"DLinkedListT.h"
+	"DNodeT.h"
+	<stdexcept>
+	<cstddef>
+
+1491684466 c:\users\admin\desktop\veneno\include\dlinkedlistt.h
+	"DNodeT.h"
+
+1491684563 c:\users\admin\desktop\veneno\include\dnodet.h
+	<iostream>
+
+1491684792 source:c:\users\admin\desktop\veneno\src\dnodej.cpp
+	"DNodeJ.h"
+	<stdexcept>
+	<cstddef>
+	"Jugador.h"
+
+1491684602 source:c:\users\admin\desktop\veneno\src\dnodet.cpp
+	"DNodeT.h"
+	<stdexcept>
+	<cstddef>
+
+1491685443 source:c:\users\admin\desktop\veneno\src\linkedlist.cpp
+	"LinkedList.h"
+	"Node.h"
+	<stdexcept>
+	<cstddef>
+
+1491685402 c:\users\admin\desktop\veneno\include\linkedlist.h
+	"Node.h"
+
+1491679161 c:\users\admin\desktop\veneno\include\node.h
+	<iostream>
+
+1491685457 source:c:\users\admin\desktop\veneno\src\node.cpp
+	"Node.h"
+	<stdexcept>
+	<cstddef>
+
+1491707166 source:f:\veneno\main.cpp
+	<iostream>
+	"DCircleList.h"
+	"Jugador.h"
+
+1491706748 f:\veneno\include\dcirclelist.h
+	"DLinkedListJ.h"
+	<cstddef>
+
+1491706924 f:\veneno\include\dlinkedlistj.h
+	<stdexcept>
+	<cstddef>
+	"DNodeJ.h"
+	"Jugador.h"
+
+1491702214 f:\veneno\include\dnodej.h
+	<iostream>
+	<stdexcept>
+	<cstddef>
+	"Jugador.h"
+
+1491685732 f:\veneno\include\jugador.h
+	"Baraja.h"
+
+1491678070 f:\veneno\include\baraja.h
+	"Naipe.h"
+	<iostream>
+
+1491677942 f:\veneno\include\naipe.h
+	<iostream>
+
+1491678084 source:f:\veneno\src\baraja.cpp
+	"Baraja.h"
+
+1491685732 source:f:\veneno\src\jugador.cpp
+	"Jugador.h"
+
+1491616264 source:f:\veneno\src\movimiento.cpp
+	"Movimiento.h"
+
+1491616264 f:\veneno\include\movimiento.h
+
+1491619956 source:f:\veneno\src\naipe.cpp
+	"Naipe.h"
+	<iostream>
+
+1491616252 source:f:\veneno\src\ronda.cpp
+	"Ronda.h"
+
+1491616252 f:\veneno\include\ronda.h
+
+1491694168 source:f:\veneno\src\controladora.cpp
+	"Controladora.h"
+
+1491694168 f:\veneno\include\controladora.h
+
+1491706760 source:f:\veneno\src\dcirclelist.cpp
+	"DCircleList.h"
+
+1491707098 source:f:\veneno\src\dlinkedlistj.cpp
+	"DLinkedListJ.h"
+	<stdexcept>
+	<cstddef>
+
+1491706952 source:f:\veneno\src\dnodej.cpp
+	"DNodeJ.h"
+	<stdexcept>
+	<cstddef>
+	"Jugador.h"
+
+1491756126 source:d:\veneno\main.cpp
+	<iostream>
+	"DCircleList.h"
+	"Jugador.h"
+
+1491711962 d:\veneno\include\dcirclelist.h
+	"DLinkedListJ.h"
+	<cstddef>
+
+1491710830 d:\veneno\include\dlinkedlistj.h
+	<stdexcept>
+	<cstddef>
+	"DNodeJ.h"
+
+1491752614 d:\veneno\include\dnodej.h
+	<iostream>
+	"Jugador.h"
+
+1491685732 d:\veneno\include\jugador.h
+	"Baraja.h"
+
+1491753008 d:\veneno\include\baraja.h
+	"Naipe.h"
+	"ArrayList.h"
+	<iostream>
+
+1491755600 d:\veneno\include\naipe.h
+	<iostream>
+
+1491756066 source:d:\veneno\src\baraja.cpp
+	"Baraja.h"
 	<string>
-	<cstdlib>
 	<sstream>
-	<player.h>
 
-1491213791 c:\xampp\htdocs\veneno\logica\veneno\include\player.h
+1491749732 source:d:\veneno\src\controladora.cpp
+	"Controladora.h"
+
+1491750340 d:\veneno\include\controladora.h
+	"Baraja.h"
+	"DCircleList.h"
+
+1491711982 source:d:\veneno\src\dcirclelist.cpp
+	"DCircleList.h"
+
+1491711034 source:d:\veneno\src\dnodej.cpp
+	"DNodeJ.h"
+	<stdexcept>
+	<cstddef>
+	"Jugador.h"
+
+1491685732 source:d:\veneno\src\jugador.cpp
+	"Jugador.h"
+
+1491616264 source:d:\veneno\src\movimiento.cpp
+	"Movimiento.h"
+
+1491616264 d:\veneno\include\movimiento.h
+
+1491755600 source:d:\veneno\src\naipe.cpp
+	"Naipe.h"
 	<iostream>
 
-1491208566 source:c:\xampp\htdocs\veneno\logica\veneno\src\player.cpp
+1491616252 source:d:\veneno\src\ronda.cpp
+	"Ronda.h"
+
+1491616252 d:\veneno\include\ronda.h
+
+1491711844 source:d:\veneno\src\dlinkedlistj.cpp
+	"DLinkedListJ.h"
+	"Jugador.h"
+	<stdexcept>
+	<cstddef>
+
+1491755510 source:d:\veneno\src\arraylist.cpp
+	"ArrayList.h"
 	<iostream>
-	"player.h"
+	<stdexcept>
+
+1491755434 d:\veneno\include\arraylist.h
+	"Naipe.h"
+
+1491749268 d:\veneno\include\arraylistb.h
+	"Baraja.h"
+
+1491750370 source:d:\veneno\src\arraylistb.cpp
+	"ArrayListB.h"
+	<iostream>
+	<stdexcept>
 
