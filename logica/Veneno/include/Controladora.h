@@ -1,20 +1,35 @@
 #ifndef CONTROLADORA_H
 #define CONTROLADORA_H
 #include "Baraja.h"
-#include "DCircleList.h"
+#include "DLinkedListJ.h"
+
+class DLinkedListJ;
 
 class Controladora
 {
     public:
         Controladora(int numJugadores);
-        virtual ~Controladora();
+        ~Controladora();
+        void setJugadores(DLinkedListJ* jugadores);
+        void setBEnJuego(ArrayList* bEnJuego);
+        void setNumJugadores(int numJugadores);
+        DLinkedListJ* getJugadores();
+        int getNumJugadores();
+        ArrayList* getBOrdenada();
+        ArrayList* getBEnJuego();
+        Baraja* getBarajaOriginal();
+        void crearJugadores(string nombre);
+        void repartirCartas();
 
     protected:
 
     private:
-        static int numJugadores;
-        static DCircleList Jugadores;
-        static Baraja mazoOriginal;
+        int numJugadores;
+        DLinkedListJ* jugadores;
+        ArrayList* bOrdenada;       //baraja con todos los naipes ordenados
+        ArrayList* bEnJuego;        //baraja de cartas en uso
+        Baraja* barajaOriginal;
+        void crearBOriginal();
 };
 
 #endif // CONTROLADORA_H

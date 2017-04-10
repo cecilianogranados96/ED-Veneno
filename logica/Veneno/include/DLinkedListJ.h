@@ -3,6 +3,10 @@
 #include <stdexcept>
 #include <cstddef>
 #include "DNodeJ.h"
+#include "Jugador.h"
+
+class Jugador;
+class DNodeJ;
 
 class DLinkedListJ
 {

@@ -1,6 +1,9 @@
 #include "Baraja.h"
+#include "ArrayListN.h"
 #include <string>
 #include <sstream>
+#include <cstdlib>
+#include <time.h>
 
 using namespace std;
 
@@ -8,8 +11,6 @@ using namespace std;
 Baraja::Baraja(char tipo)
 {
     this->tipo = tipo;
-    bOrdenada = new ArrayList(52);
-    barajarOrdenada();
 }
 
 //Destructor de la clase
@@ -27,11 +28,6 @@ char Baraja::getTipo()
 ArrayList* Baraja::getBaraja()
 {
     return baraja;
-}
-
-ArrayList* Baraja::getBOrdenada()
-{
-    return bOrdenada;
 }
 
 //Setters
@@ -58,128 +54,59 @@ void Baraja::insertNaipe(Naipe* naipe)
 }
 
 //Baraja el mazo con la cantidad de cartas indicadas
-void Baraja::barajar(int cantidad)
+void Baraja::barajar(int cantidad, int numJugadores, Controladora* controladora)
 {
+    int max = cantidad * numJugadores;
+    ArrayListN* posiciones = new ArrayListN(max);
 
-}
+    srand(time(NULL));
 
-//Baraja el mazo ordenado
-void Baraja::barajarOrdenada()
-{
-    for(int i=0; i<4;i++)
+    //Crea posiciones aleatorias y verifica que no existan en el arreglo
+    for (int i=0;i<max;i++)
     {
-        for(int j=0; j<=13;j++)
+        bool check;
+        int n;
+        do
         {
-            if(i==0){
-                if(j==0){
-                    bOrdenada->append(new Naipe('D',"A",1,this));
-                }
-                else{
-                    if(j<=10 && j>0){
-                        //Convierte el de int a string j
-                        string str;
-                        ostringstream temp;
-                        temp<<j;
-                        str=temp.str();
-                        bOrdenada->append(new Naipe('D',str,j,this));
-                    }
-                    else
-                    {
-                        if(j==11)
-                            bOrdenada->append(new Naipe('D',"J",j,this));
-                        else
-                        {
-                            if(j==12)
-                                bOrdenada->append(new Naipe('D',"Q",j,this));
-                            else
-                                bOrdenada->append(new Naipe('D',"K",j,this));
-                        }
-                    }
-                }
+            n = rand()%(controladora->getBEnJuego()->getSize()-1);
+            check = true;
 
-            }
-            if(i==1){
-                if(j==0){
-                    bOrdenada->append(new Naipe('P',"A",1,this));
-                }
-                else{
-                    if(j<=10 && j>0){
-                        //Convierte el de int a string j
-                        string str;
-                        ostringstream temp;
-                        temp<<j;
-                        str=temp.str();
-                        bOrdenada->append(new Naipe('P',str,j,this));
-                        cout<<"here2";
-                    }
-                    else
-                    {
-                        if(j==11)
-                            bOrdenada->append(new Naipe('P',"J",j,this));
-                        else
-                        {
-                            if(j==12)
-                                bOrdenada->append(new Naipe('P',"Q",j,this));
-                            else
-                                bOrdenada->append(new Naipe('P',"K",j,this));
-                        }
-                    }
+            for (int j=0;j<i;j++){
+                posiciones->goToPos(j);
+                if (n == posiciones->getValue())
+                {
+                    check = false;
+                    break;
                 }
             }
-            if(i==2){
-                if(j==0){
-                    bOrdenada->append(new Naipe('P',"A",1,this));
-                }
-                else{
-                    if(j<=10 && j>0){
-                        //Convierte el de int a string j
-                        string str;
-                        ostringstream temp;
-                        temp<<j;
-                        str=temp.str();
-                        bOrdenada->append(new Naipe('T',str,j,this));
-                    }
-                    else
-                    {
-                        if(j==11)
-                            bOrdenada->append(new Naipe('T',"J",j,this));
-                        else
-                        {
-                            if(j==12)
-                                bOrdenada->append(new Naipe('T',"Q",j,this));
-                            else
-                                bOrdenada->append(new Naipe('T',"K",j,this));
-                        }
-                    }
-                }
-            }
-            if(i==3){
-                if(j==0){
-                    bOrdenada->append(new Naipe('P',"A",1,this));
-                }
-                else{
-                    if(j<=10 && j>0){
-                        //Convierte el de int a string j
-                        string str;
-                        ostringstream temp;
-                        temp<<j;
-                        str=temp.str();
-                        bOrdenada->append(new Naipe('C',str,j,this));
-                    }
-                    else
-                    {
-                        if(j==11)
-                            bOrdenada->append(new Naipe('C',"J",j,this));
-                        else
-                        {
-                            if(j==12)
-                                bOrdenada->append(new Naipe('C',"Q",j,this));
-                            else
-                                bOrdenada->append(new Naipe('C',"K",j,this));
-                        }
-                    }
-                }
-            }
-        }
+        } while (!check);
+        posiciones->append(n);
     }
+    posiciones->print();
+
+    int sumCantidad = cantidad;
+    int sumInicio = 0;
+
+    //Asigna al jugador el mazo actual, tomando las posiciones aleatorias en el arrayList
+    for(int i=0;i<numJugadores;i++){
+        Baraja* temp = new Baraja('A');
+        controladora->getJugadores()->goToPos(i);
+        for(int j=sumInicio;j<sumCantidad;j++){
+            posiciones->goToPos(j);
+            controladora->getBEnJuego()->goToPos(posiciones->getValue());
+            temp->getBaraja()->append(controladora->getBEnJuego()->getValue());
+        }
+        sumCantidad = sumCantidad + cantidad;
+        sumInicio = sumInicio + cantidad;
+        controladora->getJugadores()->getCurrValue()->setBActual(temp);
+        //delete temp;
+    }
+
+    for(int i=0;i<max;i++){
+        posiciones->goToPos(i);
+        controladora->getBEnJuego()->goToPos(posiciones->getValue());
+        controladora->getBEnJuego()->remove();
+    }
+
+
 }

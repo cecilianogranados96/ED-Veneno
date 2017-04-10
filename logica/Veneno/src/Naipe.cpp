@@ -4,7 +4,7 @@
 using namespace std;
 
 //Constructor clase Naipe, asigna los valores iniciales de naipe
-Naipe::Naipe(char nomenclatura, string numero, int valor, Baraja* mazo)
+Naipe::Naipe(char nomenclatura, string numero, float valor, Baraja* mazo)
 {
     this->nomenclatura = nomenclatura;
     this->numero = numero;
@@ -29,7 +29,7 @@ string Naipe::getNumero()
     return numero;
 }
 
-int Naipe::getValor()
+float Naipe::getValor()
 {
     return valor;
 }
@@ -50,7 +50,7 @@ void Naipe::setNumero(string numero)
     this->numero = numero;
 }
 
-void Naipe::setValor(int valor)
+void Naipe::setValor(float valor)
 {
     this->valor = valor;
 }

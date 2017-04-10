@@ -283,3 +283,97 @@
 	<iostream>
 	<stdexcept>
 
+1491755510 source:c:\users\admin\documents\github\veneno\ed-veneno\logica\veneno\src\arraylist.cpp
+	"ArrayList.h"
+	<iostream>
+	<stdexcept>
+
+1491755434 c:\users\admin\documents\github\veneno\ed-veneno\logica\veneno\include\arraylist.h
+	"Naipe.h"
+
+1491798228 c:\users\admin\documents\github\veneno\ed-veneno\logica\veneno\include\naipe.h
+	<iostream>
+
+1491803836 source:c:\users\admin\documents\github\veneno\ed-veneno\logica\veneno\src\baraja.cpp
+	"Baraja.h"
+	"ArrayListN.h"
+	<string>
+	<sstream>
+	<cstdlib>
+	<time.h>
+
+1491803736 c:\users\admin\documents\github\veneno\ed-veneno\logica\veneno\include\baraja.h
+	"Naipe.h"
+	"ArrayList.h"
+	"Controladora.h"
+	<iostream>
+
+1491804592 source:c:\users\admin\documents\github\veneno\ed-veneno\logica\veneno\src\controladora.cpp
+	"Controladora.h"
+	<string>
+	<sstream>
+
+1491804613 c:\users\admin\documents\github\veneno\ed-veneno\logica\veneno\include\controladora.h
+	"Baraja.h"
+	"DLinkedListJ.h"
+
+1491803890 c:\users\admin\documents\github\veneno\ed-veneno\logica\veneno\include\dcirclelist.h
+	"DLinkedListJ.h"
+	<cstddef>
+
+1491804098 c:\users\admin\documents\github\veneno\ed-veneno\logica\veneno\include\dlinkedlistj.h
+	<stdexcept>
+	<cstddef>
+	"DNodeJ.h"
+	"Jugador.h"
+
+1491804122 c:\users\admin\documents\github\veneno\ed-veneno\logica\veneno\include\dnodej.h
+	<iostream>
+	"Jugador.h"
+
+1491685732 c:\users\admin\documents\github\veneno\ed-veneno\logica\veneno\include\jugador.h
+	"Baraja.h"
+
+1491711982 source:c:\users\admin\documents\github\veneno\ed-veneno\logica\veneno\src\dcirclelist.cpp
+	"DCircleList.h"
+
+1491711844 source:c:\users\admin\documents\github\veneno\ed-veneno\logica\veneno\src\dlinkedlistj.cpp
+	"DLinkedListJ.h"
+	"Jugador.h"
+	<stdexcept>
+	<cstddef>
+
+1491711034 source:c:\users\admin\documents\github\veneno\ed-veneno\logica\veneno\src\dnodej.cpp
+	"DNodeJ.h"
+	<stdexcept>
+	<cstddef>
+	"Jugador.h"
+
+1491685732 source:c:\users\admin\documents\github\veneno\ed-veneno\logica\veneno\src\jugador.cpp
+	"Jugador.h"
+
+1491616264 source:c:\users\admin\documents\github\veneno\ed-veneno\logica\veneno\src\movimiento.cpp
+	"Movimiento.h"
+
+1491616264 c:\users\admin\documents\github\veneno\ed-veneno\logica\veneno\include\movimiento.h
+
+1491798256 source:c:\users\admin\documents\github\veneno\ed-veneno\logica\veneno\src\naipe.cpp
+	"Naipe.h"
+	<iostream>
+
+1491616252 source:c:\users\admin\documents\github\veneno\ed-veneno\logica\veneno\src\ronda.cpp
+	"Ronda.h"
+
+1491616252 c:\users\admin\documents\github\veneno\ed-veneno\logica\veneno\include\ronda.h
+
+1491804653 source:c:\users\admin\documents\github\veneno\ed-veneno\logica\veneno\main.cpp
+	<iostream>
+	"Controladora.h"
+
+1491800073 source:c:\users\admin\documents\github\veneno\ed-veneno\logica\veneno\src\arraylistn.cpp
+	"ArrayListN.h"
+	<iostream>
+	<stdexcept>
+
+1491799990 c:\users\admin\documents\github\veneno\ed-veneno\logica\veneno\include\arraylistn.h
+

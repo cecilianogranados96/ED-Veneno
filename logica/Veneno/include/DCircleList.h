@@ -4,6 +4,8 @@
 #include <cstddef>
 
 using namespace std;
+
+class DLinkedListJ;
 class DCircleList : public DLinkedListJ
 {
     public:

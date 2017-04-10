@@ -9,22 +9,22 @@ class Baraja;
 class Naipe
 {
     public:
-        Naipe(char nomenclatura, string numero, int valor, Baraja* mazo);
+        Naipe(char nomenclatura, string numero, float valor, Baraja* mazo);
         virtual ~Naipe();
         char getNomenclatura();
         string getNumero();
-        int getValor();
+        float getValor();
         Baraja* getMazo();
         void setNomenclatura(char nomenclatura);
         void setNumero(string numero);
-        void setValor(int valor);
+        void setValor(float valor);
         void setMazo(Baraja* mazo);
         void print();
 
     private:
         char nomenclatura;
         string numero;
-        int valor;
+        float valor;
         Baraja* mazo;
 };
 
