@@ -149,6 +149,8 @@ void DLinkedListJ::print()
     for(int i = 0; i < size; i++){
         goToPos(i);
         cout<<"\nNombre: "<<getCurrValue()->getNombre()<<" ID: "<<getCurrValue()->getId()<<"\n";
+        cout<<"Cartas en mano: ";
+        getCurrValue()->getBActual()->print();
     }
 }
 

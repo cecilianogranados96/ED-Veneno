@@ -11,14 +11,14 @@ class Jugador
         ~Jugador();
         void setNombre(string nombre);
         void setId(int id);
-        void setBVenenos(Baraja* bVenenos);
-        void setBComidas(Baraja* bComidas);
-        void setBActual(Baraja* bActual);
+        void setBVenenos(ArrayList* bVenenos);
+        void setBComidas(ArrayList* bComidas);
+        void setBActual(ArrayList* bActual);
         string getNombre();
         int getId();
-        Baraja* getBVenenos();
-        Baraja* getBComidas();
-        Baraja* getBActual();
+        ArrayList* getBVenenos();
+        ArrayList* getBComidas();
+        ArrayList* getBActual();
         string toString();
 
     protected:
@@ -26,9 +26,9 @@ class Jugador
     private:
         string nombre;
         int id;
-        Baraja* bVenenos;
-        Baraja* bComidas;
-        Baraja* bActual;
+        ArrayList* bVenenos;
+        ArrayList* bComidas;
+        ArrayList* bActual;
 };
 
 #endif // JUGADOR_H

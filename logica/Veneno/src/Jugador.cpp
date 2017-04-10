@@ -5,6 +5,9 @@ Jugador::Jugador(string nombre, int id)
 {
    this->nombre = nombre;
    this->id = id;
+   bVenenos = new ArrayList(52);
+   bActual = new ArrayList(52);
+   bComidas = new ArrayList(52);
 }
 
 //Destructor de la clase
@@ -26,17 +29,17 @@ void Jugador::setId(int id)
     this->id = id;
 }
 
-void Jugador::setBVenenos(Baraja* bVenenos)
+void Jugador::setBVenenos(ArrayList* bVenenos)
 {
     this->bVenenos = bVenenos;
 }
 
-void Jugador::setBComidas(Baraja* bComidas)
+void Jugador::setBComidas(ArrayList* bComidas)
 {
     this->bComidas = bComidas;
 }
 
-void Jugador::setBActual(Baraja* bActual)
+void Jugador::setBActual(ArrayList* bActual)
 {
     this->bActual = bActual;
 }
@@ -52,17 +55,17 @@ int Jugador::getId()
     return id;
 }
 
-Baraja* Jugador::getBVenenos()
+ArrayList* Jugador::getBVenenos()
 {
     return bVenenos;
 }
 
-Baraja* Jugador::getBComidas()
+ArrayList* Jugador::getBComidas()
 {
     return bComidas;
 }
 
-Baraja* Jugador::getBActual()
+ArrayList* Jugador::getBActual()
 {
     return bActual;
 }

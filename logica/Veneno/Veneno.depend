@@ -294,7 +294,7 @@
 1491798228 c:\users\admin\documents\github\veneno\ed-veneno\logica\veneno\include\naipe.h
 	<iostream>
 
-1491803836 source:c:\users\admin\documents\github\veneno\ed-veneno\logica\veneno\src\baraja.cpp
+1491838653 source:c:\users\admin\documents\github\veneno\ed-veneno\logica\veneno\src\baraja.cpp
 	"Baraja.h"
 	"ArrayListN.h"
 	<string>
@@ -302,18 +302,22 @@
 	<cstdlib>
 	<time.h>
 
-1491803736 c:\users\admin\documents\github\veneno\ed-veneno\logica\veneno\include\baraja.h
+1491838874 c:\users\admin\documents\github\veneno\ed-veneno\logica\veneno\include\baraja.h
 	"Naipe.h"
 	"ArrayList.h"
 	"Controladora.h"
 	<iostream>
 
-1491804592 source:c:\users\admin\documents\github\veneno\ed-veneno\logica\veneno\src\controladora.cpp
+1491840725 source:c:\users\admin\documents\github\veneno\ed-veneno\logica\veneno\src\controladora.cpp
 	"Controladora.h"
+	"ArrayListN.h"
+	"ArrayList.h"
 	<string>
 	<sstream>
+	<cstdlib>
+	<time.h>
 
-1491804613 c:\users\admin\documents\github\veneno\ed-veneno\logica\veneno\include\controladora.h
+1491838534 c:\users\admin\documents\github\veneno\ed-veneno\logica\veneno\include\controladora.h
 	"Baraja.h"
 	"DLinkedListJ.h"
 
@@ -331,13 +335,13 @@
 	<iostream>
 	"Jugador.h"
 
-1491685732 c:\users\admin\documents\github\veneno\ed-veneno\logica\veneno\include\jugador.h
+1491839885 c:\users\admin\documents\github\veneno\ed-veneno\logica\veneno\include\jugador.h
 	"Baraja.h"
 
 1491711982 source:c:\users\admin\documents\github\veneno\ed-veneno\logica\veneno\src\dcirclelist.cpp
 	"DCircleList.h"
 
-1491711844 source:c:\users\admin\documents\github\veneno\ed-veneno\logica\veneno\src\dlinkedlistj.cpp
+1491840554 source:c:\users\admin\documents\github\veneno\ed-veneno\logica\veneno\src\dlinkedlistj.cpp
 	"DLinkedListJ.h"
 	"Jugador.h"
 	<stdexcept>
@@ -349,7 +353,7 @@
 	<cstddef>
 	"Jugador.h"
 
-1491685732 source:c:\users\admin\documents\github\veneno\ed-veneno\logica\veneno\src\jugador.cpp
+1491840630 source:c:\users\admin\documents\github\veneno\ed-veneno\logica\veneno\src\jugador.cpp
 	"Jugador.h"
 
 1491616264 source:c:\users\admin\documents\github\veneno\ed-veneno\logica\veneno\src\movimiento.cpp
@@ -366,7 +370,7 @@
 
 1491616252 c:\users\admin\documents\github\veneno\ed-veneno\logica\veneno\include\ronda.h
 
-1491804653 source:c:\users\admin\documents\github\veneno\ed-veneno\logica\veneno\main.cpp
+1491840545 source:c:\users\admin\documents\github\veneno\ed-veneno\logica\veneno\main.cpp
 	<iostream>
 	"Controladora.h"
 

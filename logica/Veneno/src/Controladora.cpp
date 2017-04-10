@@ -1,6 +1,10 @@
 #include "Controladora.h"
+#include "ArrayListN.h"
+#include "ArrayList.h"
 #include <string>
 #include <sstream>
+#include <cstdlib>
+#include <time.h>
 
 //Constructor de la clase
 Controladora::Controladora(int numJugadores)
@@ -70,9 +74,83 @@ Baraja* Controladora::getBarajaOriginal()
 //Reparte las cartas a cada jugador
 void Controladora::repartirCartas()
 {
-
+    switch(numJugadores){
+        case 2:
+           barajar(7);
+          break;
+        case 3:
+          barajar(6);
+          break;
+        case 4:
+           barajar(5);
+          break;
+        case 5:
+          barajar(4);
+          break;
+        case 6:
+          barajar(3);
+          break;
+    }
 }
 
+//Baraja el mazo con la cantidad de cartas indicadas
+void Controladora::barajar(int cantidad)
+{
+    int max = cantidad * numJugadores;
+    ArrayListN* posiciones = new ArrayListN(max);
+
+    srand(time(NULL));
+
+    //Crea posiciones aleatorias y verifica que no existan en el arreglo
+    for (int i=0;i<max;i++)
+    {
+        bool check;
+        int n;
+        do
+        {
+            n = rand()%(bEnJuego->getSize()-1);
+            check = true;
+
+            for (int j=0;j<i;j++){
+                posiciones->goToPos(j);
+                if (n == posiciones->getValue())
+                {
+                    check = false;
+                    break;
+                }
+            }
+        } while (!check);
+        posiciones->append(n);
+    }
+    posiciones->print();
+
+    int sumCantidad = cantidad;
+    int sumInicio = 0;
+
+
+
+    //Asigna al jugador el mazo actual, tomando las posiciones aleatorias en el arrayList
+    for(int i=0;i<numJugadores;i++){
+        ArrayList* temp = new ArrayList(52);
+        jugadores->goToPos(i);
+        for(int j=sumInicio;j<sumCantidad;j++){
+            posiciones->goToPos(j);
+            bEnJuego->goToPos(posiciones->getValue());
+            temp->append(bEnJuego->getValue());
+
+        }
+        sumCantidad = sumCantidad + cantidad;
+        sumInicio = sumInicio + cantidad;
+        jugadores->getCurrValue()->setBActual(temp);
+    }
+
+    for(int i=0;i<max-1;i++){
+        posiciones->goToPos(i);
+        bEnJuego->goToPos(posiciones->getValue());
+        bEnJuego->remove();
+    }
+
+}
 
 //Crea la baraja original ordenada
 void Controladora::crearBOriginal()

@@ -21,7 +21,6 @@ class Baraja
         void setBaraja(ArrayList* baraja);
         bool removeNaipe(int pos);
         void insertNaipe(Naipe* naipe);
-        void barajar(int cantidad, int numJugadores, Controladora* controladora);
 
     protected:
 

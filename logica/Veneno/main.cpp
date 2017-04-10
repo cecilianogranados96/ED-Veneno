@@ -20,8 +20,10 @@ int main(void)
         i++;
     }
     controladora->getJugadores()->print();
-    controladora->getBarajaOriginal()->barajar(7, numJugadores, controladora);
+    controladora->repartirCartas();
+    controladora->getJugadores()->print();
+    cout<<"\nMazo sobrante: ";
+    controladora->getBEnJuego()->print();
+    cout<<controladora->getBEnJuego()->getSize();
 
-    //Baraja* bOriginal = new Baraja('O');
-    //bOriginal->barajar(7, numJugadores);
 }
