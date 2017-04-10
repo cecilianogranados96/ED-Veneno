@@ -35,6 +35,7 @@
 			<Add option="-fexceptions" />
 		</Compiler>
 		<Unit filename="include/ArrayList.h" />
+		<Unit filename="include/ArrayListN.h" />
 		<Unit filename="include/Baraja.h" />
 		<Unit filename="include/Controladora.h" />
 		<Unit filename="include/DCircleList.h" />
@@ -46,6 +47,7 @@
 		<Unit filename="include/Ronda.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/ArrayList.cpp" />
+		<Unit filename="src/ArrayListN.cpp" />
 		<Unit filename="src/Baraja.cpp" />
 		<Unit filename="src/Controladora.cpp" />
 		<Unit filename="src/DCircleList.cpp" />
