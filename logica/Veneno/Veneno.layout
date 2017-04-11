@@ -2,6 +2,7 @@
 <CodeBlocks_layout_file>
 	<FileVersion major="1" minor="0" />
 	<ActiveTarget name="Debug" />
+<<<<<<< HEAD
 	<File name="src\DLinkedListM.cpp" open="0" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="2980" topLine="142" />
@@ -30,13 +31,39 @@
 	<File name="src\DNodeJ.cpp" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="0" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="include\DNodeR.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+=======
+	<File name="include\ArrayListN.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="652" topLine="11" />
+			<Cursor1 position="44" topLine="0" />
 		</Cursor>
 	</File>
+	<File name="include\DLinkedListJ.h" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="347" topLine="10" />
+		</Cursor>
+	</File>
+	<File name="include\DLinkedListR.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="234" topLine="10" />
+		</Cursor>
+	</File>
+	<File name="src\Movimiento.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="220" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src\Naipe.cpp" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1066" topLine="46" />
+>>>>>>> origin/master
+		</Cursor>
+	</File>
+	<File name="include\Controladora.h" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1208" topLine="25" />
+		</Cursor>
+	</File>
+<<<<<<< HEAD
 	<File name="src\Jugador.cpp" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="1314" topLine="61" />
@@ -50,23 +77,45 @@
 	<File name="include\DCircleList.h" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="117" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="include\DLinkedListM.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+=======
+	<File name="include\DCircleList.h" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="145" topLine="16" />
+			<Cursor1 position="117" topLine="0" />
 		</Cursor>
 	</File>
+	<File name="main.cpp" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="199" topLine="3" />
+		</Cursor>
+	</File>
+	<File name="include\DNodeJ.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="667" topLine="11" />
+>>>>>>> origin/master
+		</Cursor>
+	</File>
+	<File name="src\Ronda.cpp" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="95" topLine="0" />
+		</Cursor>
+	</File>
+<<<<<<< HEAD
 	<File name="main.cpp" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="992" topLine="20" />
-		</Cursor>
-	</File>
-	<File name="include\DLinkedListJ.h" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+=======
+	<File name="include\Movimiento.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="347" topLine="10" />
+			<Cursor1 position="82" topLine="15" />
+>>>>>>> origin/master
 		</Cursor>
 	</File>
+	<File name="src\Baraja.cpp" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="753" topLine="0" />
+		</Cursor>
+	</File>
+<<<<<<< HEAD
 	<File name="include\Jugador.h" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="562" topLine="12" />
@@ -90,6 +139,46 @@
 	<File name="src\Ronda.cpp" open="1" top="1" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="8241" topLine="210" />
+=======
+	<File name="src\Controladora.cpp" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="8820" topLine="227" />
+		</Cursor>
+		<Folding>
+			<Collapse line="26" />
+			<Collapse line="42" />
+			<Collapse line="44" />
+			<Collapse line="146" />
+			<Collapse line="183" />
+			<Collapse line="210" />
+			<Collapse line="250" />
+			<Collapse line="264" />
+		</Folding>
+	</File>
+	<File name="include\DNodeR.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="652" topLine="11" />
+		</Cursor>
+	</File>
+	<File name="include\Jugador.h" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="562" topLine="9" />
+		</Cursor>
+	</File>
+	<File name="include\Ronda.h" open="1" top="1" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1146" topLine="34" />
+		</Cursor>
+	</File>
+	<File name="src\DCircleList.cpp" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="613" topLine="15" />
+		</Cursor>
+	</File>
+	<File name="src\DNodeR.cpp" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="444" topLine="1" />
+>>>>>>> origin/master
 		</Cursor>
 		<Folding>
 			<Collapse line="53" />
@@ -97,6 +186,7 @@
 			<Collapse line="194" />
 		</Folding>
 	</File>
+<<<<<<< HEAD
 	<File name="include\DLinkedListR.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="234" topLine="10" />
@@ -110,23 +200,45 @@
 	<File name="src\DNodeR.cpp" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="444" topLine="1" />
-		</Cursor>
-	</File>
-	<File name="src\Movimiento.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+=======
+	<File name="include\Naipe.h" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="220" topLine="0" />
+			<Cursor1 position="616" topLine="0" />
 		</Cursor>
 	</File>
+	<File name="src\ArrayList.cpp" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3130" topLine="189" />
+		</Cursor>
+	</File>
+	<File name="src\DLinkedListJ.cpp" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="0" />
+>>>>>>> origin/master
+		</Cursor>
+	</File>
+	<File name="src\ArrayListN.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="14" />
+		</Cursor>
+	</File>
+<<<<<<< HEAD
 	<File name="src\Controladora.cpp" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="173" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="src\DCircleList.cpp" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+=======
+	<File name="src\DLinkedListM.cpp" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="613" topLine="15" />
+			<Cursor1 position="2980" topLine="142" />
+>>>>>>> origin/master
 		</Cursor>
 	</File>
+	<File name="src\DNodeM.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="464" topLine="1" />
+		</Cursor>
+	</File>
+<<<<<<< HEAD
 	<File name="src\ArrayListN.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="0" topLine="14" />
@@ -138,10 +250,24 @@
 		</Cursor>
 	</File>
 	<File name="src\DLinkedListJ.cpp" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+=======
+	<File name="include\Baraja.h" open="0" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="514" topLine="11" />
+		</Cursor>
+	</File>
+	<File name="src\DLinkedListR.cpp" open="1" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2148" topLine="132" />
+		</Cursor>
+	</File>
+	<File name="src\DNodeJ.cpp" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+>>>>>>> origin/master
 		<Cursor>
 			<Cursor1 position="0" topLine="0" />
 		</Cursor>
 	</File>
+<<<<<<< HEAD
 	<File name="src\Naipe.cpp" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="1066" topLine="46" />
@@ -155,6 +281,21 @@
 	<File name="src\ArrayList.cpp" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="3130" topLine="0" />
+=======
+	<File name="include\DLinkedListM.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="145" topLine="16" />
+		</Cursor>
+	</File>
+	<File name="src\Jugador.cpp" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1314" topLine="61" />
+		</Cursor>
+	</File>
+	<File name="include\ArrayList.h" open="0" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="366" topLine="0" />
+>>>>>>> origin/master
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>
