@@ -1,4 +1,4 @@
-<html lang="es" class="no-js">
+<html lang="es">
 	<head>
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,9 +12,9 @@
 		<link href="https://fonts.googleapis.com/css?family=Bungee+Inline|Roboto+Mono" rel="stylesheet">
 		<style>
 			.numeros{ 
-			width: 100px;
-			margin-left:8%;
-			margin-top:5%;
+				width: 100px;
+				margin-left:8%;
+				margin-top:5%;
 			}
 		</style>
 		<!--[if IE]>
@@ -25,22 +25,20 @@
 		<main>
 			<header class="codrops-header">
 				<div class="codrops-links">
-					<a class="codrops-icon codrops-icon--prev" href="index.php">Atras</a>
+					<a class="codrops-icon codrops-icon--prev" href="index.php">Atrás</a>
 					<a class="codrops-icon codrops-icon--drop" href="ayuda.php">Ayuda</a>
 				</div>
 				<h1 class="codrops-header__title">Configuración</h1>
 				<p class="codrops-header__tagline">Configuraremos algunas cosas antes de inciar el juego. </p>
 			</header>
-			
 			<?php if(!isset($_GET['jugadores'])){ ?>
 				<p class="codrops-header__tagline" style="margin-left:22%;">Selecciona la cantidad de jugadores. </p>
 				<center>
-					<a href="configuracion.php?jugadores=2"><img class="numeros" src="img/2.png"></a>
-					<a href="configuracion.php?jugadores=3"><img class="numeros" src="img/3.png"></a>
-					<a href="configuracion.php?jugadores=4"><img class="numeros" src="img/4.png"></a>
-					<a href="configuracion.php?jugadores=5"><img class="numeros" src="img/5.png"></a>
-					<a href="configuracion.php?jugadores=6"><img class="numeros" src="img/6.png"></a>
-					<a href="configuracion.php?jugadores=7"><img class="numeros" src="img/7.png"></a>
+					<a href="configuracion.php?jugadores=2"><img class="numeros" src="img/jugadores/2.png"></a>
+					<a href="configuracion.php?jugadores=3"><img class="numeros" src="img/jugadores/3.png"></a>
+					<a href="configuracion.php?jugadores=4"><img class="numeros" src="img/jugadores/4.png"></a>
+					<a href="configuracion.php?jugadores=5"><img class="numeros" src="img/jugadores/5.png"></a>
+					<a href="configuracion.php?jugadores=6"><img class="numeros" src="img/jugadores/6.png"></a>
 				</center>
 				<?php }else{ ?>
 				<form action="juego.php?jugadores=<?php echo $_GET['jugadores']; ?>" method="GET">
@@ -92,16 +90,11 @@
 						ctrl.removeAttribute('enable');
 					});
 				}
-				
 				function disableButtons() {
 					ctrls.forEach(function(ctrl) {
 						ctrl.setAttribute('enable', true);
 					});
-				}
-				
-				
-				
-				
+				}				
 			})();
 		</script>
 	</body>

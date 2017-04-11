@@ -35,17 +35,6 @@
 		<link rel="stylesheet" type="text/css" href="css/cartas.css" />
 		<script src="https://raw.githubusercontent.com/furf/jquery-ui-touch-punch/master/jquery.ui.touch-punch.min.js"></script>
 		<script src="js/juego.js"></script>
-		
-		<script>	
-		$(document).ready(function () {
-
-
-				
-				
-			
-		});
-		
-		</script>
 	</head>
 	<body class="demo-2" style="overflow-x: hidden; overflow-y: hidden;" >
 		<main>
