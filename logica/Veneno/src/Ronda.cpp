@@ -1,6 +1,6 @@
 #include "Ronda.h"
 
-Ronda::Ronda()
+/*Ronda::Ronda()
 {
     //ctor
 }
@@ -8,4 +8,4 @@ Ronda::Ronda()
 Ronda::~Ronda()
 {
     //dtor
-}
+}*/

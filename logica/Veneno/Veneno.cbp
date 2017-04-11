@@ -40,7 +40,11 @@
 		<Unit filename="include/Controladora.h" />
 		<Unit filename="include/DCircleList.h" />
 		<Unit filename="include/DLinkedListJ.h" />
+		<Unit filename="include/DLinkedListM.h" />
+		<Unit filename="include/DLinkedListR.h" />
 		<Unit filename="include/DNodeJ.h" />
+		<Unit filename="include/DNodeM.h" />
+		<Unit filename="include/DNodeR.h" />
 		<Unit filename="include/Jugador.h" />
 		<Unit filename="include/Movimiento.h" />
 		<Unit filename="include/Naipe.h" />
@@ -52,7 +56,11 @@
 		<Unit filename="src/Controladora.cpp" />
 		<Unit filename="src/DCircleList.cpp" />
 		<Unit filename="src/DLinkedListJ.cpp" />
+		<Unit filename="src/DLinkedListM.cpp" />
+		<Unit filename="src/DLinkedListR.cpp" />
 		<Unit filename="src/DNodeJ.cpp" />
+		<Unit filename="src/DNodeM.cpp" />
+		<Unit filename="src/DNodeR.cpp" />
 		<Unit filename="src/Jugador.cpp" />
 		<Unit filename="src/Movimiento.cpp" />
 		<Unit filename="src/Naipe.cpp" />

@@ -1,6 +1,9 @@
 #ifndef RONDA_H
 #define RONDA_H
 
+class DLinkedListJ;
+class DLinkedListM;
+class Jugador;
 
 class Ronda
 {
@@ -9,19 +12,21 @@ class Ronda
         virtual ~Ronda();
         void setPosMovimiento(int posMovimiento);
         void setMovimientos(DLinkedListM* movimientos);
-        void setJugadoresRonda(DLinkedListJ* jugadoresRonda);
+        void setJugadores(DLinkedListJ* jugadores);
         int getPosMovimiento();
         DLinkedListM* getMovimientos();
         DLinkedListJ* getJugadores();
         void redoMovimiento();
         void undoMovimiento();
+        int totalNaipes();
 
     protected:
 
     private:
         int posMovimiento;
         DLinkedListM* movimientos;
-        DLinkedListJ* jugadoresRonda;
+        DLinkedListJ* jugadores;
+        bool state;
 };
 
 #endif // RONDA_H

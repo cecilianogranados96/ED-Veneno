@@ -19,20 +19,45 @@ Controladora::Controladora(int numJugadores)
     bCaldero1 = new Baraja('V', 15);
     bCaldero2 = new Baraja('V', 15);
     bCaldero3 = new Baraja('V', 15);
+    rondas = new DLinkedListR();
     crearBOriginal();
     bEnJuego = bOrdenada;
+    numJugadoresActual = numJugadores;
+
 }
 
 //Destructor de la clase
 Controladora::~Controladora()
 {
-
+    delete jugadores;
+    delete jugadoresActual;
+    delete bOrdenada;
+    delete barajaOriginal;
+    delete bCaldero1;
+    delete bCaldero2;
+    delete bCaldero3;
 }
 
 //Crea cada jugador y lo añade en la lista de jugadores
 void Controladora::crearJugadores(string nombre)
 {
     jugadores->append(new Jugador(nombre, jugadores->getSize()));
+}
+
+//Borra el jugador de la lista de jugadores actuales
+void Controladora::borrarJugadores(Jugador* jugador)
+{
+    for(int i = 0; i<jugadoresActual->getSize(); i++){
+        jugadoresActual->goToPos(i);
+        if(jugador->getId() == jugadoresActual->getCurrValue()->getId()){
+            if(i == 0)
+                jugadoresActual->goToStart();
+            else
+                jugadoresActual->goToPos(i-1);
+            jugadoresActual->remove();
+        }
+    }
+    numJugadoresActual--;
 }
 
 //Setters
@@ -46,20 +71,44 @@ void Controladora::setJugadores(DLinkedListJ* jugadores)
     this->jugadores = jugadores;
 }
 
+void Controladora::setJugadoresActual(DLinkedListJ* jugadoresActual)
+{
+    this->jugadoresActual = jugadoresActual;
+}
+
 void Controladora::setNumJugadores(int numJugadores)
 {
     this->numJugadores = numJugadores;
 }
 
+void Controladora::setNumJugadoresActual(int numJugadoresActual)
+{
+    this->numJugadoresActual = numJugadoresActual;
+}
+
+void Controladora::setRondas(DLinkedListR* rondas)
+{
+    this->rondas = rondas;
+}
 //Getters
 DLinkedListJ* Controladora::getJugadores()
 {
     return jugadores;
 }
 
+DLinkedListJ* Controladora::getJugadoresActual()
+{
+    return jugadoresActual;
+}
+
 int Controladora::getNumJugadores()
 {
     return numJugadores;
+}
+
+int Controladora::getNumJugadoresActual()
+{
+    return numJugadoresActual;
 }
 
 ArrayList* Controladora::getBEnJuego()
@@ -92,6 +141,10 @@ Baraja* Controladora::getCaldero3()
     return bCaldero3;
 }
 
+DLinkedListR* Controladora::getRondas()
+{
+    return rondas;
+}
 //Añade naipes al caldero
 bool Controladora::addCaldero1(Naipe* naipe, Jugador* jugador)
 {
@@ -215,29 +268,29 @@ bool Controladora::validarTotal(Baraja* bCaldero, Jugador* jugador)
 //Reparte las cartas a cada jugador
 void Controladora::repartirCartas()
 {
-    switch(numJugadores){
+    switch(numJugadoresActual){
         case 2:
-           barajar(7);
-          break;
+            barajar(7);
+            break;
         case 3:
-          barajar(6);
-          break;
+              barajar(6);
+              break;
         case 4:
-           barajar(5);
-          break;
+            barajar(5);
+              break;
         case 5:
-          barajar(4);
-          break;
+              barajar(4);
+              break;
         case 6:
-          barajar(3);
-          break;
+              barajar(3);
+              break;
     }
 }
 
 //Baraja el mazo con la cantidad de cartas indicadas
 void Controladora::barajar(int cantidad)
 {
-    int max = cantidad * numJugadores;
+    int max = cantidad * numJugadoresActual;
     ArrayListN* posiciones = new ArrayListN(max);
 
     srand(time(NULL));
@@ -270,9 +323,9 @@ void Controladora::barajar(int cantidad)
 
 
     //Asigna al jugador el mazo actual, tomando las posiciones aleatorias en el arrayList
-    for(int i=0;i<numJugadores;i++){
+    for(int i=0;i<numJugadoresActual;i++){
         ArrayList* temp = new ArrayList(52);
-        jugadores->goToPos(i);
+        jugadoresActual->goToPos(i);
         for(int j=sumInicio;j<sumCantidad;j++){
             posiciones->goToPos(j);
             bEnJuego->goToPos(posiciones->getValue());
@@ -281,15 +334,29 @@ void Controladora::barajar(int cantidad)
         }
         sumCantidad = sumCantidad + cantidad;
         sumInicio = sumInicio + cantidad;
-        jugadores->getCurrValue()->setBActual(temp);
+        jugadoresActual->getCurrValue()->setBActual(temp);
     }
 
     //Elimmina los naipes repartidos del mazo en juego
-    for(int i=0;i<numJugadores;i++){
-        jugadores->goToPos(i);
+    for(int i=0;i<numJugadoresActual;i++){
+        jugadoresActual->goToPos(i);
         for(int j=0;j<cantidad;j++){
-            jugadores->getCurrValue()->getBActual()->goToPos(j);
-            bEnJuego->removeElement(jugadores->getCurrValue()->getBActual()->getValue());
+            jugadoresActual->getCurrValue()->getBActual()->goToPos(j);
+            bEnJuego->removeElement(jugadoresActual->getCurrValue()->getBActual()->getValue());
+        }
+    }
+}
+
+//Asigna los nuevos valores de los jugadores actuales, en la lista de jugadores
+void Controladora::unirJugadores()
+{
+    for(int i = 0; i<jugadoresActual->getSize(); i++){
+        jugadoresActual->goToPos(i);
+        for(int j = 0; j<jugadores->getSize(); j++){
+            jugadores->goToPos(j);
+            if(jugadores->getCurrValue()->getId() == jugadoresActual->getCurrValue()->getId())
+                jugadores->getCurr()->setValue(jugadoresActual->getCurrValue());
+
         }
     }
 }

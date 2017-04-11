@@ -2,6 +2,7 @@
 #define MOVIMIENTO_H
 #include "Jugador.h"
 
+class Jugador;
 
 class Movimiento
 {

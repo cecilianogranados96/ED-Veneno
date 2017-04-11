@@ -19,29 +19,15 @@ int main(void)
         controladora->crearJugadores(nombre);
         i++;
     }
+
+    controladora->setJugadoresActual(controladora->getJugadores());
     controladora->repartirCartas();
-    controladora->getJugadores()->print();
 
-    controladora->getJugadores()->goToPos(0);
-
-    cout<<"\nCarta a pasar: ";
-    controladora->getJugadores()->getCurrValue()->getBActual()->getValue()->print();
-    controladora->addCaldero1(controladora->getJugadores()->getCurrValue()->getBActual()->getValue(),controladora->getJugadores()->getCurrValue());
-    cout<<"\nCaldero 1 ";
-    controladora->getCaldero1()->getBaraja()->print();
-    controladora->getJugadores()->getCurrValue()->getBActual()->previous();
-
-    cout<<"\nCarta a pasar: ";
-    controladora->getJugadores()->getCurrValue()->getBActual()->getValue()->print();
-    controladora->addCaldero1(controladora->getJugadores()->getCurrValue()->getBActual()->getValue(),controladora->getJugadores()->getCurrValue());
-    cout<<"\nCaldero 1 ";
-    controladora->getCaldero1()->getBaraja()->print();
-    controladora->getJugadores()->getCurrValue()->getBActual()->previous();
-
-    cout<<"\nCarta a pasar: ";
-    controladora->getJugadores()->getCurrValue()->getBActual()->getValue()->print();
-    controladora->addCaldero1(controladora->getJugadores()->getCurrValue()->getBActual()->getValue(),controladora->getJugadores()->getCurrValue());
-    cout<<"\nCaldero 1 ";
-    controladora->getCaldero1()->getBaraja()->print();
-    controladora->getJugadores()->getCurrValue()->print();
+   while(controladora->getNumJugadoresActual()>1)
+   {
+       //crea una nueva ronda
+       controladora->getRondas()->goToPos(controladora->getRondas()->getSize()-1);
+       controladora->getRondas()->goToEnd();
+       //while()
+   }
 }
