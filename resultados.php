@@ -26,28 +26,26 @@
 		   </th>
 		</tr>
 		<tr>
-		   <td>
-			  <h4  class="codrops-header__title" style="font-size: 2vw;">
-			  JUGADOR 1
+			<td>
+			  <h4  class="codrops-header__title" style="font-size: 2vw;"><center>
+			  JUGADORES
 		   </td>
-		   <td>
-			  Ronda 1 <br>
-			  Total veneno por ronda
+		   <td><h4  class="codrops-header__title" style="font-size: 2vw;"><center>
+			  Ronda 1 
 		   </td>
-		   <td>
+		   <td><h4  class="codrops-header__title" style="font-size: 2vw;"><center>
 			  Ronda 2
-			  <br>
-			  Total veneno por ronda
 		   </td>
-		   <td>
-			  Total 
+		   <td><h4  class="codrops-header__title" style="font-size: 2vw;"> <center>
+			  Totales 
 		   </td>
 		</tr>
+		
 		<!------------->
-				<tr>
+		<tr>
 		   <td>
 			  <h4  class="codrops-header__title" style="font-size: 2vw;">
-			  JUGADOR 2
+			  JUAN
 		   </td>
 		   <td>
 			  Ronda 1 <br>
@@ -62,6 +60,26 @@
 			  Total 
 		   </td>
 		</tr>
+		
+		
+		   <td>
+			  <h4  class="codrops-header__title" style="font-size: 2vw;">
+			  ANA
+		   </td>
+		   <td>
+			  Ronda 1 <br>
+			  Total veneno por ronda
+		   </td>
+		   <td>
+			  Ronda 2
+			  <br>
+			  Total veneno por ronda
+		   </td>
+		   <td>
+			  Total 
+		   </td>
+		</tr>
+
 </table>
 	<h1 class="codrops-header__title" style="font-size: 2vw;" onclick="location.href='index.php'"><center>Nuevo Juego</center></a></h1>
 	</main>

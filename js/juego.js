@@ -1,5 +1,5 @@
 $(document).ready(function () {				
-		$.post( "logica/calderos.php", function( data ) {
+		$.post( "Logica/controller.php", {p1: "a", p2: "B" },function( data ) {
 			$("#caldero2").append(data);
 			$("#caldero1").order1();
 			$("#caldero2").order2();

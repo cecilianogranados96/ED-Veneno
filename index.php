@@ -1,41 +1,25 @@
-<!DOCTYPE html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link href='https://fonts.googleapis.com/css?family=Freckle+Face' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" type="text/css" href="animacion/css/normalize.css" />
-		<link rel="stylesheet" type="text/css" href="animacion/css/demo.css" />
-		<link rel="stylesheet" type="text/css" href="animacion/css/husky.css" />
+		<link rel="stylesheet" type="text/css" href="css/animacion/css/normalize.css" />
+		<link rel="stylesheet" type="text/css" href="css/animacion/css/demo.css" />
+		<link rel="stylesheet" type="text/css" href="css/animacion/css/husky.css" />
 				<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
 		<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
 		<!--[if IE]>
 			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
-		<script>
-fullscreen = function(e){
-      if (e.webkitRequestFullScreen) {
-        e.webkitRequestFullScreen();
-      } else if(e.mozRequestFullScreen) {
-        e.mozRequestFullScreen();
-      }
-}
-document.getElementById('fill').onclick = function(){
-    fullscreen(document.getElementById('content'));
-}
-
-
-		</script>
 	</head>
 	<body class="demo-husky" id="content">
 		<div class="snow"></div>
 		<div class="container">
 			<header class="codrops-header">
-				<div class="codrops-links">
-					
-					<a href="ayuda.php"><span>Ayuda</span></a>  <a onclick=" fullscreen(document.getElementById('content'))"><span>Full Screen</span></a> 
-				</div>
+	
+					<a href="ayuda.php"><span>Ayuda</span></a>
+				
 				<h1><a href="configuracion.php">Veneno Game</a></h1>
 				<br>
 				<h1><a href="configuracion.php">Iniciar</a></h1>
