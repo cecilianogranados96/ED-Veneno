@@ -16,12 +16,8 @@ Controladora::Controladora(int numJugadores)
     barajaOriginal = new Baraja('O', 52);
     jugadores = new DLinkedListJ();
     bOrdenada = new ArrayList(52);
-    bCaldero1 = new Baraja('V', 15);
-    bCaldero2 = new Baraja('V', 15);
-    bCaldero3 = new Baraja('V', 15);
     rondas = new DLinkedListR();
     crearBOriginal();
-    bEnJuego = bOrdenada;
     numJugadoresActual = numJugadores;
 
 }
@@ -33,9 +29,6 @@ Controladora::~Controladora()
     delete jugadoresActual;
     delete bOrdenada;
     delete barajaOriginal;
-    delete bCaldero1;
-    delete bCaldero2;
-    delete bCaldero3;
 }
 
 //Crea cada jugador y lo añade en la lista de jugadores
@@ -60,12 +53,33 @@ void Controladora::borrarJugadores(Jugador* jugador)
     numJugadoresActual--;
 }
 
-//Setters
-void Controladora::setBEnJuego(ArrayList* bEnJuego)
+//Borra el jugador de la lista de jugadores actuales
+void Controladora::borrarJugadores()
 {
-    this->bEnJuego = bEnJuego;
+    jugadoresActual->goToStart();
+    jugadoresActual->next();
+    Jugador* temp = jugadoresActual->getCurrValue();
+    int cant = 0;
+
+    //busca el jugador con menos cartas veneno
+    for(int i = 0; i<jugadoresActual->getSize(); i++){
+        jugadoresActual->goToPos(i);
+        if(jugadoresActual->getCurrValue()->getBVenenos()->getSize()<temp->getBVenenos()->getSize()){
+            temp = jugadoresActual->getCurrValue();
+        }
+    }
+
+    //borra los jugadores con la menor cantidad de venenos
+    for(int i = 0; i<jugadoresActual->getSize(); i++){
+        jugadoresActual->goToPos(i);
+        if(jugadoresActual->getCurrValue()->getBVenenos()->getSize() == temp->getBVenenos()->getSize()){
+            borrarJugadores(jugadoresActual->getCurrValue());
+        }
+    }
+
 }
 
+//Setters
 void Controladora::setJugadores(DLinkedListJ* jugadores)
 {
     this->jugadores = jugadores;
@@ -111,11 +125,6 @@ int Controladora::getNumJugadoresActual()
     return numJugadoresActual;
 }
 
-ArrayList* Controladora::getBEnJuego()
-{
-    return bEnJuego;
-}
-
 ArrayList* Controladora::getBOrdenada()
 {
     return bOrdenada;
@@ -126,227 +135,23 @@ Baraja* Controladora::getBarajaOriginal()
     return barajaOriginal;
 }
 
-Baraja* Controladora::getCaldero1()
-{
-    return bCaldero1;
-}
-
-Baraja* Controladora::getCaldero2()
-{
-    return bCaldero2;
-}
-
-Baraja* Controladora::getCaldero3()
-{
-    return bCaldero3;
-}
-
 DLinkedListR* Controladora::getRondas()
 {
     return rondas;
 }
-//Añade naipes al caldero
-bool Controladora::addCaldero1(Naipe* naipe, Jugador* jugador)
-{
-    if(naipe->getNomenclatura() != 'C'){
-        if(bCaldero1->getTipo() == 'V'){
-            if(bCaldero2->getTipo() != naipe->getNomenclatura() && bCaldero3->getTipo() != naipe->getNomenclatura()){
-                bCaldero1->getBaraja()->append(naipe);
-                bCaldero1->setTipo(naipe->getNomenclatura());
-                jugador->getBActual()->removeElement(naipe);
-                validarTotal(bCaldero1, jugador);
-                return true;
-            }
-        }
-        else{
-            if(bCaldero1->getTipo() == naipe->getNomenclatura()){
-                bCaldero1->getBaraja()->append(naipe);
-                bCaldero1->setTipo(naipe->getNomenclatura());
-                jugador->getBActual()->removeElement(naipe);
-                validarTotal(bCaldero1, jugador);
-                return true;
-            }
-        }
-        return false;
-    }
-    else{
-        if(bCaldero1->getTipo() != 'V'){
-            bCaldero1->getBaraja()->append(naipe);
-            jugador->getBActual()->removeElement(naipe);
-            validarTotal(bCaldero1, jugador);
-            return true;
-        }
-    }
-}
 
-//Añade naipes al caldero
-bool Controladora::addCaldero2(Naipe* naipe, Jugador* jugador)
+//Crea ujna nueva ronda
+void Controladora::crearRondas()
 {
-    if(naipe->getNomenclatura() != 'C'){
-        if(bCaldero2->getTipo() == 'V'){
-            if(bCaldero1->getTipo() != naipe->getNomenclatura() && bCaldero3->getTipo() != naipe->getNomenclatura()){
-                bCaldero2->getBaraja()->append(naipe);
-                bCaldero2->setTipo(naipe->getNomenclatura());
-                jugador->getBActual()->removeElement(naipe);
-                validarTotal(bCaldero2, jugador);
-                return true;
-            }
-        }
-        else{
-            if(bCaldero2->getTipo() == naipe->getNomenclatura()){
-                bCaldero2->getBaraja()->append(naipe);
-                bCaldero2->setTipo(naipe->getNomenclatura());
-                jugador->getBActual()->removeElement(naipe);
-                validarTotal(bCaldero2, jugador);
-                return true;
-            }
-        }
-        return false;
-    }
-    else{
-        if(bCaldero2->getTipo() != 'V'){
-            bCaldero2->getBaraja()->append(naipe);
-            jugador->getBActual()->removeElement(naipe);
-            validarTotal(bCaldero2, jugador);
-            return true;
-        }
-    }
-}
-
-//Añade naipes al caldero
-bool Controladora::addCaldero3(Naipe* naipe, Jugador* jugador)
-{
-    if(naipe->getNomenclatura() != 'C'){
-        if(bCaldero3->getTipo() == 'V'){
-            if(bCaldero2->getTipo() != naipe->getNomenclatura() && bCaldero1->getTipo() != naipe->getNomenclatura()){
-                bCaldero3->getBaraja()->append(naipe);
-                bCaldero3->setTipo(naipe->getNomenclatura());
-                jugador->getBActual()->removeElement(naipe);
-                validarTotal(bCaldero3, jugador);
-                return true;
-            }
-        }
-        else{
-            if(bCaldero3->getTipo() == naipe->getNomenclatura()){
-                bCaldero3->getBaraja()->append(naipe);
-                bCaldero3->setTipo(naipe->getNomenclatura());
-                jugador->getBActual()->removeElement(naipe);
-                validarTotal(bCaldero3, jugador);
-                return true;
-            }
-        }
-        return false;
-    }
-    else{
-        if(bCaldero3->getTipo() != 'V'){
-            bCaldero3->getBaraja()->append(naipe);
-            jugador->getBActual()->removeElement(naipe);
-            validarTotal(bCaldero3, jugador);
-            return true;
-        }
-    }
-}
-
-//Verifica si el valor total del caldero es menor que 13, si es así retorna true, sino el jugador se come las cartas
-bool Controladora::validarTotal(Baraja* bCaldero, Jugador* jugador)
-{
-    cout<<"BARAJA TOTAL: "<<bCaldero->totalBaraja();
-    if(bCaldero->totalBaraja() >= 13)
+    if(rondas->getSize() > 0)
     {
-        for(int i=0; i<bCaldero->getBaraja()->getSize(); i++){
-            bCaldero->getBaraja()->goToPos(i);
-            jugador->getBComidas()->append(bCaldero->getBaraja()->getValue());
-            if(bCaldero->getBaraja()->getValue()->getNomenclatura() == 'C')
-                jugador->getBVenenos()->append(bCaldero->getBaraja()->getValue());
-        }
-        bCaldero1 = new Baraja('V', 15);
-        return false;
+        borrarJugadores();
+        rondas->append(new Ronda(jugadoresActual, bOrdenada));
     }
-    return true;
-}
-
-//Reparte las cartas a cada jugador
-void Controladora::repartirCartas()
-{
-    switch(numJugadoresActual){
-        case 2:
-            barajar(7);
-            break;
-        case 3:
-              barajar(6);
-              break;
-        case 4:
-            barajar(5);
-              break;
-        case 5:
-              barajar(4);
-              break;
-        case 6:
-              barajar(3);
-              break;
+    else{
+        rondas->append(new Ronda(jugadoresActual, bOrdenada));
     }
 }
-
-//Baraja el mazo con la cantidad de cartas indicadas
-void Controladora::barajar(int cantidad)
-{
-    int max = cantidad * numJugadoresActual;
-    ArrayListN* posiciones = new ArrayListN(max);
-
-    srand(time(NULL));
-
-    //Crea posiciones aleatorias y verifica que no existan en el arreglo
-    for (int i=0;i<max;i++)
-    {
-        bool check;
-        int n;
-        do
-        {
-            n = rand()%(bEnJuego->getSize()-1);
-            check = true;
-
-            for (int j=0;j<i;j++){
-                posiciones->goToPos(j);
-                if (n == posiciones->getValue())
-                {
-                    check = false;
-                    break;
-                }
-            }
-        } while (!check);
-        posiciones->append(n);
-    }
-    posiciones->print();
-
-    int sumCantidad = cantidad;
-    int sumInicio = 0;
-
-
-    //Asigna al jugador el mazo actual, tomando las posiciones aleatorias en el arrayList
-    for(int i=0;i<numJugadoresActual;i++){
-        ArrayList* temp = new ArrayList(52);
-        jugadoresActual->goToPos(i);
-        for(int j=sumInicio;j<sumCantidad;j++){
-            posiciones->goToPos(j);
-            bEnJuego->goToPos(posiciones->getValue());
-            temp->append(bEnJuego->getValue());
-
-        }
-        sumCantidad = sumCantidad + cantidad;
-        sumInicio = sumInicio + cantidad;
-        jugadoresActual->getCurrValue()->setBActual(temp);
-    }
-
-    //Elimmina los naipes repartidos del mazo en juego
-    for(int i=0;i<numJugadoresActual;i++){
-        jugadoresActual->goToPos(i);
-        for(int j=0;j<cantidad;j++){
-            jugadoresActual->getCurrValue()->getBActual()->goToPos(j);
-            bEnJuego->removeElement(jugadoresActual->getCurrValue()->getBActual()->getValue());
-        }
-    }
-}
-
 //Asigna los nuevos valores de los jugadores actuales, en la lista de jugadores
 void Controladora::unirJugadores()
 {

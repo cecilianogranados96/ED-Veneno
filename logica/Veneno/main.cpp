@@ -20,14 +20,53 @@ int main(void)
         i++;
     }
 
-    controladora->setJugadoresActual(controladora->getJugadores());
-    controladora->repartirCartas();
 
+    controladora->setJugadoresActual(controladora->getJugadores());
    while(controladora->getNumJugadoresActual()>1)
    {
-       //crea una nueva ronda
-       controladora->getRondas()->goToPos(controladora->getRondas()->getSize()-1);
+       controladora->crearRondas();
        controladora->getRondas()->goToEnd();
-       //while()
+       while(controladora->getRondas()->getCurrValue()->getState() == true){
+            if(controladora->getRondas()->getCurrValue()->totalNaipes() == 0){
+                if(controladora->getRondas()->getCurrValue()->getBEnJuego()->getSize() >= (controladora->getRondas()->getCurrValue()->getCantidad() * controladora->getRondas()->getCurrValue()->getJugadores()->getSize())){
+                    controladora->getRondas()->getCurrValue()->barajar();
+                }
+                else{
+                    controladora->getRondas()->getCurrValue()->setState(false);
+                    break;
+                }
+            }
+            for(int  i=0; i<controladora->getRondas()->getCurrValue()->getJugadores()->getSize(); i++){
+                controladora->getRondas()->getCurrValue()->getJugadores()->goToPos(i);
+                if(controladora->getRondas()->getCurrValue()->getJugadores()->getCurrValue()->getBActual()->getSize() == 0){
+                    cout<<"\nPasa turno\n";
+                }
+                else{
+                    controladora->getRondas()->getCurrValue()->getJugadores()->getCurrValue()->print();
+                    int p, q;
+                    cout<<"\nElija la posicion de su carta: ";
+                    cin>>p; //tiene que estar entre cero y la cantidad de cartas en mano
+                    cout<<"\nElija el caldero para ponerla: ";
+                    cin>>q;
+
+                    controladora->getRondas()->getCurrValue()->getJugadores()->getCurrValue()->getBActual()->goToPos(p);
+                    switch(q){
+                        case 1:
+                            controladora->getRondas()->getCurrValue()->addCaldero1(controladora->getRondas()->getCurrValue()->getJugadores()->getCurrValue()->getBActual()->getValue(),controladora->getRondas()->getCurrValue()->getJugadores()->getCurrValue());
+                            controladora->getRondas()->getCurrValue()->getCaldero1()->getBaraja()->print();
+                            break;
+                        case 2:
+                            controladora->getRondas()->getCurrValue()->addCaldero2(controladora->getRondas()->getCurrValue()->getJugadores()->getCurrValue()->getBActual()->getValue(),controladora->getRondas()->getCurrValue()->getJugadores()->getCurrValue());
+                            controladora->getRondas()->getCurrValue()->getCaldero2()->getBaraja()->print();
+                            break;
+                        case 3:
+                            controladora->getRondas()->getCurrValue()->addCaldero3(controladora->getRondas()->getCurrValue()->getJugadores()->getCurrValue()->getBActual()->getValue(),controladora->getRondas()->getCurrValue()->getJugadores()->getCurrValue());
+                            controladora->getRondas()->getCurrValue()->getCaldero3()->getBaraja()->print();
+                            break;
+                    }
+                    controladora->getRondas()->getCurrValue()->getJugadores()->getCurrValue()->getBActual()->goToPos(p);
+                }
+            }
+       }
    }
 }

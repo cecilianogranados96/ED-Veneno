@@ -25,7 +25,7 @@ class ArrayList{
 		void clear();
 
 	protected:
-		Naipe* elements[52];
+		Naipe* elements[1024];
 		int max;
 		int size;
 		int pos;
