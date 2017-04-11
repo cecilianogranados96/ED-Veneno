@@ -25,8 +25,8 @@
 		<main>
 			<header class="codrops-header">
 				<div class="codrops-links">
-					<a class="codrops-icon codrops-icon--prev" href="index.php" title="Previous Demo">Atraz</a>
-					<a class="codrops-icon codrops-icon--drop" href="ayuda.php" title="Back to the article">Ayuda</a>
+					<a class="codrops-icon codrops-icon--prev" href="index.php">Atras</a>
+					<a class="codrops-icon codrops-icon--drop" href="ayuda.php">Ayuda</a>
 				</div>
 				<h1 class="codrops-header__title">Configuración</h1>
 				<p class="codrops-header__tagline">Configuraremos algunas cosas antes de inciar el juego. </p>
