@@ -9,11 +9,10 @@ class ArrayList;
 class Controladora;
 using namespace std;
 
-
 class Baraja
 {
     public:
-        Baraja(char tipo);
+        Baraja(char tipo, int max);
         virtual ~Baraja();
         char getTipo();
         ArrayList* getBaraja();
@@ -21,6 +20,7 @@ class Baraja
         void setBaraja(ArrayList* baraja);
         bool removeNaipe(int pos);
         void insertNaipe(Naipe* naipe);
+        float totalBaraja();
 
     protected:
 

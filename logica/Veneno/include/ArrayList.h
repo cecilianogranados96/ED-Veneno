@@ -19,6 +19,8 @@ class ArrayList{
 		void append(Naipe* element);
 		void insert(Naipe* element);
 		Naipe* remove();
+		void removeElement(Naipe* element);
+		int find(Naipe* element);
 		void print();
 		void clear();
 

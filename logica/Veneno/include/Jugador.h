@@ -19,7 +19,7 @@ class Jugador
         ArrayList* getBVenenos();
         ArrayList* getBComidas();
         ArrayList* getBActual();
-        string toString();
+        void print();
 
     protected:
 

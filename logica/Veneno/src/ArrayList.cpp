@@ -125,7 +125,7 @@ void ArrayList::insert(Naipe* element){
     }
 }
 
-//Función remove: elimina el elemento siguiente del pos
+//Función remove: elimina el elemento en el pos
 Naipe* ArrayList::remove(){
     try
     {
@@ -140,6 +140,53 @@ Naipe* ArrayList::remove(){
 
         size--;
         return deleteElement;
+    }
+    catch (runtime_error e)
+    {
+        cout << "Error: "<< e.what()<<"\n\n";
+    }
+}
+
+//Función removeElement: elimina el elemento que entra como parámetro
+void ArrayList::removeElement(Naipe* naipe){
+    try
+    {
+        int posicion = find(naipe);
+        if (size == 0){
+            throw runtime_error("La cola esta vacia");
+        }
+        if(posicion == -1){
+            throw runtime_error("No se encontro el elemento");
+        }
+
+        for(int i=posicion;i<size;i++){
+            elements[i] = elements[i+1];
+        }
+        size--;
+    }
+    catch (runtime_error e)
+    {
+        cout << "Error: "<< e.what()<<"\n\n";
+    }
+}
+
+//Función find: devuelve la posición donde se encuentra el elemento
+int ArrayList::find(Naipe* naipe)
+{
+    try
+    {
+        if (size == 0){
+            throw runtime_error("La cola esta vacia");
+        }
+        int posicion = -1;
+        for(int j=0; j<size; j++){
+            if(naipe->getNomenclatura() == elements[j]->getNomenclatura()){
+                if(naipe->getNumero() == elements[j]->getNumero()){
+                    posicion = j;
+                }
+            }
+        }
+        return posicion;
     }
     catch (runtime_error e)
     {

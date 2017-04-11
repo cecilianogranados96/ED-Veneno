@@ -70,7 +70,13 @@ ArrayList* Jugador::getBActual()
     return bActual;
 }
 
-string Jugador::toString()
+void Jugador::print()
 {
-    return getNombre();
+    cout<<"\nNombre: "<<nombre<<" ID: "<<id<<"\n";
+    cout<<"Cartas en mano: ";
+    bActual->print();
+    cout<<"Cartas comidas: ";
+    bComidas->print();
+    cout<<"Cartas veneno: ";
+    bVenenos->print();
 }

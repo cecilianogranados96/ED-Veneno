@@ -5,14 +5,20 @@
 #include <sstream>
 #include <cstdlib>
 #include <time.h>
+#include <iostream>
+
+using namespace std;
 
 //Constructor de la clase
 Controladora::Controladora(int numJugadores)
 {
     this->numJugadores = numJugadores;
-    barajaOriginal = new Baraja('O');
+    barajaOriginal = new Baraja('O', 52);
     jugadores = new DLinkedListJ();
     bOrdenada = new ArrayList(52);
+    bCaldero1 = new Baraja('V', 15);
+    bCaldero2 = new Baraja('V', 15);
+    bCaldero3 = new Baraja('V', 15);
     crearBOriginal();
     bEnJuego = bOrdenada;
 }
@@ -69,6 +75,72 @@ ArrayList* Controladora::getBOrdenada()
 Baraja* Controladora::getBarajaOriginal()
 {
     return barajaOriginal;
+}
+
+Baraja* Controladora::getCaldero1()
+{
+    return bCaldero1;
+}
+
+Baraja* Controladora::getCaldero2()
+{
+    return bCaldero2;
+}
+
+Baraja* Controladora::getCaldero3()
+{
+    return bCaldero3;
+}
+
+bool Controladora::addCaldero1(Naipe* naipe, Jugador* jugador)
+{
+    if(naipe->getNomenclatura() != 'C'){
+        if(bCaldero1->getTipo() == 'V'){
+            if(bCaldero2->getTipo() != naipe->getNomenclatura() && bCaldero3->getTipo() != naipe->getNomenclatura()){
+                bCaldero1->getBaraja()->append(naipe);
+                bCaldero1->setTipo(naipe->getNomenclatura());
+                jugador->getBActual()->removeElement(naipe);
+                validarTotal(bCaldero1, jugador);
+                return true;
+            }
+        }
+        else{
+            if(bCaldero1->getTipo() == naipe->getNomenclatura()){
+                bCaldero1->getBaraja()->append(naipe);
+                bCaldero1->setTipo(naipe->getNomenclatura());
+                jugador->getBActual()->removeElement(naipe);
+                validarTotal(bCaldero1, jugador);
+                return true;
+            }
+        }
+        return false;
+    }
+    else{
+        if(bCaldero1->getTipo() != 'V'){
+            bCaldero1->getBaraja()->append(naipe);
+            jugador->getBActual()->removeElement(naipe);
+            validarTotal(bCaldero1, jugador);
+            return true;
+        }
+    }
+}
+
+//Verifica si el valor total del caldero es menor que 13, si es así retorna true, sino el jugador se come las cartas
+bool Controladora::validarTotal(Baraja* bCaldero, Jugador* jugador)
+{
+    cout<<"BARAJA TOTAL: "<<bCaldero->totalBaraja();
+    if(bCaldero->totalBaraja() >= 13)
+    {
+        for(int i=0; i<bCaldero->getBaraja()->getSize(); i++){
+            bCaldero->getBaraja()->goToPos(i);
+            jugador->getBComidas()->append(bCaldero->getBaraja()->getValue());
+            if(bCaldero->getBaraja()->getValue()->getNomenclatura() == 'C')
+                jugador->getBVenenos()->append(bCaldero->getBaraja()->getValue());
+        }
+        bCaldero1 = new Baraja('V', 15);
+        return false;
+    }
+    return true;
 }
 
 //Reparte las cartas a cada jugador
@@ -128,7 +200,6 @@ void Controladora::barajar(int cantidad)
     int sumInicio = 0;
 
 
-
     //Asigna al jugador el mazo actual, tomando las posiciones aleatorias en el arrayList
     for(int i=0;i<numJugadores;i++){
         ArrayList* temp = new ArrayList(52);
@@ -144,12 +215,14 @@ void Controladora::barajar(int cantidad)
         jugadores->getCurrValue()->setBActual(temp);
     }
 
-    for(int i=0;i<max-1;i++){
-        posiciones->goToPos(i);
-        bEnJuego->goToPos(posiciones->getValue());
-        bEnJuego->remove();
+    //Elimmina los naipes repartidos del mazo en juego
+    for(int i=0;i<numJugadores;i++){
+        jugadores->goToPos(i);
+        for(int j=0;j<cantidad;j++){
+            jugadores->getCurrValue()->getBActual()->goToPos(j);
+            bEnJuego->removeElement(jugadores->getCurrValue()->getBActual()->getValue());
+        }
     }
-
 }
 
 //Crea la baraja original ordenada
@@ -218,7 +291,7 @@ void Controladora::crearBOriginal()
             }
             if(i==2){
                 if(j==1){
-                    bOrdenada->append(new Naipe('P',"A",f,barajaOriginal));
+                    bOrdenada->append(new Naipe('T',"A",f,barajaOriginal));
                 }
                 else{
                     if(j<=10 && j>0){
@@ -245,7 +318,7 @@ void Controladora::crearBOriginal()
             }
             if(i==3){
                 if(j==1){
-                    bOrdenada->append(new Naipe('P',"A",f,barajaOriginal));
+                    bOrdenada->append(new Naipe('C',"A",f,barajaOriginal));
                 }
                 else{
                     if(j<=10 && j>0){

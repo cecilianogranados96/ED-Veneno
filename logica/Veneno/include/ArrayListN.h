@@ -1,7 +1,6 @@
 #ifndef ARRAYLISTN_H
 #define ARRAYLISTN_H
 
-
 class ArrayListN
 {
 	public:

@@ -8,9 +8,10 @@
 using namespace std;
 
 //Constructor de la clase
-Baraja::Baraja(char tipo)
+Baraja::Baraja(char tipo, int max)
 {
     this->tipo = tipo;
+    baraja = new ArrayList(max);
 }
 
 //Destructor de la clase
@@ -51,5 +52,16 @@ bool Baraja::removeNaipe(int pos)
 void Baraja::insertNaipe(Naipe* naipe)
 {
     baraja->append(naipe);
+}
+
+//Devuelve el total de la baraja
+float Baraja::totalBaraja()
+{
+    float total = 0;
+    for(int i=0; i<baraja->getSize(); i++){
+        baraja->goToPos(i);
+        total = total + baraja->getValue()->getValor();
+    }
+    return total;
 }
 

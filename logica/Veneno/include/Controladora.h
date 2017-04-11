@@ -1,9 +1,11 @@
 #ifndef CONTROLADORA_H
 #define CONTROLADORA_H
 #include "Baraja.h"
+#include <Jugador.h>
 #include "DLinkedListJ.h"
 
 class DLinkedListJ;
+class Jugador;
 
 class Controladora
 {
@@ -18,12 +20,12 @@ class Controladora
         ArrayList* getBOrdenada();
         ArrayList* getBEnJuego();
         Baraja* getBarajaOriginal();
-        ArrayList* getCaldero1();
-        ArrayList* getCaldero2();
-        ArrayList* getCaldero3();
-        bool addCaldero1(Naipe* naipe);
-        bool addCaldero2(Naipe* naipe);
-        bool addCaldero3(Naipe* naipe);
+        Baraja* getCaldero1();
+        Baraja* getCaldero2();
+        Baraja* getCaldero3();
+        bool addCaldero1(Naipe* naipe, Jugador* jugador);
+        bool addCaldero2(Naipe* naipe, Jugador* jugador);
+        bool addCaldero3(Naipe* naipe, Jugador* jugador);
         void crearJugadores(string nombre);
         void repartirCartas();
         void barajar(int cantidad);
@@ -35,11 +37,12 @@ class Controladora
         DLinkedListJ* jugadores;
         ArrayList* bOrdenada;       //baraja con todos los naipes ordenados
         ArrayList* bEnJuego;        //baraja de cartas en uso
-        ArrayList* bCaldero1;
-        ArrayList* bCaldero2;
-        ArrayList* bCaldero3;
+        Baraja* bCaldero1;
+        Baraja* bCaldero2;
+        Baraja* bCaldero3;
         Baraja* barajaOriginal;
         void crearBOriginal();
+        bool validarTotal(Baraja* bCaldero, Jugador* jugador);
 };
 
 #endif // CONTROLADORA_H
