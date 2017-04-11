@@ -45,7 +45,8 @@ void Baraja::setBaraja(ArrayList* baraja)
 //Remueve el naipe en la posición que entra como parámetro
 bool Baraja::removeNaipe(int pos)
 {
-    return false;
+    baraja->goToPos(pos);
+    baraja->remove();
 }
 
 //Añade un naipe al final de la baraja

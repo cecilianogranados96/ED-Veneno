@@ -92,6 +92,7 @@ Baraja* Controladora::getCaldero3()
     return bCaldero3;
 }
 
+//Añade naipes al caldero
 bool Controladora::addCaldero1(Naipe* naipe, Jugador* jugador)
 {
     if(naipe->getNomenclatura() != 'C'){
@@ -120,6 +121,74 @@ bool Controladora::addCaldero1(Naipe* naipe, Jugador* jugador)
             bCaldero1->getBaraja()->append(naipe);
             jugador->getBActual()->removeElement(naipe);
             validarTotal(bCaldero1, jugador);
+            return true;
+        }
+    }
+}
+
+//Añade naipes al caldero
+bool Controladora::addCaldero2(Naipe* naipe, Jugador* jugador)
+{
+    if(naipe->getNomenclatura() != 'C'){
+        if(bCaldero2->getTipo() == 'V'){
+            if(bCaldero1->getTipo() != naipe->getNomenclatura() && bCaldero3->getTipo() != naipe->getNomenclatura()){
+                bCaldero2->getBaraja()->append(naipe);
+                bCaldero2->setTipo(naipe->getNomenclatura());
+                jugador->getBActual()->removeElement(naipe);
+                validarTotal(bCaldero2, jugador);
+                return true;
+            }
+        }
+        else{
+            if(bCaldero2->getTipo() == naipe->getNomenclatura()){
+                bCaldero2->getBaraja()->append(naipe);
+                bCaldero2->setTipo(naipe->getNomenclatura());
+                jugador->getBActual()->removeElement(naipe);
+                validarTotal(bCaldero2, jugador);
+                return true;
+            }
+        }
+        return false;
+    }
+    else{
+        if(bCaldero2->getTipo() != 'V'){
+            bCaldero2->getBaraja()->append(naipe);
+            jugador->getBActual()->removeElement(naipe);
+            validarTotal(bCaldero2, jugador);
+            return true;
+        }
+    }
+}
+
+//Añade naipes al caldero
+bool Controladora::addCaldero3(Naipe* naipe, Jugador* jugador)
+{
+    if(naipe->getNomenclatura() != 'C'){
+        if(bCaldero3->getTipo() == 'V'){
+            if(bCaldero2->getTipo() != naipe->getNomenclatura() && bCaldero1->getTipo() != naipe->getNomenclatura()){
+                bCaldero3->getBaraja()->append(naipe);
+                bCaldero3->setTipo(naipe->getNomenclatura());
+                jugador->getBActual()->removeElement(naipe);
+                validarTotal(bCaldero3, jugador);
+                return true;
+            }
+        }
+        else{
+            if(bCaldero3->getTipo() == naipe->getNomenclatura()){
+                bCaldero3->getBaraja()->append(naipe);
+                bCaldero3->setTipo(naipe->getNomenclatura());
+                jugador->getBActual()->removeElement(naipe);
+                validarTotal(bCaldero3, jugador);
+                return true;
+            }
+        }
+        return false;
+    }
+    else{
+        if(bCaldero3->getTipo() != 'V'){
+            bCaldero3->getBaraja()->append(naipe);
+            jugador->getBActual()->removeElement(naipe);
+            validarTotal(bCaldero3, jugador);
             return true;
         }
     }

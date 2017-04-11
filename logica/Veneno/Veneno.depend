@@ -308,7 +308,7 @@
 	"Controladora.h"
 	<iostream>
 
-1491868874 source:c:\users\admin\documents\github\veneno\ed-veneno\logica\veneno\src\controladora.cpp
+1491875343 source:c:\users\admin\documents\github\veneno\ed-veneno\logica\veneno\src\controladora.cpp
 	"Controladora.h"
 	"ArrayListN.h"
 	"ArrayList.h"
@@ -357,10 +357,11 @@
 1491868261 source:c:\users\admin\documents\github\veneno\ed-veneno\logica\veneno\src\jugador.cpp
 	"Jugador.h"
 
-1491616264 source:c:\users\admin\documents\github\veneno\ed-veneno\logica\veneno\src\movimiento.cpp
+1491879845 source:c:\users\admin\documents\github\veneno\ed-veneno\logica\veneno\src\movimiento.cpp
 	"Movimiento.h"
 
-1491616264 c:\users\admin\documents\github\veneno\ed-veneno\logica\veneno\include\movimiento.h
+1491879902 c:\users\admin\documents\github\veneno\ed-veneno\logica\veneno\include\movimiento.h
+	"Jugador.h"
 
 1491798256 source:c:\users\admin\documents\github\veneno\ed-veneno\logica\veneno\src\naipe.cpp
 	"Naipe.h"
@@ -371,7 +372,7 @@
 
 1491616252 c:\users\admin\documents\github\veneno\ed-veneno\logica\veneno\include\ronda.h
 
-1491868976 source:c:\users\admin\documents\github\veneno\ed-veneno\logica\veneno\main.cpp
+1491869134 source:c:\users\admin\documents\github\veneno\ed-veneno\logica\veneno\main.cpp
 	<iostream>
 	"Controladora.h"
 
@@ -381,4 +382,34 @@
 	<stdexcept>
 
 1491865533 c:\users\admin\documents\github\veneno\ed-veneno\logica\veneno\include\arraylistn.h
+
+1491878152 source:c:\users\admin\documents\github\veneno\ed-veneno\logica\veneno\src\dlinkedlistm.cpp
+	"DLinkedListM.h"
+
+1491878511 c:\users\admin\documents\github\veneno\ed-veneno\logica\veneno\include\dlinkedlistm.h
+	<stdexcept>
+	<cstddef>
+	"DNodeM.h"
+
+1491878377 c:\users\admin\documents\github\veneno\ed-veneno\logica\veneno\include\dnodem.h
+	<iostream>
+	"Movimiento.h"
+
+1491878136 source:c:\users\admin\documents\github\veneno\ed-veneno\logica\veneno\src\dlinkedlistr.cpp
+	"DLinkedListR.h"
+
+1491878565 c:\users\admin\documents\github\veneno\ed-veneno\logica\veneno\include\dlinkedlistr.h
+	<stdexcept>
+	<cstddef>
+	"DNodeR.h"
+
+1491878171 source:c:\users\admin\documents\github\veneno\ed-veneno\logica\veneno\src\dnodem.cpp
+	"DNodeM.h"
+
+1491878184 source:c:\users\admin\documents\github\veneno\ed-veneno\logica\veneno\src\dnoder.cpp
+	"DNodeR.h"
+
+1491878344 c:\users\admin\documents\github\veneno\ed-veneno\logica\veneno\include\dnoder.h
+	<iostream>
+	"Ronda.h"
 
