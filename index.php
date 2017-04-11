@@ -8,17 +8,33 @@
 		<link rel="stylesheet" type="text/css" href="animacion/css/normalize.css" />
 		<link rel="stylesheet" type="text/css" href="animacion/css/demo.css" />
 		<link rel="stylesheet" type="text/css" href="animacion/css/husky.css" />
+				<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+		<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
 		<!--[if IE]>
 			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
+		<script>
+fullscreen = function(e){
+      if (e.webkitRequestFullScreen) {
+        e.webkitRequestFullScreen();
+      } else if(e.mozRequestFullScreen) {
+        e.mozRequestFullScreen();
+      }
+}
+document.getElementById('fill').onclick = function(){
+    fullscreen(document.getElementById('content'));
+}
+
+
+		</script>
 	</head>
-	<body class="demo-husky">
+	<body class="demo-husky" id="content">
 		<div class="snow"></div>
 		<div class="container">
 			<header class="codrops-header">
 				<div class="codrops-links">
 					
-					<a href="ayuda.php"><span>Ayuda</span></a>
+					<a href="ayuda.php"><span>Ayuda</span></a>  <a onclick=" fullscreen(document.getElementById('content'))"><span>Full Screen</span></a> 
 				</div>
 				<h1><a href="configuracion.php">Veneno Game</a></h1>
 				<br>

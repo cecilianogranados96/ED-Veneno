@@ -36,11 +36,13 @@
 		<script src="https://raw.githubusercontent.com/furf/jquery-ui-touch-punch/master/jquery.ui.touch-punch.min.js"></script>
 		<script src="js/juego.js"></script>
 		
-		<script>
+		<script>	
 		$(document).ready(function () {
-			$("#caldero1").each(function( index ) {
-			  console.log( $(this) );
-			});
+
+
+				
+				
+			
 		});
 		
 		</script>
@@ -68,14 +70,8 @@
 			</div>
 			<div class="calero1 caldero" id="caldero1">	  
 				<img src="img/cartas/2C.png" id="2C" class="dock_cartas">
-				<img src="img/cartas/KP.png" id="drag1" class="dock_cartas">
-				<img src="img/cartas/2T.png" id="drag1" class="dock_cartas">
-				<img src="img/cartas/KT.png" id="drag1" class="dock_cartas">
-				<img src="img/cartas/2C.png" id="drag1" class="dock_cartas">
-				<img src="img/cartas/KP.png" id="drag1" class="dock_cartas">
-				<img src="img/cartas/2T.png" id="drag1" class="dock_cartas">
-				<img src="img/cartas/KP.png" id="drag1" class="dock_cartas">
-				<img src="img/cartas/2T.png" id="drag1" class="dock_cartas">
+				<img src="img/cartas/KP.png" id="KP" class="dock_cartas">
+				<img src="img/cartas/3P.png" id="3P" class="dock_cartas">
 			</div>
 			<div class="calero2 caldero" id="caldero2">
 				<!--CALDERO 2-->
@@ -85,11 +81,11 @@
 			</div>			
 			<center>
 				<div class="dock caldero" id="dock_cartas">
-					<img src="img/cartas/5C.png" id="D1" class="dock_cartas inbound">
-					<img src="img/cartas/2P.png" id="D1" class="dock_cartas inbound">
-					<img src="img/cartas/6p.png" id="D1" class="dock_cartas inbound">
-					<img src="img/cartas/8p.png" id="D1" class="dock_cartas inbound">
-					<img src="img/cartas/3P.png" id="D1" class="dock_cartas inbound">
+					<img src="img/cartas/5C.png" id="5C" class="dock_cartas inbound">
+					<img src="img/cartas/2P.png" id="2P" class="dock_cartas inbound">
+					<img src="img/cartas/6P.png" id="6P" class="dock_cartas inbound">
+					<img src="img/cartas/8C.png" id="8C" class="dock_cartas inbound">
+					<img src="img/cartas/5T.png" id="5T" class="dock_cartas inbound">
 				</div>
 			<center>
 		</main>
