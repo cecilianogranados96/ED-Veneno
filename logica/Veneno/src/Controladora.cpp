@@ -10,16 +10,13 @@
 using namespace std;
 
 //Constructor de la clase
-Controladora::Controladora(int numJugadores)
+Controladora::Controladora()
 {
-    this->numJugadores = numJugadores;
     barajaOriginal = new Baraja('O', 52);
     jugadores = new DLinkedListJ();
     bOrdenada = new ArrayList(52);
     rondas = new DLinkedListR();
     crearBOriginal();
-    numJugadoresActual = numJugadores;
-
 }
 
 //Destructor de la clase

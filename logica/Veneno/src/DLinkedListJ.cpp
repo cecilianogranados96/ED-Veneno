@@ -35,13 +35,26 @@ void DLinkedListJ::goToEnd()
 
 void DLinkedListJ::goToPos(int pos)
 {
-    int num = 0;
-    goToStart();
-    curr = curr->getNext();
-    while (num < pos)
+    try
     {
-        num++;
-        curr = curr->getNext();
+        if(pos<0 || pos>size){
+            throw runtime_error("La posicion esta fuera de los limites");
+        }
+        else if (size == 0){
+            throw runtime_error("La lista esta vacia");
+        }
+            int num = 0;
+            goToStart();
+            curr = curr->getNext();
+            while (num < pos)
+            {
+                num++;
+                curr = curr->getNext();
+            }
+    }
+    catch (runtime_error e)
+    {
+        cout << "Error: " << e.what()<<"\n\n";
     }
 }
 

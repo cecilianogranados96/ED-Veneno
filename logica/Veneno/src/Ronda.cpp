@@ -270,8 +270,6 @@ void Ronda::barajar()
         } while (!check);
         posiciones->append(n);
     }
-    posiciones->print();
-
     int sumCantidad = cantidad;
     int sumInicio = 0;
 

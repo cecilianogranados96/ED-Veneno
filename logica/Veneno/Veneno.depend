@@ -308,7 +308,7 @@
 	"Controladora.h"
 	<iostream>
 
-1491933065 source:c:\users\admin\documents\github\veneno\ed-veneno\logica\veneno\src\controladora.cpp
+1492187547 source:c:\users\admin\documents\github\veneno\ed-veneno\logica\veneno\src\controladora.cpp
 	"Controladora.h"
 	"ArrayListN.h"
 	"ArrayList.h"
@@ -318,7 +318,7 @@
 	<time.h>
 	<iostream>
 
-1491930713 c:\users\admin\documents\github\veneno\ed-veneno\logica\veneno\include\controladora.h
+1492187547 c:\users\admin\documents\github\veneno\ed-veneno\logica\veneno\include\controladora.h
 	"Baraja.h"
 	<Jugador.h>
 	"DLinkedListJ.h"
@@ -343,7 +343,7 @@
 1491711982 source:c:\users\admin\documents\github\veneno\ed-veneno\logica\veneno\src\dcirclelist.cpp
 	"DCircleList.h"
 
-1491840554 source:c:\users\admin\documents\github\veneno\ed-veneno\logica\veneno\src\dlinkedlistj.cpp
+1492191136 source:c:\users\admin\documents\github\veneno\ed-veneno\logica\veneno\src\dlinkedlistj.cpp
 	"DLinkedListJ.h"
 	"Jugador.h"
 	<stdexcept>
@@ -368,7 +368,7 @@
 	"Naipe.h"
 	<iostream>
 
-1491933087 source:c:\users\admin\documents\github\veneno\ed-veneno\logica\veneno\src\ronda.cpp
+1492191262 source:c:\users\admin\documents\github\veneno\ed-veneno\logica\veneno\src\ronda.cpp
 	"Ronda.h"
 	"Baraja.h"
 	"ArrayListN.h"
@@ -380,7 +380,7 @@
 
 1491932920 c:\users\admin\documents\github\veneno\ed-veneno\logica\veneno\include\ronda.h
 
-1491932811 source:c:\users\admin\documents\github\veneno\ed-veneno\logica\veneno\main.cpp
+1492190748 source:c:\users\admin\documents\github\veneno\ed-veneno\logica\veneno\main.cpp
 	<iostream>
 	"Controladora.h"
 

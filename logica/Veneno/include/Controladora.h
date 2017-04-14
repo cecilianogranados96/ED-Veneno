@@ -11,7 +11,7 @@ class Jugador;
 class Controladora
 {
     public:
-        Controladora(int numJugadores);
+        Controladora();
         ~Controladora();
         void setJugadores(DLinkedListJ* jugadores);
         void setJugadoresActual(DLinkedListJ* jugadoresActual);
