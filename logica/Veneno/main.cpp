@@ -1,17 +1,39 @@
 #include <iostream>
 #include "Controladora.h"
-
 class Controladora;
 using namespace std;
 
 int main(void)
 {
+<<<<<<< HEAD
     Controladora* controladora = new Controladora();
+=======
+    int numJugadores, i=0;
+    cout<<"Digite la cantidad de jugadores [2-6]: ";
+    cin>>numJugadores;
+
+    Controladora* controladora = new Controladora(numJugadores);
+
+    string nombre;
+
+>>>>>>> origin/master
+
+    while(i<numJugadores)
+    {
+        cout<<"\nDigite el nombre del jugador ["<<i<<"]: ";
+        cin>>nombre;
+        controladora->crearJugadores(nombre);
+        i++;
+    }
 
     int opcion = 0;
     while(opcion != 6)
     {
+<<<<<<< HEAD
         cout<<"\n\nMenu\n0. Asignar cantidad jugadores\n1. Crear jugador(n)\n2. Ver jugador(cartas en mano)\n3. Ver nombre Jugador\n4. Ver caldero (s)\n5. Jugar (recibe jugador y carta, caldero a mover)\n6. Salir\n\nDigite su eleccion: ";
+=======
+        cout<<"Menu\n1.Jugar\n2.Ver Jugador\n3.Ver el primer caldero\n4.Ver el segundo caldero\n5.Ver tercer caldero\n6.Ver resultados\n8.Salir\n\nDigite su eleccion: ";
+>>>>>>> origin/master
         cin>>opcion;
 
         switch(opcion){
@@ -23,6 +45,7 @@ int main(void)
                 controladora->setNumJugadoresActual(numJugadores);
                 break;
             case 1:
+<<<<<<< HEAD
                 {
                     string nombre;
                     cout<<"\nDigite el nombre del jugador: ";
@@ -115,6 +138,11 @@ int main(void)
     /*
 
                         /*controladora->setJugadoresActual(controladora->getJugadores());
+=======
+
+                 {
+                    controladora->setJugadoresActual(controladora->getJugadores());
+>>>>>>> origin/master
                        while(controladora->getNumJugadoresActual()>1)
                        {
                            controladora->crearRondas();
@@ -165,6 +193,27 @@ int main(void)
                 }
                 break;
 
+<<<<<<< HEAD
+=======
+            case 2:
+                controladora->getRondas()->getCurrValue()->getJugadores()->getCurrValue()->print();
+                break;
+            case 3:
+                controladora->getRondas()->getCurrValue()->getCaldero1()->getBaraja()->print();
+                break;
+            case 4:
+                controladora->getRondas()->getCurrValue()->getCaldero2()->getBaraja()->print();
+                break;
+            case 5:
+                controladora->getRondas()->getCurrValue()->getCaldero3()->getBaraja()->print();
+                break;
+
+        }
+
+    }
+    /*
+
+>>>>>>> origin/master
 
        controladora->setJugadoresActual(controladora->getJugadores());
        while(controladora->getNumJugadoresActual()>1)
@@ -214,4 +263,8 @@ int main(void)
                 }
            }
        }*/
+<<<<<<< HEAD
 
+=======
+}
+>>>>>>> origin/master
