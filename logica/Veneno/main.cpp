@@ -6,31 +6,32 @@ using namespace std;
 
 int main(void)
 {
-    int numJugadores, i=0;
-    cout<<"Digite la cantidad de jugadores [2-6]: ";
-    cin>>numJugadores;
 
-    Controladora* controladora = new Controladora(numJugadores);
-
-    string nombre;
-    while(i<numJugadores)
-    {
-        cout<<"\nDigite el nombre del jugador ["<<i<<"]: ";
-        cin>>nombre;
-        controladora->crearJugadores(nombre);
-        i++;
-    }
 
     int opcion = 0;
     while(opcion != 8)
     {
-        cout<<"Menu\n1.Jugar\n2.Ver Jugador\n3.Ver el primer caldero\n4.Ver el segundo caldero\n5.Ver tercer caldero\n6.Ver resultados\n8.Salir\n\nDigite su eleccion: ";
+        cout<<"Menu\n1.Crear Jugadores\n2.Ver Jugador\n3.Ver el primer caldero\n4.Ver el segundo caldero\n5.Ver tercer caldero\n6.Ver resultados\n8.Salir\n\nDigite su eleccion: ";
         cin>>opcion;
 
         switch(opcion){
             case 1:
+                    int numJugadores, i=0;
+                    cout<<"Digite la cantidad de jugadores [2-6]: ";
+                    cin>>numJugadores;
 
-                 {
+                    Controladora* controladora = new Controladora(numJugadores);
+
+                    string nombre;
+                    while(i<numJugadores)
+                    {
+                        cout<<"\nDigite el nombre del jugador ["<<i<<"]: ";
+                        cin>>nombre;
+                        controladora->crearJugadores(nombre);
+                        i++;
+                    }
+
+                /* {
                     controladora->setJugadoresActual(controladora->getJugadores());
                        while(controladora->getNumJugadoresActual()>1)
                        {
@@ -95,7 +96,7 @@ int main(void)
                 controladora->getRondas()->getCurrValue()->getCaldero3()->getBaraja()->print();
                 break;
 
-        }
+        }*/
 
     }
     /*
@@ -149,4 +150,5 @@ int main(void)
                 }
            }
        }*/
+    }
 }
