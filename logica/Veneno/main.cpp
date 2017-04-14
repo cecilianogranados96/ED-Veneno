@@ -1,6 +1,5 @@
 #include <iostream>
 #include "Controladora.h"
-
 class Controladora;
 using namespace std;
 
@@ -13,6 +12,8 @@ int main(void)
     Controladora* controladora = new Controladora(numJugadores);
 
     string nombre;
+
+
     while(i<numJugadores)
     {
         cout<<"\nDigite el nombre del jugador ["<<i<<"]: ";

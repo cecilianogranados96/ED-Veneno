@@ -433,64 +433,64 @@
 	<iostream>
 	"Ronda.h"
 
-1491933612 source:c:\xampp\htdocs\ed-veneno\logica\veneno\main.cpp
+1492016607 source:c:\xampp\htdocs\ed-veneno\logica\veneno\main.cpp
 	<iostream>
 	"Controladora.h"
 
-1492014712 c:\xampp\htdocs\ed-veneno\logica\veneno\include\controladora.h
+1491933612 c:\xampp\htdocs\ed-veneno\logica\veneno\include\controladora.h
 	"Baraja.h"
 	<Jugador.h>
 	"DLinkedListJ.h"
 	"DLinkedListR.h"
 
-1492014712 c:\xampp\htdocs\ed-veneno\logica\veneno\include\baraja.h
+1491923170 c:\xampp\htdocs\ed-veneno\logica\veneno\include\baraja.h
 	"Naipe.h"
 	"ArrayList.h"
 	"Controladora.h"
 	<iostream>
 
-1492014712 c:\xampp\htdocs\ed-veneno\logica\veneno\include\naipe.h
+1491832163 c:\xampp\htdocs\ed-veneno\logica\veneno\include\naipe.h
 	<iostream>
 
-1492014712 c:\xampp\htdocs\ed-veneno\logica\veneno\include\arraylist.h
+1491933612 c:\xampp\htdocs\ed-veneno\logica\veneno\include\arraylist.h
 	"Naipe.h"
 
-1492014712 c:\xampp\htdocs\ed-veneno\logica\veneno\include\jugador.h
+1491923170 c:\xampp\htdocs\ed-veneno\logica\veneno\include\jugador.h
 	"Baraja.h"
 
-1492014712 c:\xampp\htdocs\ed-veneno\logica\veneno\include\dlinkedlistj.h
+1491923170 c:\xampp\htdocs\ed-veneno\logica\veneno\include\dlinkedlistj.h
 	<stdexcept>
 	<cstddef>
 	"DNodeJ.h"
 
-1492014712 c:\xampp\htdocs\ed-veneno\logica\veneno\include\dnodej.h
+1491832163 c:\xampp\htdocs\ed-veneno\logica\veneno\include\dnodej.h
 	<iostream>
 	"Jugador.h"
 
-1492014712 c:\xampp\htdocs\ed-veneno\logica\veneno\include\dlinkedlistr.h
+1491923170 c:\xampp\htdocs\ed-veneno\logica\veneno\include\dlinkedlistr.h
 	<stdexcept>
 	<cstddef>
 	"DNodeR.h"
 
-1492014712 c:\xampp\htdocs\ed-veneno\logica\veneno\include\dnoder.h
+1491923170 c:\xampp\htdocs\ed-veneno\logica\veneno\include\dnoder.h
 	<iostream>
 	"Ronda.h"
 
-1492014712 c:\xampp\htdocs\ed-veneno\logica\veneno\include\ronda.h
+1491933612 c:\xampp\htdocs\ed-veneno\logica\veneno\include\ronda.h
 
-1492014712 source:c:\xampp\htdocs\ed-veneno\logica\veneno\src\arraylist.cpp
+1491923170 source:c:\xampp\htdocs\ed-veneno\logica\veneno\src\arraylist.cpp
 	"ArrayList.h"
 	<iostream>
 	<stdexcept>
 
-1492014712 source:c:\xampp\htdocs\ed-veneno\logica\veneno\src\arraylistn.cpp
+1491832163 source:c:\xampp\htdocs\ed-veneno\logica\veneno\src\arraylistn.cpp
 	"ArrayListN.h"
 	<iostream>
 	<stdexcept>
 
-1492014712 c:\xampp\htdocs\ed-veneno\logica\veneno\include\arraylistn.h
+1491923170 c:\xampp\htdocs\ed-veneno\logica\veneno\include\arraylistn.h
 
-1492014712 source:c:\xampp\htdocs\ed-veneno\logica\veneno\src\baraja.cpp
+1491923170 source:c:\xampp\htdocs\ed-veneno\logica\veneno\src\baraja.cpp
 	"Baraja.h"
 	"ArrayListN.h"
 	<string>
@@ -498,7 +498,7 @@
 	<cstdlib>
 	<time.h>
 
-1492014712 source:c:\xampp\htdocs\ed-veneno\logica\veneno\src\controladora.cpp
+1492010483 source:c:\xampp\htdocs\ed-veneno\logica\veneno\src\controladora.cpp
 	"Controladora.h"
 	"ArrayListN.h"
 	"ArrayList.h"
@@ -508,14 +508,14 @@
 	<time.h>
 	<iostream>
 
-1492014712 source:c:\xampp\htdocs\ed-veneno\logica\veneno\src\dcirclelist.cpp
+1491832163 source:c:\xampp\htdocs\ed-veneno\logica\veneno\src\dcirclelist.cpp
 	"DCircleList.h"
 
-1492014712 c:\xampp\htdocs\ed-veneno\logica\veneno\include\dcirclelist.h
+1491832163 c:\xampp\htdocs\ed-veneno\logica\veneno\include\dcirclelist.h
 	"DLinkedListJ.h"
 	<cstddef>
 
-1492014712 source:c:\xampp\htdocs\ed-veneno\logica\veneno\src\dlinkedlistj.cpp
+1491923170 source:c:\xampp\htdocs\ed-veneno\logica\veneno\src\dlinkedlistj.cpp
 	"DLinkedListJ.h"
 	"Jugador.h"
 	<stdexcept>

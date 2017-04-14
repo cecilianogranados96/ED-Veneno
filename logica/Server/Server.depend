@@ -1,0 +1,14 @@
+# depslib dependency file v1.0
+1492186281 source:c:\users\jose\desktop\server\src\server.cpp
+	"Server.h"
+	<iostream>
+
+1492186226 c:\users\jose\desktop\server\include\server.h
+	<windows.h>
+	<winsock2.h>
+	<iostream>
+
+1492186274 source:c:\users\jose\desktop\server\main.cpp
+	<iostream>
+	"Server.h"
+
