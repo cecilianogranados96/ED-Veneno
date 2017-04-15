@@ -9,6 +9,14 @@
 		<link rel="stylesheet" type="text/css" href="css/demo.css" />
 		<link rel="stylesheet" type="text/css" href="css/decolines.css" />
 		<link rel="stylesheet" type="text/css" href="css/pater.css" />
+				<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+		<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
+		<script>
+		$.post( "Logica/s.php", {mensaje: "0" },function( data ) {
+			//$("#caldero2").append(data);
+			console.log(data);
+		});	
+		</script>
 		<link href="https://fonts.googleapis.com/css?family=Bungee+Inline|Roboto+Mono" rel="stylesheet">
 		<style>
 			.numeros{ 
@@ -41,6 +49,13 @@
 					<a href="configuracion.php?jugadores=6"><img class="numeros" src="img/jugadores/6.png"></a>
 				</center>
 				<?php }else{ ?>
+	<script>
+		$.post( "Logica/s.php", {mensaje: <?php echo $_GET['jugadores']; ?> },function( data ) {
+			//$("#caldero2").append(data);
+			console.log(data);
+		});	
+		</script>
+		
 				<form action="juego.php?jugadores=<?php echo $_GET['jugadores']; ?>" method="GET">
 					<p class="codrops-header__tagline" style="margin-left:22%;">Digita los nombres de los jugadores. </p>
 					<section class="content content--grid">

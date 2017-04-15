@@ -1,3 +1,4 @@
+<?php //exec('socket.bat'); ?>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
@@ -9,6 +10,11 @@
 		<link rel="stylesheet" type="text/css" href="css/animacion/css/husky.css" />
 				<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
 		<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
+		<script>
+		$.post( "Logica/s.php", {mensaje: "Inicial" },function( data ) {
+			//$("#caldero2").append(data);
+		});	
+		</script>
 		<!--[if IE]>
 			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->

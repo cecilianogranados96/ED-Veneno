@@ -1,51 +1,45 @@
 #include <iostream>
 #include "Controladora.h"
+#include "Server.h"
+#define REQ_WINSOCK_VER 2
+#include <sstream>
+#include <string>
+#include <cstdlib>
+
 class Controladora;
 using namespace std;
-
+int toint(string val){
+    stringstream geek(val);
+    int x = 0;
+    geek >> x;
+    return x;
+}
 int main(void)
 {
-<<<<<<< HEAD
     Controladora* controladora = new Controladora();
-=======
-    int numJugadores, i=0;
-    cout<<"Digite la cantidad de jugadores [2-6]: ";
-    cin>>numJugadores;
-
-    Controladora* controladora = new Controladora(numJugadores);
-
-    string nombre;
-
->>>>>>> origin/master
-
-    while(i<numJugadores)
-    {
-        cout<<"\nDigite el nombre del jugador ["<<i<<"]: ";
-        cin>>nombre;
-        controladora->crearJugadores(nombre);
-        i++;
-    }
+    WSockServer MyServer(REQ_WINSOCK_VER);
+    MyServer.RunServer(1500,"Respuesta Inical a fuerta tiene que ir");
 
     int opcion = 0;
-    while(opcion != 6)
+    while(true)
     {
-<<<<<<< HEAD
+        WSockServer MyServer(REQ_WINSOCK_VER);
         cout<<"\n\nMenu\n0. Asignar cantidad jugadores\n1. Crear jugador(n)\n2. Ver jugador(cartas en mano)\n3. Ver nombre Jugador\n4. Ver caldero (s)\n5. Jugar (recibe jugador y carta, caldero a mover)\n6. Salir\n\nDigite su eleccion: ";
-=======
-        cout<<"Menu\n1.Jugar\n2.Ver Jugador\n3.Ver el primer caldero\n4.Ver el segundo caldero\n5.Ver tercer caldero\n6.Ver resultados\n8.Salir\n\nDigite su eleccion: ";
->>>>>>> origin/master
-        cin>>opcion;
+
+        opcion = toint(MyServer.RunServer(1500,"Opcion OK"));
 
         switch(opcion){
             case 0:
                 int numJugadores;
                 cout<<"Digite la cantidad de jugadores [2-6]: ";
-                cin>>numJugadores;
+                //cin>>numJugadores;
+                //WSockServer MyServer(REQ_WINSOCK_VER);
+                numJugadores = toint(MyServer.RunServer(1500,"Opcion OK"));
+
                 controladora->setNumJugadores(numJugadores);
                 controladora->setNumJugadoresActual(numJugadores);
                 break;
             case 1:
-<<<<<<< HEAD
                 {
                     string nombre;
                     cout<<"\nDigite el nombre del jugador: ";
@@ -68,6 +62,7 @@ int main(void)
                     controladora->getRondas()->goToEnd();
                     controladora->getRondas()->getCurrValue()->getJugadores()->goToPos(jugador);
                     controladora->getRondas()->getCurrValue()->getJugadores()->getCurrValue()->getBActual()->print();
+
                 }
                 break;
 
@@ -119,6 +114,7 @@ int main(void)
                         case 1:
                             controladora->getRondas()->getCurrValue()->addCaldero1(controladora->getRondas()->getCurrValue()->getJugadores()->getCurrValue()->getBActual()->getValue(),controladora->getRondas()->getCurrValue()->getJugadores()->getCurrValue());
                             controladora->getRondas()->getCurrValue()->getCaldero1()->getBaraja()->print();
+
                             break;
                         case 2:
                             controladora->getRondas()->getCurrValue()->addCaldero2(controladora->getRondas()->getCurrValue()->getJugadores()->getCurrValue()->getBActual()->getValue(),controladora->getRondas()->getCurrValue()->getJugadores()->getCurrValue());
@@ -135,136 +131,3 @@ int main(void)
         }
     }
 }
-    /*
-
-                        /*controladora->setJugadoresActual(controladora->getJugadores());
-=======
-
-                 {
-                    controladora->setJugadoresActual(controladora->getJugadores());
->>>>>>> origin/master
-                       while(controladora->getNumJugadoresActual()>1)
-                       {
-                           controladora->crearRondas();
-                           controladora->getRondas()->goToEnd();
-                           while(controladora->getRondas()->getCurrValue()->getState() == true){
-                                if(controladora->getRondas()->getCurrValue()->totalNaipes() == 0){
-                                    if(controladora->getRondas()->getCurrValue()->getBEnJuego()->getSize() >= (controladora->getRondas()->getCurrValue()->getCantidad() * controladora->getRondas()->getCurrValue()->getJugadores()->getSize())){
-                                        controladora->getRondas()->getCurrValue()->barajar();
-                                    }
-                                    else{
-                                        controladora->getRondas()->getCurrValue()->setState(false);
-                                        break;
-                                    }
-                                }
-                                for(int  i=0; i<controladora->getRondas()->getCurrValue()->getJugadores()->getSize(); i++){
-                                    controladora->getRondas()->getCurrValue()->getJugadores()->goToPos(i);
-                                    if(controladora->getRondas()->getCurrValue()->getJugadores()->getCurrValue()->getBActual()->getSize() == 0){
-                                        cout<<"\nPasa turno\n";
-                                    }
-                                    else{
-                                        controladora->getRondas()->getCurrValue()->getJugadores()->getCurrValue()->print();
-                                        int p, q;
-                                        cout<<"\nElija la posicion de su carta: ";
-                                        cin>>p; //tiene que estar entre cero y la cantidad de cartas en mano
-                                        cout<<"\nElija el caldero para ponerla: ";
-                                        cin>>q;
-
-                                        controladora->getRondas()->getCurrValue()->getJugadores()->getCurrValue()->getBActual()->goToPos(p);
-                                        switch(q){
-                                            case 1:
-                                                controladora->getRondas()->getCurrValue()->addCaldero1(controladora->getRondas()->getCurrValue()->getJugadores()->getCurrValue()->getBActual()->getValue(),controladora->getRondas()->getCurrValue()->getJugadores()->getCurrValue());
-                                                controladora->getRondas()->getCurrValue()->getCaldero1()->getBaraja()->print();
-                                                break;
-                                            case 2:
-                                                controladora->getRondas()->getCurrValue()->addCaldero2(controladora->getRondas()->getCurrValue()->getJugadores()->getCurrValue()->getBActual()->getValue(),controladora->getRondas()->getCurrValue()->getJugadores()->getCurrValue());
-                                                controladora->getRondas()->getCurrValue()->getCaldero2()->getBaraja()->print();
-                                                break;
-                                            case 3:
-                                                controladora->getRondas()->getCurrValue()->addCaldero3(controladora->getRondas()->getCurrValue()->getJugadores()->getCurrValue()->getBActual()->getValue(),controladora->getRondas()->getCurrValue()->getJugadores()->getCurrValue());
-                                                controladora->getRondas()->getCurrValue()->getCaldero3()->getBaraja()->print();
-                                                break;
-                                        }
-                                        controladora->getRondas()->getCurrValue()->getJugadores()->getCurrValue()->getBActual()->goToPos(p);
-                                    }
-                                }
-                           }
-                       }
-                }
-                break;
-
-<<<<<<< HEAD
-=======
-            case 2:
-                controladora->getRondas()->getCurrValue()->getJugadores()->getCurrValue()->print();
-                break;
-            case 3:
-                controladora->getRondas()->getCurrValue()->getCaldero1()->getBaraja()->print();
-                break;
-            case 4:
-                controladora->getRondas()->getCurrValue()->getCaldero2()->getBaraja()->print();
-                break;
-            case 5:
-                controladora->getRondas()->getCurrValue()->getCaldero3()->getBaraja()->print();
-                break;
-
-        }
-
-    }
-    /*
-
->>>>>>> origin/master
-
-       controladora->setJugadoresActual(controladora->getJugadores());
-       while(controladora->getNumJugadoresActual()>1)
-       {
-           controladora->crearRondas();
-           controladora->getRondas()->goToEnd();
-           while(controladora->getRondas()->getCurrValue()->getState() == true){
-                if(controladora->getRondas()->getCurrValue()->totalNaipes() == 0){
-                    if(controladora->getRondas()->getCurrValue()->getBEnJuego()->getSize() >= (controladora->getRondas()->getCurrValue()->getCantidad() * controladora->getRondas()->getCurrValue()->getJugadores()->getSize())){
-                        controladora->getRondas()->getCurrValue()->barajar();
-                    }
-                    else{
-                        controladora->getRondas()->getCurrValue()->setState(false);
-                        break;
-                    }
-                }
-                for(int  i=0; i<controladora->getRondas()->getCurrValue()->getJugadores()->getSize(); i++){
-                    controladora->getRondas()->getCurrValue()->getJugadores()->goToPos(i);
-                    if(controladora->getRondas()->getCurrValue()->getJugadores()->getCurrValue()->getBActual()->getSize() == 0){
-                        cout<<"\nPasa turno\n";
-                    }
-                    else{
-                        controladora->getRondas()->getCurrValue()->getJugadores()->getCurrValue()->print();
-                        int p, q;
-                        cout<<"\nElija la posicion de su carta: ";
-                        cin>>p; //tiene que estar entre cero y la cantidad de cartas en mano
-                        cout<<"\nElija el caldero para ponerla: ";
-                        cin>>q;
-
-                        controladora->getRondas()->getCurrValue()->getJugadores()->getCurrValue()->getBActual()->goToPos(p);
-                        switch(q){
-                            case 1:
-                                controladora->getRondas()->getCurrValue()->addCaldero1(controladora->getRondas()->getCurrValue()->getJugadores()->getCurrValue()->getBActual()->getValue(),controladora->getRondas()->getCurrValue()->getJugadores()->getCurrValue());
-                                controladora->getRondas()->getCurrValue()->getCaldero1()->getBaraja()->print();
-                                break;
-                            case 2:
-                                controladora->getRondas()->getCurrValue()->addCaldero2(controladora->getRondas()->getCurrValue()->getJugadores()->getCurrValue()->getBActual()->getValue(),controladora->getRondas()->getCurrValue()->getJugadores()->getCurrValue());
-                                controladora->getRondas()->getCurrValue()->getCaldero2()->getBaraja()->print();
-                                break;
-                            case 3:
-                                controladora->getRondas()->getCurrValue()->addCaldero3(controladora->getRondas()->getCurrValue()->getJugadores()->getCurrValue()->getBActual()->getValue(),controladora->getRondas()->getCurrValue()->getJugadores()->getCurrValue());
-                                controladora->getRondas()->getCurrValue()->getCaldero3()->getBaraja()->print();
-                                break;
-                        }
-                        controladora->getRondas()->getCurrValue()->getJugadores()->getCurrValue()->getBActual()->goToPos(p);
-                    }
-                }
-           }
-       }*/
-<<<<<<< HEAD
-
-=======
-}
->>>>>>> origin/master
