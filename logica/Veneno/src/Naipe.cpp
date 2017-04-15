@@ -1,6 +1,6 @@
 #include "Naipe.h"
 #include <iostream>
-
+#include <string>
 using namespace std;
 
 //Constructor clase Naipe, asigna los valores iniciales de naipe
@@ -62,4 +62,17 @@ void Naipe::print()
 {
     cout<<"\nNomenclatura: "<<nomenclatura<<", Numero: "<<numero<<", Valor: "<<valor<<", Tipo de mazo: "<<mazo;
 }
+
+string Naipe::r_print()
+{
+    //cout<<"\nNomenclatura: "<<nomenclatura<<", Numero: "<<numero<<", Valor: "<<valor<<", Tipo de mazo: "<<mazo;
+    /*string nomenclatura2 = new string(nomenclatura);
+    string numero2 = new string(numero);
+    */
+    string a = string.valueOf(nomenclatura);
+    return "T:"<<nomenclatura2<<":N:"<<numero2;
+
+}
+
+
 

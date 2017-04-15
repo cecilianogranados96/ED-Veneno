@@ -16,32 +16,41 @@ int toint(string val){
 }
 int main(void)
 {
+    cout<<"\t\t\t VENENO GAME \n"<<endl;
     Controladora* controladora = new Controladora();
-   // WSockServer MyServer(REQ_WINSOCK_VER);
-    //MyServer.RunServer(1500,"Respuesta Inical a fuerta tiene que ir");
+    WSockServer MyServer(REQ_WINSOCK_VER);
+    MyServer.RunServer(1500,"Respuesta Inical a fuerta tiene que ir");
 
     int opcion = 0;
     while(true)
     {
-       // WSockServer MyServer(REQ_WINSOCK_VER);
+        WSockServer MyServer(REQ_WINSOCK_VER);
         cout<<"\n\nMenu\n\n0. Asignar cantidad jugadores\n1. Crear jugador(n)\n2. Ver jugador(cartas en mano)\n3. Ver nombre Jugador\n4. Ver caldero (s)\n5. Jugar (recibe jugador y carta, caldero a mover)\n6. Verificar ronda\n7. Ver ronda\n8. Ver jugadores actuales\n9. Ver jugadores\n10. Ver resultados\n11. Redo\n12. Undo\n13. Reset\n14. Buscar carta\n\nDigite su eleccion: ";
-        cin>>opcion;
-        //opcion = toint(MyServer.RunServer(1500,"Opcion OK"));
+        //cin>>opcion;
+        opcion = toint(MyServer.RunServer(1500,"Opcion OK"));
 
         if(opcion == 0){
             int numJugadores;
             cout<<"Digite la cantidad de jugadores [2-6]: ";
-            //WSockServer MyServer(REQ_WINSOCK_VER);
-            //numJugadores = toint(MyServer.RunServer(1500,"Opcion OK"));
-            cin>>numJugadores;
+
+            WSockServer MyServer(REQ_WINSOCK_VER);
+            numJugadores = toint(MyServer.RunServer(1500,"Opcion OK"));
+
+            //cin>>numJugadores;
             controladora->setNumJugadores(numJugadores);
             controladora->setNumJugadoresActual(numJugadores);
+            cout<<"NUM JUGADOR: "<<controladora->getNumJugadores();
+
         }
         if(opcion == 1)
         {
             string nombre;
             cout<<"\nDigite el nombre del jugador: ";
-            cin>>nombre;
+            //cin>>nombre;
+
+            WSockServer MyServer(REQ_WINSOCK_VER);
+            nombre = MyServer.RunServer(1500,"Opcion OK");
+
             controladora->crearJugadores(nombre);
             if(controladora->getNumJugadores() == controladora->getJugadores()->getSize()){
                 cout<<"\n\nSe crearon todos los jugadores\n\n";
@@ -55,26 +64,46 @@ int main(void)
         {
             int jugador;
             cout<<"Digite el numero de jugador a ver: ";
-            cin>>jugador;
+            //cin>>jugador;
+            WSockServer MyServer(REQ_WINSOCK_VER);
+            jugador = toint(MyServer.RunServer(1500,"Opcion OK"));
+
             controladora->getRondas()->goToEnd();
             controladora->getRondas()->getCurrValue()->getJugadores()->goToPos(jugador);
             controladora->getRondas()->getCurrValue()->getJugadores()->getCurrValue()->getBActual()->print();
+
+
+            //jugador = toint(MyServer.RunServer(1500,"Opcion OK"));
+
+
 
         }
         if(opcion == 3)
         {
             int jugador;
             cout<<"Digite el numero de jugador a ver: ";
-            cin>>jugador;
+            //cin>>jugador;
+            WSockServer MyServer(REQ_WINSOCK_VER);
             controladora->getRondas()->goToEnd();
             controladora->getRondas()->getCurrValue()->getJugadores()->goToPos(jugador);
-            cout<<controladora->getRondas()->getCurrValue()->getJugadores()->getCurrValue()->getNombre();
+
+            jugador = toint(MyServer.RunServer(1500,controladora->getRondas()->getCurrValue()->getJugadores()->getCurrValue()->getNombre()));
+
+            cout<<"NOMBRE JUGADOR: "<<controladora->getRondas()->getCurrValue()->getJugadores()->getCurrValue()->getNombre();
+
+            MyServer.send2(controladora->getRondas()->getCurrValue()->getJugadores()->getCurrValue()->getNombre());
+
         }
         if(opcion == 4)
         {
             int caldero;
             cout<<"Digite el numero de caldero: ";
-            cin>>caldero;
+            //cin>>caldero;
+
+            WSockServer MyServer(REQ_WINSOCK_VER);
+            caldero = toint(MyServer.RunServer(1500,"Opcion OK"));
+
+
             if(caldero == 1){
                 controladora->getRondas()->goToEnd();
                 controladora->getRondas()->getCurrValue()->getCaldero1()->getBaraja()->print();

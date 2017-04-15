@@ -33,22 +33,25 @@ string WSockServer::RunServer(int PortNumber,string text)
 		throw "No se puede conectar al socket.";
 	if(listen(hSocket, SOMAXCONN) != 0)
 		throw "No se puede colocar el socket en listen.";
-
 	/*
-	cout << "\t\tVENENO GAME: " << endl;
+	cout << "INICIO: " << endl;
 	cout << "IP: " << inet_ntoa(sockAddr.sin_addr) << endl;
 	cout << "PUERTO: " << ntohs(sockAddr.sin_port) << endl << endl;
 	*/
 	int SizeAddr = sizeof(ClientAddr);
-	cout << "Esperando coneccion... ";
+	cout << "Esperando... ";
 	ClientSocket = accept(hSocket, (sockaddr*)(&ClientAddr), &SizeAddr);
-	cout << "Coneccion iniciada!" << endl;
+	cout << "Coneccion Iniciada---";
+
     int BytesRec = recv(ClientSocket, Buffer, sizeof(Buffer), 0);
-	cout << "Recibo del cliente: " << Buffer << endl;
+    Buffer[BytesRec] = 0;
+	cout << "OPT: " << Buffer;
     closesocket(hSocket);
     send2(text);
+
 	return Buffer;
 }
+
 
 void WSockServer::send2(string str)
 {
@@ -56,7 +59,7 @@ void WSockServer::send2(string str)
     copy(str.begin(), str.end(), writable);
     writable[str.size()] = '\0'; // don't forget the terminating 0
     send(ClientSocket, writable, str.size()+1, 1);
-    cout << "ENVIADO AL CLIENTE: "<< writable  <<endl;
+    cout << "SEND: "<< writable  <<endl;
     delete[] writable;
 }
 

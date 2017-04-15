@@ -1,24 +1,9 @@
 <?php
-	if(isset($_GET['turno'])){
-		$turno = $_GET['turno']; 
-	}else{
-		$turno = 0; 
-	}
-	if(isset($_GET['jugador'])){
-		$jugador = $_GET['jugador']; 
-		$nombre_jugador = $_GET['J'.$_GET['jugador'].''];
-	}else{
-		$jugador = 0;
-		$nombre_jugador = $_GET['J0'];
-	}
-	$mantener_jugadores = "";
-	for($x=0;$x<$_GET['jugadores'];$x++){
-			$mantener_jugadores = $mantener_jugadores."J$x=".$_GET["J$x"]."&";
-	}
-	$url_juego = "juego.php?".$mantener_jugadores."&turno=".($turno+1)."&jugador=".($jugador+1)."&jugadores=".($_GET['jugadores']);
+	$url_juego = "juego.php?jugadores=".$_GET['jugadores']."&jugador=".($_GET['jugador']+1)."";
 ?>
 <html lang="es" class="no-js">
 	<head>
+	
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Veneno Game</title>
@@ -35,6 +20,22 @@
 		<link rel="stylesheet" type="text/css" href="css/cartas.css" />
 		<script src="https://raw.githubusercontent.com/furf/jquery-ui-touch-punch/master/jquery.ui.touch-punch.min.js"></script>
 		<script src="js/juego.js"></script>
+	<script>
+			$.post('Logica/s.php',{mensaje: 3 },function(data2){
+				$.post('Logica/s.php',{mensaje: <?php echo $_GET['jugador']; ?> },function( data ) {
+					console.log(data);
+					$("#nombre_jugador").text(data);
+				});
+			});
+			
+			/*
+			$.get("Logica/rec.php",function(data, status){
+				$("#nombre_jugador").text(data);
+			});
+			*/
+				
+	</script>
+	
 	</head>
 	<body class="demo-2" style="overflow-x: hidden; overflow-y: hidden;" >
 		<main>
@@ -46,13 +47,13 @@
 			<a class="siguiente" id="siguiente" href="anterior.php" ><center>Siguiente</center></a>
 			<a class="jugar" id="jugar" href="<?php echo $url_juego; ?>"><center>Jugar</center></a>
 			<center>
-				<h1 class="codrops-header__title"><?php echo $nombre_jugador;?></h1>
+				<h1 class="codrops-header__title" id="nombre_jugador"></h1>
 			</center>
 			<div class="puntos">
 				<h1>Ronda</h1><br>
-				<h1><center><?php echo $turno;?></center></h1><hr>
+				<h1><center>0</center></h1><hr>
 				<h1>Turno</h1><br>
-				<h1><center><?php echo $turno;?></center></h1><hr>
+				<h1><center>0</center></h1><hr>
 				<h1>Puntos</h1><br>
 				<h1><center>0</center></h1>
 					<!--PUNTOS 2-->

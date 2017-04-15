@@ -18,7 +18,7 @@ class Naipe
         void setValor(float valor);
         void setMazo(char mazo);
         void print();
-
+        string r_print();
     private:
         char nomenclatura;
         string numero;

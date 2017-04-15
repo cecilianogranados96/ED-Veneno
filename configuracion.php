@@ -9,14 +9,8 @@
 		<link rel="stylesheet" type="text/css" href="css/demo.css" />
 		<link rel="stylesheet" type="text/css" href="css/decolines.css" />
 		<link rel="stylesheet" type="text/css" href="css/pater.css" />
-				<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+		<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
 		<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
-		<script>
-		$.post( "Logica/s.php", {mensaje: "0" },function( data ) {
-			//$("#caldero2").append(data);
-			console.log(data);
-		});	
-		</script>
 		<link href="https://fonts.googleapis.com/css?family=Bungee+Inline|Roboto+Mono" rel="stylesheet">
 		<style>
 			.numeros{ 
@@ -40,35 +34,69 @@
 				<p class="codrops-header__tagline">Configuraremos algunas cosas antes de inciar el juego. </p>
 			</header>
 			<?php if(!isset($_GET['jugadores'])){ ?>
+			<script>
+			$.post( "Logica/s.php", {mensaje: "0" },function( data ) {
+				console.log(data); 
+			});	
+			</script>
 				<p class="codrops-header__tagline" style="margin-left:22%;">Selecciona la cantidad de jugadores. </p>
 				<center>
-					<a href="configuracion.php?jugadores=2"><img class="numeros" src="img/jugadores/2.png"></a>
-					<a href="configuracion.php?jugadores=3"><img class="numeros" src="img/jugadores/3.png"></a>
-					<a href="configuracion.php?jugadores=4"><img class="numeros" src="img/jugadores/4.png"></a>
-					<a href="configuracion.php?jugadores=5"><img class="numeros" src="img/jugadores/5.png"></a>
-					<a href="configuracion.php?jugadores=6"><img class="numeros" src="img/jugadores/6.png"></a>
+					<a href="configuracion.php?jugadores=2&jugador=0"><img class="numeros" src="img/jugadores/2.png"></a>
+					<a href="configuracion.php?jugadores=3&jugador=0"><img class="numeros" src="img/jugadores/3.png"></a>
+					<a href="configuracion.php?jugadores=4&jugador=0"><img class="numeros" src="img/jugadores/4.png"></a>
+					<a href="configuracion.php?jugadores=5&jugador=0"><img class="numeros" src="img/jugadores/5.png"></a>
+					<a href="configuracion.php?jugadores=6&jugador=0"><img class="numeros" src="img/jugadores/6.png"></a>
 				</center>
 				<?php }else{ ?>
-	<script>
-		$.post( "Logica/s.php", {mensaje: <?php echo $_GET['jugadores']; ?> },function( data ) {
-			//$("#caldero2").append(data);
-			console.log(data);
-		});	
-		</script>
-		
-				<form action="juego.php?jugadores=<?php echo $_GET['jugadores']; ?>" method="GET">
+				
+				<?php 
+				if ($_GET['jugador'] == 0){
+					echo "<script>
+							$.post('Logica/s.php', {mensaje: ".$_GET['jugadores']." },function( data ) {
+								console.log(data);
+							});	
+						</script>";
+				}
+
+				if(isset($_GET['nom'])){
+					
+					//echo $_GET['nom'];
+					echo "<script>
+							$.post('Logica/s.php', {mensaje: 1 },function( data ) {
+								console.log(data);
+								$.post('Logica/s.php', {mensaje: '".$_GET['nom']."' },function( data ) {
+									console.log(data);
+								});
+							});
+					</script>";
+					if(($_GET['jugadores']) == $_GET['jugador']){
+						echo "FIN";
+						echo "<script>window.location='juego.php?jugadores=".$_GET['jugadores']."&jugador=0'</script>";
+					}
+				}
+				
+				if(($_GET['jugadores']-1) == $_GET['jugador']){
+					//$url = "juego.php";
+					$text = "JUEGO";
+				}else{
+					//$url = "configuracion.php?jugadores=".$_GET['jugadores']."&jugador=".($_GET['jugador']+1)."";
+					$text = "Siguiente";
+				}
+				
+				$url = "configuracion.php?jugadores=".$_GET['jugadores']."&jugador=".($_GET['jugador']+1)."";
+				
+				?>
+				<form action="<?php echo $url; ?>" method="GET">
 					<p class="codrops-header__tagline" style="margin-left:22%;">Digita los nombres de los jugadores. </p>
 					<section class="content content--grid">
-						<?php 
-							for($x=0;$x<$_GET['jugadores'];$x++){
-								echo "<p><input type='text' name='J$x'class='form-control'  placeholder='Jugador #$x' required autofocus></p>";
-							}
-						?>
+						<center>
+							<input type='text' name='nom' class='form-control'  placeholder='Digite el nombre del Jugador #<?php echo $_GET['jugador']; ?>' style="height: 49px;width: 28%;" required autofocus>
+						</center>
 						<input type='text' name='jugadores' value="<?php echo $_GET['jugadores']; ?>" hidden>
 						<input type='text' name='turno' value="0" hidden>
-						<input type='text' name='jugador' value="0" hidden>
+						<input type='text' name='jugador' value="<?php echo $_GET['jugador']+1; ?>" hidden>
 						<center>
-							<button type="submit" class="btn btn-success"><h1>Enviar</h1></button>
+							<button type="submit" class="btn btn-success"><h1><?php echo $text; ?></h1></button>
 						</center>
 					</form>
 				</section>
