@@ -17,117 +17,144 @@ int toint(string val){
 int main(void)
 {
     Controladora* controladora = new Controladora();
-    WSockServer MyServer(REQ_WINSOCK_VER);
-    MyServer.RunServer(1500,"Respuesta Inical a fuerta tiene que ir");
+   // WSockServer MyServer(REQ_WINSOCK_VER);
+    //MyServer.RunServer(1500,"Respuesta Inical a fuerta tiene que ir");
 
     int opcion = 0;
     while(true)
     {
-        WSockServer MyServer(REQ_WINSOCK_VER);
-        cout<<"\n\nMenu\n0. Asignar cantidad jugadores\n1. Crear jugador(n)\n2. Ver jugador(cartas en mano)\n3. Ver nombre Jugador\n4. Ver caldero (s)\n5. Jugar (recibe jugador y carta, caldero a mover)\n6. Salir\n\nDigite su eleccion: ";
+       // WSockServer MyServer(REQ_WINSOCK_VER);
+        cout<<"\n\nMenu\n\n0. Asignar cantidad jugadores\n1. Crear jugador(n)\n2. Ver jugador(cartas en mano)\n3. Ver nombre Jugador\n4. Ver caldero (s)\n5. Jugar (recibe jugador y carta, caldero a mover)\n6. Verificar ronda\n7. Ver ronda\n8. Ver jugadores actuales\n9. Ver jugadores\n10. Ver resultados\n11. Redo\n12. Undo\n13. Reset\n14. Buscar carta\n\nDigite su eleccion: ";
+        cin>>opcion;
+        //opcion = toint(MyServer.RunServer(1500,"Opcion OK"));
 
-        opcion = toint(MyServer.RunServer(1500,"Opcion OK"));
-
-        switch(opcion){
-            case 0:
-                int numJugadores;
-                cout<<"Digite la cantidad de jugadores [2-6]: ";
-                //cin>>numJugadores;
-                //WSockServer MyServer(REQ_WINSOCK_VER);
-                numJugadores = toint(MyServer.RunServer(1500,"Opcion OK"));
-
-                controladora->setNumJugadores(numJugadores);
-                controladora->setNumJugadoresActual(numJugadores);
-                break;
-            case 1:
-                {
-                    string nombre;
-                    cout<<"\nDigite el nombre del jugador: ";
-                    cin>>nombre;
-                    controladora->crearJugadores(nombre);
-                    if(controladora->getNumJugadores() == controladora->getJugadores()->getSize()){
-                        cout<<"\n\nSe crearon todos los jugadores\n\n";
-                        controladora->setJugadoresActual(controladora->getJugadores());
-                        controladora->crearRondas();
-                        controladora->getRondas()->goToEnd();
-                        controladora->getRondas()->getCurrValue()->barajar();
-                    }
-                }
-                break;
-            case 2:
-                {
-                    int jugador;
-                    cout<<"Digite el número de jugador a ver: ";
-                    cin>>jugador;
-                    controladora->getRondas()->goToEnd();
-                    controladora->getRondas()->getCurrValue()->getJugadores()->goToPos(jugador);
-                    controladora->getRondas()->getCurrValue()->getJugadores()->getCurrValue()->getBActual()->print();
-
-                }
-                break;
-
-            case 3:
-                {
-                    int jugador;
-                    cout<<"Digite el número de jugador a ver: ";
-                    cin>>jugador;
-                    controladora->getRondas()->goToEnd();
-                    controladora->getRondas()->getCurrValue()->getJugadores()->goToPos(jugador);
-                    cout<<controladora->getRondas()->getCurrValue()->getJugadores()->getCurrValue()->getNombre();
-                }
-                break;
-
-            case 4:
-                {
-                    int caldero;
-                    cout<<"Digite el número de caldero";
-                    cin>>caldero;
-                    if(caldero == 1){
-                        controladora->getRondas()->goToEnd();
-                        controladora->getRondas()->getCurrValue()->getCaldero1()->getBaraja()->print();
-                    }
-                    if(caldero == 2){
-                        controladora->getRondas()->goToEnd();
-                        controladora->getRondas()->getCurrValue()->getCaldero2()->getBaraja()->print();
-                    }
-                    if(caldero == 3){
-                        controladora->getRondas()->goToEnd();
-                        controladora->getRondas()->getCurrValue()->getCaldero3()->getBaraja()->print();
-                    }
-
-                }
-                break;
-
-            case 5:
-                {
-                    controladora->getRondas()->goToEnd();
-                    int jugador, caldero, carta;
-                    cout<<"Digite el numero de jugador: ";
-                    cin>>jugador;
-                    cout<<"Digite el caldero: ";
-                    cin>>caldero;
-                    cout<<"Digite la posicion de la carta: ";
-                    cin>>carta;
-                    controladora->getRondas()->getCurrValue()->getJugadores()->goToPos(jugador);
-                    controladora->getRondas()->getCurrValue()->getJugadores()->getCurrValue()->getBActual()->goToPos(carta);
-                    switch(caldero){
-                        case 1:
-                            controladora->getRondas()->getCurrValue()->addCaldero1(controladora->getRondas()->getCurrValue()->getJugadores()->getCurrValue()->getBActual()->getValue(),controladora->getRondas()->getCurrValue()->getJugadores()->getCurrValue());
-                            controladora->getRondas()->getCurrValue()->getCaldero1()->getBaraja()->print();
-
-                            break;
-                        case 2:
-                            controladora->getRondas()->getCurrValue()->addCaldero2(controladora->getRondas()->getCurrValue()->getJugadores()->getCurrValue()->getBActual()->getValue(),controladora->getRondas()->getCurrValue()->getJugadores()->getCurrValue());
-                            controladora->getRondas()->getCurrValue()->getCaldero2()->getBaraja()->print();
-                            break;
-                        case 3:
-                            controladora->getRondas()->getCurrValue()->addCaldero3(controladora->getRondas()->getCurrValue()->getJugadores()->getCurrValue()->getBActual()->getValue(),controladora->getRondas()->getCurrValue()->getJugadores()->getCurrValue());
-                            controladora->getRondas()->getCurrValue()->getCaldero3()->getBaraja()->print();
-                            break;
-
-                    }
-                break;
+        if(opcion == 0){
+            int numJugadores;
+            cout<<"Digite la cantidad de jugadores [2-6]: ";
+            //WSockServer MyServer(REQ_WINSOCK_VER);
+            //numJugadores = toint(MyServer.RunServer(1500,"Opcion OK"));
+            cin>>numJugadores;
+            controladora->setNumJugadores(numJugadores);
+            controladora->setNumJugadoresActual(numJugadores);
+        }
+        if(opcion == 1)
+        {
+            string nombre;
+            cout<<"\nDigite el nombre del jugador: ";
+            cin>>nombre;
+            controladora->crearJugadores(nombre);
+            if(controladora->getNumJugadores() == controladora->getJugadores()->getSize()){
+                cout<<"\n\nSe crearon todos los jugadores\n\n";
+                controladora->setJugadoresActual(controladora->getJugadores());
+                controladora->crearRondas();
+                controladora->getRondas()->goToEnd();
+                controladora->getRondas()->getCurrValue()->barajar();
             }
+        }
+        if(opcion == 2)
+        {
+            int jugador;
+            cout<<"Digite el numero de jugador a ver: ";
+            cin>>jugador;
+            controladora->getRondas()->goToEnd();
+            controladora->getRondas()->getCurrValue()->getJugadores()->goToPos(jugador);
+            controladora->getRondas()->getCurrValue()->getJugadores()->getCurrValue()->getBActual()->print();
+
+        }
+        if(opcion == 3)
+        {
+            int jugador;
+            cout<<"Digite el numero de jugador a ver: ";
+            cin>>jugador;
+            controladora->getRondas()->goToEnd();
+            controladora->getRondas()->getCurrValue()->getJugadores()->goToPos(jugador);
+            cout<<controladora->getRondas()->getCurrValue()->getJugadores()->getCurrValue()->getNombre();
+        }
+        if(opcion == 4)
+        {
+            int caldero;
+            cout<<"Digite el numero de caldero: ";
+            cin>>caldero;
+            if(caldero == 1){
+                controladora->getRondas()->goToEnd();
+                controladora->getRondas()->getCurrValue()->getCaldero1()->getBaraja()->print();
+            }
+            if(caldero == 2){
+                controladora->getRondas()->goToEnd();
+                controladora->getRondas()->getCurrValue()->getCaldero2()->getBaraja()->print();
+            }
+            if(caldero == 3){
+                controladora->getRondas()->goToEnd();
+                controladora->getRondas()->getCurrValue()->getCaldero3()->getBaraja()->print();
+            }
+
+        }
+        if(opcion == 5)
+        {
+            controladora->getRondas()->goToEnd();
+            if(controladora->getRondas()->getSize() == 1 && controladora->getRondas()->getCurrValue()->getMovimientos()->getSize() == 0)
+                controladora->setJugadoresActual(controladora->getJugadores());
+            if(controladora->getNumJugadoresActual()>1){
+                int jugador, caldero, carta;
+                cout<<"Digite el numero de jugador: ";
+                cin>>jugador;
+                cout<<"Digite el caldero: ";
+                cin>>caldero;
+                cout<<"Digite la posicion de la carta: ";
+                cin>>carta;
+                controladora->getRondas()->getCurrValue()->getJugadores()->goToPos(jugador);
+                controladora->getRondas()->getCurrValue()->getJugadores()->getCurrValue()->getBActual()->goToPos(carta);
+                if(caldero == 1){
+                    controladora->getRondas()->getCurrValue()->addCaldero1(controladora->getRondas()->getCurrValue()->getJugadores()->getCurrValue()->getBActual()->getValue(),controladora->getRondas()->getCurrValue()->getJugadores()->getCurrValue());
+                    controladora->getRondas()->getCurrValue()->getCaldero1()->getBaraja()->print();
+                }
+                if(caldero == 2){
+                    controladora->getRondas()->getCurrValue()->addCaldero2(controladora->getRondas()->getCurrValue()->getJugadores()->getCurrValue()->getBActual()->getValue(),controladora->getRondas()->getCurrValue()->getJugadores()->getCurrValue());
+                    controladora->getRondas()->getCurrValue()->getCaldero2()->getBaraja()->print();
+                }
+                if(caldero == 3){
+                    controladora->getRondas()->getCurrValue()->addCaldero3(controladora->getRondas()->getCurrValue()->getJugadores()->getCurrValue()->getBActual()->getValue(),controladora->getRondas()->getCurrValue()->getJugadores()->getCurrValue());
+                    controladora->getRondas()->getCurrValue()->getCaldero3()->getBaraja()->print();
+                }
+            }
+        }
+        if(opcion == 6){
+            if(controladora->getRondas()->getCurrValue()->getBEnJuego()->getSize() >= (controladora->getRondas()->getCurrValue()->getCantidad() * controladora->getRondas()->getCurrValue()->getJugadores()->getSize())){
+                controladora->getRondas()->getCurrValue()->barajar();
+            }
+            else{
+                controladora->getRondas()->getCurrValue()->setState(false);
+                controladora->crearRondas();
+            }
+        }
+        if(opcion == 7){
+            controladora->getRondas()->getSize();
+        }
+        if(opcion == 8){
+            controladora->getRondas()->getCurrValue()->getJugadores();
+        }
+        if(opcion == 9){
+            controladora->getJugadores();
+        }
+        if(opcion == 10){
+            controladora->getJugadores();
+        }
+        if(opcion == 11){
+            controladora->getRondas()->goToEnd();
+            controladora->getRondas()->getCurrValue()->redoMovimiento();
+        }
+        if(opcion == 12){
+            controladora->getRondas()->goToEnd();
+            controladora->getRondas()->getCurrValue()->undoMovimiento();
+        }
+        if(opcion == 13){
+            controladora->getRondas()->goToEnd();
+            controladora->getRondas()->getCurr()->setValue(new Ronda(controladora->getJugadoresActual(), controladora->getBOrdenada()));
+        }
+        if(opcion == 14){
+            //busca la carta
         }
     }
 }
+
+

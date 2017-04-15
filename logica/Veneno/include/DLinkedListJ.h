@@ -4,9 +4,6 @@
 #include <cstddef>
 #include "DNodeJ.h"
 
-class DNodeJ;
-class Jugador;
-
 class DLinkedListJ
 {
     public:

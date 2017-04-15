@@ -175,7 +175,7 @@ void Controladora::crearBOriginal()
             f = (float)j;
             if(i==0){
                 if(j==1){
-                    bOrdenada->append(new Naipe('D',"A",f,barajaOriginal));
+                    bOrdenada->append(new Naipe('D',"A",f,barajaOriginal->getTipo()));
                 }
                 else{
                     if(j<=10 && j>0){
@@ -184,25 +184,25 @@ void Controladora::crearBOriginal()
                         ostringstream temp;
                         temp<<j;
                         str=temp.str();
-                        bOrdenada->append(new Naipe('D',str,f,barajaOriginal));
+                        bOrdenada->append(new Naipe('D',str,f,barajaOriginal->getTipo()));
                     }
                     else
                     {
                         if(j==11)
-                            bOrdenada->append(new Naipe('D',"J",0.5,barajaOriginal));
+                            bOrdenada->append(new Naipe('D',"J",0.5,barajaOriginal->getTipo()));
                         else
                         {
                             if(j==12)
-                                bOrdenada->append(new Naipe('D',"Q",0.5,barajaOriginal));
+                                bOrdenada->append(new Naipe('D',"Q",0.5,barajaOriginal->getTipo()));
                             else
-                                bOrdenada->append(new Naipe('D',"K",0.5,barajaOriginal));
+                                bOrdenada->append(new Naipe('D',"K",0.5,barajaOriginal->getTipo()));
                         }
                     }
                 }
             }
             if(i==1){
                 if(j==1){
-                    bOrdenada->append(new Naipe('P',"A",f,barajaOriginal));
+                    bOrdenada->append(new Naipe('P',"A",f,barajaOriginal->getTipo()));
                 }
                 else{
                     if(j<=10 && j>0){
@@ -211,25 +211,25 @@ void Controladora::crearBOriginal()
                         ostringstream temp;
                         temp<<j;
                         str=temp.str();
-                        bOrdenada->append(new Naipe('P',str,f,barajaOriginal));
+                        bOrdenada->append(new Naipe('P',str,f,barajaOriginal->getTipo()));
                     }
                     else
                     {
                         if(j==11)
-                            bOrdenada->append(new Naipe('P',"J",0.5,barajaOriginal));
+                            bOrdenada->append(new Naipe('P',"J",0.5,barajaOriginal->getTipo()));
                         else
                         {
                             if(j==12)
-                                bOrdenada->append(new Naipe('P',"Q",0.5,barajaOriginal));
+                                bOrdenada->append(new Naipe('P',"Q",0.5,barajaOriginal->getTipo()));
                             else
-                                bOrdenada->append(new Naipe('P',"K",0.5,barajaOriginal));
+                                bOrdenada->append(new Naipe('P',"K",0.5,barajaOriginal->getTipo()));
                         }
                     }
                 }
             }
             if(i==2){
                 if(j==1){
-                    bOrdenada->append(new Naipe('T',"A",f,barajaOriginal));
+                    bOrdenada->append(new Naipe('T',"A",f,barajaOriginal->getTipo()));
                 }
                 else{
                     if(j<=10 && j>0){
@@ -238,25 +238,25 @@ void Controladora::crearBOriginal()
                         ostringstream temp;
                         temp<<j;
                         str=temp.str();
-                        bOrdenada->append(new Naipe('T',str,f,barajaOriginal));
+                        bOrdenada->append(new Naipe('T',str,f,barajaOriginal->getTipo()));
                     }
                     else
                     {
                         if(j==11)
-                            bOrdenada->append(new Naipe('T',"J",0.5,barajaOriginal));
+                            bOrdenada->append(new Naipe('T',"J",0.5,barajaOriginal->getTipo()));
                         else
                         {
                             if(j==12)
-                                bOrdenada->append(new Naipe('T',"Q",0.5,barajaOriginal));
+                                bOrdenada->append(new Naipe('T',"Q",0.5,barajaOriginal->getTipo()));
                             else
-                                bOrdenada->append(new Naipe('T',"K",0.5,barajaOriginal));
+                                bOrdenada->append(new Naipe('T',"K",0.5,barajaOriginal->getTipo()));
                         }
                     }
                 }
             }
             if(i==3){
                 if(j==1){
-                    bOrdenada->append(new Naipe('C',"A",f,barajaOriginal));
+                    bOrdenada->append(new Naipe('C',"A",f,barajaOriginal->getTipo()));
                 }
                 else{
                     if(j<=10 && j>0){
@@ -265,18 +265,18 @@ void Controladora::crearBOriginal()
                         ostringstream temp;
                         temp<<j;
                         str=temp.str();
-                        bOrdenada->append(new Naipe('C',str,f,barajaOriginal));
+                        bOrdenada->append(new Naipe('C',str,f,barajaOriginal->getTipo()));
                     }
                     else
                     {
                         if(j==11)
-                            bOrdenada->append(new Naipe('C',"J",0.5,barajaOriginal));
+                            bOrdenada->append(new Naipe('C',"J",0.5,barajaOriginal->getTipo()));
                         else
                         {
                             if(j==12)
-                                bOrdenada->append(new Naipe('C',"Q",0.5,barajaOriginal));
+                                bOrdenada->append(new Naipe('C',"Q",0.5,barajaOriginal->getTipo()));
                             else
-                                bOrdenada->append(new Naipe('C',"K",0.5,barajaOriginal));
+                                bOrdenada->append(new Naipe('C',"K",0.5,barajaOriginal->getTipo()));
                         }
                     }
                 }

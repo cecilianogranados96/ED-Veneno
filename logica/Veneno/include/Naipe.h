@@ -4,28 +4,26 @@
 
 using namespace std;
 
-class Baraja;
-
 class Naipe
 {
     public:
-        Naipe(char nomenclatura, string numero, float valor, Baraja* mazo);
+        Naipe(char nomenclatura, string numero, float valor, char mazo);
         virtual ~Naipe();
         char getNomenclatura();
         string getNumero();
         float getValor();
-        Baraja* getMazo();
+        char getMazo();
         void setNomenclatura(char nomenclatura);
         void setNumero(string numero);
         void setValor(float valor);
-        void setMazo(Baraja* mazo);
+        void setMazo(char mazo);
         void print();
 
     private:
         char nomenclatura;
         string numero;
         float valor;
-        Baraja* mazo;
+        char mazo;
 };
 
 #endif // NAIPE_H

@@ -1,12 +1,8 @@
 #ifndef RONDA_H
 #define RONDA_H
-
-class DLinkedListJ;
-class DLinkedListM;
-class ArrayList;
-class Jugador;
-class Baraja;
-class Naipe;
+#include "DLinkedListJ.h"
+#include "DLinkedListM.h"
+#include "ArrayList.h"
 
 class Ronda
 {

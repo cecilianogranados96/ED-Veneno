@@ -5,8 +5,6 @@
 
 using namespace std;
 
-class Movimiento;
-
 class DNodeM
 {
     public:

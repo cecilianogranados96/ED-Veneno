@@ -1,8 +1,6 @@
 #ifndef JUGADOR_H
 #define JUGADOR_H
-#include "Baraja.h"
-
-using namespace std;
+#include "ArrayList.h"
 
 class Jugador
 {

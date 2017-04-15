@@ -1,8 +1,7 @@
 #ifndef MOVIMIENTO_H
 #define MOVIMIENTO_H
 #include "Jugador.h"
-
-class Jugador;
+#include "Baraja.h"
 
 class Movimiento
 {

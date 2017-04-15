@@ -1,13 +1,6 @@
 #ifndef BARAJA_H
 #define BARAJA_H
-#include "Naipe.h"
 #include "ArrayList.h"
-#include "Controladora.h"
-#include <iostream>
-
-class ArrayList;
-class Controladora;
-using namespace std;
 
 class Baraja
 {

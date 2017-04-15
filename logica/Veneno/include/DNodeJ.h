@@ -3,10 +3,6 @@
 #define DNODEJ_H
 #include "Jugador.h"
 
-using namespace std;
-
-class Jugador;
-
 class DNodeJ
 {
     public:

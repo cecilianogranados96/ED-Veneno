@@ -1,12 +1,7 @@
 #ifndef CONTROLADORA_H
 #define CONTROLADORA_H
-#include "Baraja.h"
-#include <Jugador.h>
 #include "DLinkedListJ.h"
 #include "DLinkedListR.h"
-
-class DLinkedListJ;
-class Jugador;
 
 class Controladora
 {

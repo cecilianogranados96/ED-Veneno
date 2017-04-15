@@ -4,9 +4,6 @@
 #include <cstddef>
 #include "DNodeR.h"
 
-class DNodeR;
-class Ronda;
-
 class DLinkedListR
 {
     public:

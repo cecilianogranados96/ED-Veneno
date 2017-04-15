@@ -4,7 +4,7 @@
 using namespace std;
 
 //Constructor clase Naipe, asigna los valores iniciales de naipe
-Naipe::Naipe(char nomenclatura, string numero, float valor, Baraja* mazo)
+Naipe::Naipe(char nomenclatura, string numero, float valor, char mazo)
 {
     this->nomenclatura = nomenclatura;
     this->numero = numero;
@@ -14,9 +14,7 @@ Naipe::Naipe(char nomenclatura, string numero, float valor, Baraja* mazo)
 
 //Destructor de la clase
 Naipe::~Naipe()
-{
-    delete mazo;
-}
+{}
 
 //Getters
 char Naipe::getNomenclatura()
@@ -34,7 +32,7 @@ float Naipe::getValor()
     return valor;
 }
 
-Baraja* Naipe::getMazo()
+char Naipe::getMazo()
 {
     return mazo;
 }
@@ -55,13 +53,13 @@ void Naipe::setValor(float valor)
     this->valor = valor;
 }
 
-void Naipe::setMazo(Baraja* mazo)
+void Naipe::setMazo(char mazo)
 {
     this->mazo = mazo;
 }
 
 void Naipe::print()
 {
-    cout<<"\nNomenclatura: "<<nomenclatura<<", Numero: "<<numero<<", Valor: "<<valor;//<<", Tipo de mazo: "<<mazo->getTipo();
+    cout<<"\nNomenclatura: "<<nomenclatura<<", Numero: "<<numero<<", Valor: "<<valor<<", Tipo de mazo: "<<mazo;
 }
 

@@ -4,9 +4,6 @@
 #include <cstddef>
 #include "DNodeM.h"
 
-class DNodeM;
-class Movimiento;
-
 class DLinkedListM
 {
     public:

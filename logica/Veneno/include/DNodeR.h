@@ -3,10 +3,6 @@
 #define DNODER_H
 #include "Ronda.h"
 
-using namespace std;
-
-class Jugador;
-
 class DNodeR
 {
     public:

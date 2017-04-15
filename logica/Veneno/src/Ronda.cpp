@@ -14,6 +14,7 @@ Ronda::Ronda(DLinkedListJ* jugadores, ArrayList* bOrdenada)
     bCaldero1 = new Baraja('V', 15);
     bCaldero2 = new Baraja('V', 15);
     bCaldero3 = new Baraja('V', 15);
+    movimientos = new DLinkedListM();
     bEnJuego = bOrdenada;
     state = true;
     setCantidad();
