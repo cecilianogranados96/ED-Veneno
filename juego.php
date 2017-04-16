@@ -1,9 +1,8 @@
 <?php
-	
 	if ($_GET['jugadores']-1 == $_GET['jugador']){
-		$url_juego = "juego.php?jugadores=".$_GET['jugadores']."&jugador=".($_GET['jugador']+1)."";
-	}else{
 		$url_juego = "juego.php?jugadores=".$_GET['jugadores']."&jugador=0";
+	}else{
+		$url_juego = "juego.php?jugadores=".$_GET['jugadores']."&jugador=".($_GET['jugador']+1)."";
 	}	
 ?>
 <html lang="es" class="no-js">
@@ -29,6 +28,7 @@
 				$("#nombre_jugador").text(data);
 				$.post('Logica/cartas_mano.php',{id:  <?php echo $_GET['jugador']; ?> },function(data2){
 					var x = data2.split("-");
+					console.log(x);
 					for (i=0;i<x.length-1;i++){
 						var S = x[i].split(":");
 						$("#dock_cartas").append('<img src="img/cartas/'+S[1]+S[0]+'.png" id="'+S[1]+S[0]+'" type="'+i+'" class="dock_cartas inbound">');	
@@ -72,20 +72,22 @@
 				<a class="codrops-icon codrops-icon--prev" href="configuracion.php">Atras</a>
 				<a class="codrops-icon codrops-icon--drop" href="ayuda.php">Ayuda</a>
 			</div>
+			<!--OPCIONES-->
 			<a class="anterior" id="anterior" href="anterior.php" ><center>Anterior</center></a>
 			<a class="siguiente" id="siguiente" href="anterior.php" ><center>Siguiente</center></a>
 			<a class="jugar" id="jugar" href="<?php echo $url_juego; ?>"><center>Jugar</center></a>
 			<center>
+				<!--NOMBRE DEL JUGADOR-->
 				<h1 class="codrops-header__title" id="nombre_jugador"></h1>
 			</center>
 			<div class="puntos">
+				<!--PUNTOS-->
 				<h1>Ronda</h1><br>
 				<h1><center>0</center></h1><hr>
 				<h1>Turno</h1><br>
 				<h1><center>0</center></h1><hr>
 				<h1>Puntos</h1><br>
 				<h1><center>0</center></h1>
-					<!--PUNTOS 2-->
 			</div>
 			<div class="calero1 caldero" id="caldero1">	  
 				<!--CALDERO 1-->

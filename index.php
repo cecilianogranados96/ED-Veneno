@@ -1,5 +1,4 @@
-<?php //system('logica\Veneno\bin\Debug\Veneno.exe'); ?>
-<html lang="en">
+<html lang="es">
 	<head>
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,12 +7,15 @@
 		<link rel="stylesheet" type="text/css" href="css/animacion/css/normalize.css" />
 		<link rel="stylesheet" type="text/css" href="css/animacion/css/demo.css" />
 		<link rel="stylesheet" type="text/css" href="css/animacion/css/husky.css" />
-				<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+		<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
 		<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
 		<script>
-		$.post( "Logica/s.php", {mensaje: "Inicial" },function( data ) {
-			//$("#caldero2").append(data);
-		});	
+		$.post("Logica/s.php",{mensaje: "Inicial"},function(data){});	
+		/*console.log("ENTRE");
+		$.post( "Logica/start.php", {mensaje: "Inicial" },function( data ) {
+			console.log(data);
+		});
+		*/
 		</script>
 		<!--[if IE]>
 			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -23,14 +25,14 @@
 		<div class="snow"></div>
 		<div class="container">
 			<header class="codrops-header">
-	
-					<a href="ayuda.php"><span>Ayuda</span></a>
-				
-				<h1><a href="configuracion.php">Veneno Game</a></h1>
+				<a href="ayuda.php"><span>Ayuda</span></a>
+				<h1>
+					<a href="configuracion.php">Veneno Game</a>
+				</h1>
 				<br>
-				<h1><a href="configuracion.php">Iniciar</a></h1>
-				
-				
+				<h1>
+					<a href="configuracion.php">Iniciar</a>
+				</h1>
 			</header>
 			<div class="content content--husky">
 				<div class="mountain"></div>
@@ -101,7 +103,7 @@
 						</filter>
 					</defs>
 				</svg>
-			</div><!-- /content -->
-		</div><!-- /container -->
+			</div>
+		</div>
 	</body>
 </html>

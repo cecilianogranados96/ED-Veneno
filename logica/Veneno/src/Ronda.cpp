@@ -354,11 +354,12 @@ void Ronda::barajar()
 //Devuelve el total de cartas en las manos de los jugadores
 int Ronda::totalNaipes()
 {
-    int total;
+    int total = 0;
     for(int i=0; i<jugadores->getSize(); i++){
         jugadores->goToPos(i);
         total = total + jugadores->getCurrValue()->getBActual()->getSize();
     }
+    return total;
 }
 
 //Devuelve al movimiento anterior

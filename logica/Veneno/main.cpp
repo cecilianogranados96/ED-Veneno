@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include "Controladora.h"
 #include "Server.h"
@@ -26,7 +25,7 @@ int main(void)
     while(true)
     {
         WSockServer MyServer(REQ_WINSOCK_VER);
-        cout<<"\n\nMenu\n\n0. Asignar cantidad jugadores\n1. Crear jugador(n)\n2. Ver jugador(cartas en mano)\n3. Ver nombre Jugador\n4. Ver caldero (s)\n5. Jugar (recibe jugador y carta, caldero a mover)\n6. Verificar ronda\n7. Ver ronda\n8. Ver jugadores actuales\n9. Ver jugadores\n10. Ver resultados\n11. Redo\n12. Undo\n13. Reset\n14. Buscar carta\n\nDigite su eleccion: ";
+        cout<<"\t\t\tVENENO GAME\n\nMenu\n\n0. Asignar cantidad jugadores\n1. Crear jugador(n)\n2. Ver jugador(cartas en mano)\n3. Ver nombre Jugador\n4. Ver caldero (s)\n5. Jugar (recibe jugador y carta, caldero a mover)\n6. Verificar ronda\n7. Ver ronda\n8. Ver jugadores actuales\n9. Ver jugadores\n10. Ver resultados\n11. Redo\n12. Undo\n13. Reset\n14. Buscar carta\n\nDigite su eleccion: ";
         //cin>>opcion;
         opcion = toint(MyServer.RunServer(1500,"Opcion OK"));
          ////////////////////LISTO/////////////////////
@@ -73,6 +72,8 @@ int main(void)
             //Como este caso mira
             MyServer.RunServer(1500,controladora->getRondas()->getCurrValue()->getJugadores()->getCurrValue()->getBActual()->r_print());
             MyServer.send2(controladora->getRondas()->getCurrValue()->getJugadores()->getCurrValue()->getBActual()->r_print());
+            cout <<"\n\n";
+            controladora->getRondas()->getCurrValue()->getJugadores()->getCurrValue()->getBActual()->print();
         }
         ////////////////////LISTO/////////////////////
         if(opcion == 3)
@@ -104,14 +105,17 @@ int main(void)
             if(caldero == 1){
                 controladora->getRondas()->goToEnd();
                 res = controladora->getRondas()->getCurrValue()->getCaldero1()->getBaraja()->r_print();
+                controladora->getRondas()->getCurrValue()->getCaldero1()->getBaraja()->print();
             }
             if(caldero == 2){
                 controladora->getRondas()->goToEnd();
                 res = controladora->getRondas()->getCurrValue()->getCaldero2()->getBaraja()->r_print();
+                controladora->getRondas()->getCurrValue()->getCaldero2()->getBaraja()->print();
             }
             if(caldero == 3){
                 controladora->getRondas()->goToEnd();
                 res = controladora->getRondas()->getCurrValue()->getCaldero3()->getBaraja()->r_print();
+                controladora->getRondas()->getCurrValue()->getCaldero3()->getBaraja()->print();
             }
 
             WSockServer MyServer2(REQ_WINSOCK_VER);
@@ -140,7 +144,6 @@ int main(void)
                 cout<<"Digite la posicion de la carta: ";
                 //cin>>carta;
                 carta = toint(MyServer.RunServer(1500,"OP CARTA OK"));
-
                 controladora->getRondas()->getCurrValue()->getJugadores()->goToPos(jugador);
                 controladora->getRondas()->getCurrValue()->getJugadores()->getCurrValue()->getBActual()->goToPos(carta);
 
@@ -159,16 +162,20 @@ int main(void)
             }
         }
 
-
-
-
         if(opcion == 6){
-            if(controladora->getRondas()->getCurrValue()->getBEnJuego()->getSize() >= (controladora->getRondas()->getCurrValue()->getCantidad() * controladora->getRondas()->getCurrValue()->getJugadores()->getSize())){
-                controladora->getRondas()->getCurrValue()->barajar();
-            }
-            else{
-                controladora->getRondas()->getCurrValue()->setState(false);
-                controladora->crearRondas();
+            controladora->getRondas()->goToEnd();
+            cout<<controladora->getRondas()->getCurrValue()->totalNaipes();
+            if(controladora->getRondas()->getCurrValue()->totalNaipes() == 0){
+                cout<<"entre";
+                if(controladora->getRondas()->getCurrValue()->getBEnJuego()->getSize() >= (controladora->getRondas()->getCurrValue()->getCantidad() * controladora->getRondas()->getCurrValue()->getJugadores()->getSize())){
+                    controladora->getRondas()->getCurrValue()->barajar();
+                    cout<<"BAraje";
+                }
+                else{
+                    controladora->getRondas()->getCurrValue()->setState(false);
+                    controladora->crearRondas();
+                    cout<<"Cree ronda";
+                }
             }
         }
         if(opcion == 7){
@@ -179,7 +186,6 @@ int main(void)
         }
         if(opcion == 9){
             controladora->getJugadores();
-
         }
         if(opcion == 10){
             controladora->getJugadores();
@@ -199,6 +205,7 @@ int main(void)
         if(opcion == 14){
             //busca la carta
         }
+        //system("cls");
     }
 }
 

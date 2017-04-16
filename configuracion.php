@@ -70,7 +70,6 @@
 							});
 					</script>";
 					if(($_GET['jugadores']) == $_GET['jugador']){
-						echo "FIN";
 						echo "<script>window.location='juego.php?jugadores=".$_GET['jugadores']."&jugador=0'</script>";
 					}
 				}
