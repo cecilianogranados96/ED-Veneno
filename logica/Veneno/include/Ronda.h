@@ -44,7 +44,8 @@ class Ronda
         Baraja* bCaldero1;
         Baraja* bCaldero2;
         Baraja* bCaldero3;
-        bool validarTotal(Baraja* bCaldero, Jugador* jugador);
+        bool validarTotal(Baraja* bCaldero, Jugador* jugador, Naipe* naipe);
+        void addMovimiento(Jugador* jugador, Naipe* naipe, Baraja* caldero, ArrayList* bComidas, ArrayList* bVenenos);
 };
 
 #endif // RONDA_H

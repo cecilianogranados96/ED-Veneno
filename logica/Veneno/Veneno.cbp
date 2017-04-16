@@ -55,6 +55,7 @@
 		<Unit filename="include/Ronda.h" />
 		<Unit filename="include/Server.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="mainp.cpp" />
 		<Unit filename="src/ArrayList.cpp" />
 		<Unit filename="src/ArrayListN.cpp" />
 		<Unit filename="src/Baraja.cpp" />

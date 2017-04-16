@@ -18,6 +18,7 @@ Ronda::Ronda(DLinkedListJ* jugadores, ArrayList* bOrdenada)
     bEnJuego = bOrdenada;
     state = true;
     setCantidad();
+    posMovimiento = 0;
 }
 
 //Destructor de la clase
@@ -123,6 +124,19 @@ Baraja* Ronda::getCaldero3()
     return bCaldero3;
 }
 
+void Ronda::addMovimiento(Jugador* jugador, Naipe* naipe, Baraja* caldero, ArrayList* bComidas, ArrayList* bVenenos)
+{
+    if(posMovimiento == movimientos->getSize()-1){
+        movimientos->append(new Movimiento(jugador, naipe, caldero, bComidas, bVenenos));
+        posMovimiento++;
+    }
+    else{
+        movimientos->goToPos(posMovimiento);
+        movimientos->getCurr()->setValue(new Movimiento(jugador, naipe, caldero, bComidas, bVenenos));
+        posMovimiento++;
+    }
+}
+
 //Añade naipes al caldero
 bool Ronda::addCaldero1(Naipe* naipe, Jugador* jugador)
 {
@@ -132,7 +146,7 @@ bool Ronda::addCaldero1(Naipe* naipe, Jugador* jugador)
                 bCaldero1->getBaraja()->append(naipe);
                 bCaldero1->setTipo(naipe->getNomenclatura());
                 jugador->getBActual()->removeElement(naipe);
-                validarTotal(bCaldero1, jugador);
+                validarTotal(bCaldero1, jugador, naipe);
                 return true;
             }
         }
@@ -141,18 +155,27 @@ bool Ronda::addCaldero1(Naipe* naipe, Jugador* jugador)
                 bCaldero1->getBaraja()->append(naipe);
                 bCaldero1->setTipo(naipe->getNomenclatura());
                 jugador->getBActual()->removeElement(naipe);
-                validarTotal(bCaldero1, jugador);
+                validarTotal(bCaldero1, jugador, naipe);
                 return true;
             }
         }
+        cout<<"\n\nNO SE PUEDE COLOCAR LA CARTA\n\n";
         return false;
     }
     else{
         if(bCaldero1->getTipo() != 'V'){
             bCaldero1->getBaraja()->append(naipe);
             jugador->getBActual()->removeElement(naipe);
-            validarTotal(bCaldero1, jugador);
+            validarTotal(bCaldero1, jugador, naipe);
             return true;
+        }
+        else{
+            if(bCaldero1->getTipo() == 'V' && jugador->getBActual()->getSize() == 1){
+                bCaldero1->getBaraja()->append(naipe);
+                jugador->getBActual()->removeElement(naipe);
+                validarTotal(bCaldero1, jugador, naipe);
+                return true;
+            }
         }
     }
 }
@@ -166,7 +189,7 @@ bool Ronda::addCaldero2(Naipe* naipe, Jugador* jugador)
                 bCaldero2->getBaraja()->append(naipe);
                 bCaldero2->setTipo(naipe->getNomenclatura());
                 jugador->getBActual()->removeElement(naipe);
-                validarTotal(bCaldero2, jugador);
+                validarTotal(bCaldero2, jugador, naipe);
                 return true;
             }
         }
@@ -175,18 +198,27 @@ bool Ronda::addCaldero2(Naipe* naipe, Jugador* jugador)
                 bCaldero2->getBaraja()->append(naipe);
                 bCaldero2->setTipo(naipe->getNomenclatura());
                 jugador->getBActual()->removeElement(naipe);
-                validarTotal(bCaldero2, jugador);
+                validarTotal(bCaldero2, jugador, naipe);
                 return true;
             }
         }
+        cout<<"\n\nNO SE PUEDE COLOCAR LA CARTA\n\n";
         return false;
     }
     else{
         if(bCaldero2->getTipo() != 'V'){
             bCaldero2->getBaraja()->append(naipe);
             jugador->getBActual()->removeElement(naipe);
-            validarTotal(bCaldero2, jugador);
+            validarTotal(bCaldero2, jugador, naipe);
             return true;
+        }
+        else{
+            if(bCaldero2->getTipo() == 'V' && jugador->getBActual()->getSize() == 1){
+                bCaldero2->getBaraja()->append(naipe);
+                jugador->getBActual()->removeElement(naipe);
+                validarTotal(bCaldero2, jugador, naipe);
+                return true;
+            }
         }
     }
 }
@@ -200,7 +232,7 @@ bool Ronda::addCaldero3(Naipe* naipe, Jugador* jugador)
                 bCaldero3->getBaraja()->append(naipe);
                 bCaldero3->setTipo(naipe->getNomenclatura());
                 jugador->getBActual()->removeElement(naipe);
-                validarTotal(bCaldero3, jugador);
+                validarTotal(bCaldero3, jugador, naipe);
                 return true;
             }
         }
@@ -209,36 +241,55 @@ bool Ronda::addCaldero3(Naipe* naipe, Jugador* jugador)
                 bCaldero3->getBaraja()->append(naipe);
                 bCaldero3->setTipo(naipe->getNomenclatura());
                 jugador->getBActual()->removeElement(naipe);
-                validarTotal(bCaldero3, jugador);
+                validarTotal(bCaldero3, jugador, naipe);
                 return true;
             }
         }
+        cout<<"\n\nNO SE PUEDE COLOCAR LA CARTA\n\n";
         return false;
     }
     else{
         if(bCaldero3->getTipo() != 'V'){
             bCaldero3->getBaraja()->append(naipe);
             jugador->getBActual()->removeElement(naipe);
-            validarTotal(bCaldero3, jugador);
+            validarTotal(bCaldero3, jugador, naipe);
             return true;
         }
+        else{
+            if(bCaldero3->getTipo() == 'V' && jugador->getBActual()->getSize() == 1){
+                bCaldero3->getBaraja()->append(naipe);
+                jugador->getBActual()->removeElement(naipe);
+                validarTotal(bCaldero3, jugador, naipe);
+                return true;
+            }
+        }
     }
+
 }
 
 //Verifica si el valor total del caldero es menor que 13, si es así retorna true, sino el jugador se come las cartas
-bool Ronda::validarTotal(Baraja* bCaldero, Jugador* jugador)
+bool Ronda::validarTotal(Baraja* bCaldero, Jugador* jugador, Naipe* naipe)
 {
+    ArrayList *tempComidas = new ArrayList();
+    ArrayList *tempVenenos = new ArrayList();
     if(bCaldero->totalBaraja() >= 13)
     {
         for(int i=0; i<bCaldero->getBaraja()->getSize(); i++){
             bCaldero->getBaraja()->goToPos(i);
             jugador->getBComidas()->append(bCaldero->getBaraja()->getValue());
-            if(bCaldero->getBaraja()->getValue()->getNomenclatura() == 'C')
+            tempComidas->append(bCaldero->getBaraja()->getValue());
+            if(bCaldero->getBaraja()->getValue()->getNomenclatura() == 'C'){
                 jugador->getBVenenos()->append(bCaldero->getBaraja()->getValue());
+                tempVenenos->append(bCaldero->getBaraja()->getValue());
+            }
         }
-        bCaldero1 = new Baraja('V', 15);
+        bCaldero->setBaraja(new ArrayList(15));
+        bCaldero->setTipo('V');
+        cout<<"\n\nSE COME LAS CARTAS\n\n";
+        //addMovimiento(jugador, naipe, bCaldero, tempComidas, tempVenenos);
         return false;
     }
+    //addMovimiento(jugador, naipe, bCaldero, tempComidas, tempVenenos);
     return true;
 }
 
@@ -313,12 +364,28 @@ int Ronda::totalNaipes()
 //Devuelve al movimiento anterior
 void Ronda::redoMovimiento()
 {
+    if(posMovimiento+1 < movimientos->getSize()){
+        movimientos->goToPos(posMovimiento+1);
+        movimientos->getCurrValue()->redoMovimiento();
+        posMovimiento++;
+    }
+    else{
+        cout<<"No hay más movimientos por rehacer";
+    }
+
 
 }
 
 //Vuelve al movimiento siguiente
 void Ronda::undoMovimiento()
 {
-
+    if(posMovimiento <= movimientos->getSize() && posMovimiento >= 0){
+        movimientos->goToPos(posMovimiento);
+        movimientos->getCurrValue()->undoMovimiento();
+        posMovimiento--;
+    }
+    else{
+        cout<<"No hay más movimientos por deshacer";
+    }
 }
 

@@ -145,8 +145,6 @@ Jugador* DLinkedListJ::remove()
             curr = curr->getNext();
             curr->getNext()->setPrevious(curr);
         }
-
-
         //delete temp;
         size--;
         return valDNodeToDelete;

@@ -92,7 +92,7 @@ void ArrayList::next(){
 void ArrayList::append(Naipe* element){
     try
     {
-        if(size == max){
+        if(size == 1024){
             throw runtime_error("La cola esta llena");
         }
         elements[size] = element;
@@ -109,7 +109,7 @@ void ArrayList::append(Naipe* element){
 void ArrayList::insert(Naipe* element){
     try
     {
-        if(size == max){
+        if(size == 1024){
             throw runtime_error("La cola esta llena");
         }
 
