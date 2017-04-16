@@ -201,7 +201,6 @@ void ArrayList::print(){
         if (size == 0){
             throw runtime_error("La cola esta vacia");
         }
-
         for(int i=0;i<size;i++){
             elements[i]->print();
         }
@@ -210,6 +209,18 @@ void ArrayList::print(){
     catch (runtime_error e)
     {
         cout << "Error: "<< e.what()<<"\n\n";
+    }
+}
+
+string ArrayList::r_print(){
+    string r = "";
+    for(int i=0;i<size;i++){
+            r = r + elements[i]->r_print();
+    }
+    if (r == ""){
+        return "Vacio";
+    }else{
+        return r;
     }
 }
 

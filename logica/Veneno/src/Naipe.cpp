@@ -1,5 +1,6 @@
 #include "Naipe.h"
 #include <iostream>
+#include <sstream>
 #include <string>
 using namespace std;
 
@@ -65,13 +66,18 @@ void Naipe::print()
 
 string Naipe::r_print()
 {
-    //cout<<"\nNomenclatura: "<<nomenclatura<<", Numero: "<<numero<<", Valor: "<<valor<<", Tipo de mazo: "<<mazo;
-    /*string nomenclatura2 = new string(nomenclatura);
-    string numero2 = new string(numero);
-    */
-    string a = string.valueOf(nomenclatura);
-    return "T:"<<nomenclatura2<<":N:"<<numero2;
+    stringstream ss;
+    string s;
+    ss << nomenclatura;
+    ss >> s;
 
+    stringstream ss2;
+    string s2;
+    ss2 << numero;
+    ss2 >> s2;
+
+
+    return s+":"+s2+"-";
 }
 
 

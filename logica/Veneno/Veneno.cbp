@@ -53,6 +53,7 @@
 		<Unit filename="include/Movimiento.h" />
 		<Unit filename="include/Naipe.h" />
 		<Unit filename="include/Ronda.h" />
+		<Unit filename="include/Server.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/ArrayList.cpp" />
 		<Unit filename="src/ArrayListN.cpp" />
@@ -69,6 +70,7 @@
 		<Unit filename="src/Movimiento.cpp" />
 		<Unit filename="src/Naipe.cpp" />
 		<Unit filename="src/Ronda.cpp" />
+		<Unit filename="src/Server.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />

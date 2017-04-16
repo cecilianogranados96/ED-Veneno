@@ -1,9 +1,13 @@
 <?php
-	$url_juego = "juego.php?jugadores=".$_GET['jugadores']."&jugador=".($_GET['jugador']+1)."";
+	
+	if ($_GET['jugadores']-1 == $_GET['jugador']){
+		$url_juego = "juego.php?jugadores=".$_GET['jugadores']."&jugador=".($_GET['jugador']+1)."";
+	}else{
+		$url_juego = "juego.php?jugadores=".$_GET['jugadores']."&jugador=0";
+	}	
 ?>
 <html lang="es" class="no-js">
 	<head>
-	
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Veneno Game</title>
@@ -18,26 +22,51 @@
 		<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
 		<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
 		<link rel="stylesheet" type="text/css" href="css/cartas.css" />
-		<script src="https://raw.githubusercontent.com/furf/jquery-ui-touch-punch/master/jquery.ui.touch-punch.min.js"></script>
+		<!--<script src="https://raw.githubusercontent.com/furf/jquery-ui-touch-punch/master/jquery.ui.touch-punch.min.js"></script>-->
 		<script src="js/juego.js"></script>
 	<script>
-			$.post('Logica/s.php',{mensaje: 3 },function(data2){
-				$.post('Logica/s.php',{mensaje: <?php echo $_GET['jugador']; ?> },function( data ) {
-					console.log(data);
-					$("#nombre_jugador").text(data);
+			$.post('Logica/nombre.php',{nombre: <?php echo $_GET['jugador']; ?> },function( data ) {
+				$("#nombre_jugador").text(data);
+				$.post('Logica/cartas_mano.php',{id:  <?php echo $_GET['jugador']; ?> },function(data2){
+					var x = data2.split("-");
+					for (i=0;i<x.length-1;i++){
+						var S = x[i].split(":");
+						$("#dock_cartas").append('<img src="img/cartas/'+S[1]+S[0]+'.png" id="'+S[1]+S[0]+'" type="'+i+'" class="dock_cartas inbound">');	
+					}
+					
+					$.post('Logica/calderos.php',{id: 1 },function(data2){
+						var x = data2.split("-");
+						for (i=0;i<x.length-1;i++){
+							var S = x[i].split(":");
+							$("#caldero1").append('<img src="img/cartas/'+S[1]+S[0]+'.png" id="'+S[1]+S[0]+'"  class="dock_cartas">');	
+						}
+						$.post('Logica/calderos.php',{id: 2 },function(data2){
+							var x = data2.split("-");
+							for (i=0;i<x.length-1;i++){
+								var S = x[i].split(":");
+								$("#caldero2").append('<img src="img/cartas/'+S[1]+S[0]+'.png" id="'+S[1]+S[0]+'"  class="dock_cartas">');	
+							}
+							$.post('Logica/calderos.php',{id: 3 },function(data2){
+								console.log("CARTAS:" + data2);
+								var x = data2.split("-");
+								for (i=0;i<x.length-1;i++){
+									var S = x[i].split(":");
+									$("#caldero3").append('<img src="img/cartas/'+S[1]+S[0]+'.png" id="'+S[1]+S[0]+'"  class="dock_cartas">');	
+								}
+								$("#caldero1").order1();
+								$("#caldero2").order2();
+								$("#caldero3").order3();
+								console.log("TERMINE DE CARGAR");
+							});
+						});
+					});
 				});
 			});
-			
-			/*
-			$.get("Logica/rec.php",function(data, status){
-				$("#nombre_jugador").text(data);
-			});
-			*/
-				
 	</script>
-	
 	</head>
 	<body class="demo-2" style="overflow-x: hidden; overflow-y: hidden;" >
+	<input type='text' id='jugadores' value="<?php echo $_GET['jugadores']; ?>" hidden>
+	<input type='text' id='jugador' value="<?php echo $_GET['jugador']; ?>" hidden>
 		<main>
 			<div class="codrops-links">
 				<a class="codrops-icon codrops-icon--prev" href="configuracion.php">Atras</a>
@@ -59,11 +88,10 @@
 					<!--PUNTOS 2-->
 			</div>
 			<div class="calero1 caldero" id="caldero1">	  
-				<img src="img/cartas/2C.png" id="2C" class="dock_cartas">
-				<img src="img/cartas/KP.png" id="KP" class="dock_cartas">
-				<img src="img/cartas/3P.png" id="3P" class="dock_cartas">
+				<!--CALDERO 1-->
 			</div>
 			<div class="calero2 caldero" id="caldero2">
+			
 				<!--CALDERO 2-->
 			</div>
 			<div class="calero3 caldero" id="caldero3">
@@ -71,11 +99,7 @@
 			</div>			
 			<center>
 				<div class="dock caldero" id="dock_cartas">
-					<img src="img/cartas/5C.png" id="5C" class="dock_cartas inbound">
-					<img src="img/cartas/2P.png" id="2P" class="dock_cartas inbound">
-					<img src="img/cartas/6P.png" id="6P" class="dock_cartas inbound">
-					<img src="img/cartas/8C.png" id="8C" class="dock_cartas inbound">
-					<img src="img/cartas/5T.png" id="5T" class="dock_cartas inbound">
+					<!--DOCK CARTAS-->	
 				</div>
 			<center>
 		</main>

@@ -39,9 +39,9 @@ string WSockServer::RunServer(int PortNumber,string text)
 	cout << "PUERTO: " << ntohs(sockAddr.sin_port) << endl << endl;
 	*/
 	int SizeAddr = sizeof(ClientAddr);
-	cout << "Esperando... ";
+	cout << "Waith... ";
 	ClientSocket = accept(hSocket, (sockaddr*)(&ClientAddr), &SizeAddr);
-	cout << "Coneccion Iniciada---";
+	cout << "Conect: ";
 
     int BytesRec = recv(ClientSocket, Buffer, sizeof(Buffer), 0);
     Buffer[BytesRec] = 0;
@@ -59,7 +59,7 @@ void WSockServer::send2(string str)
     copy(str.begin(), str.end(), writable);
     writable[str.size()] = '\0'; // don't forget the terminating 0
     send(ClientSocket, writable, str.size()+1, 1);
-    cout << "SEND: "<< writable  <<endl;
+    cout << " RES: "<< writable  <<endl;
     delete[] writable;
 }
 

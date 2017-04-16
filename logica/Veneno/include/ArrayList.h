@@ -22,6 +22,7 @@ class ArrayList{
 		void removeElement(Naipe* element);
 		int find(Naipe* element);
 		void print();
+        string r_print();
 		void clear();
 
 	protected:

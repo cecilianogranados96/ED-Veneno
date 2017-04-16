@@ -2,34 +2,71 @@
 <CodeBlocks_layout_file>
 	<FileVersion major="1" minor="0" />
 	<ActiveTarget name="Debug" />
-	<File name="src\Server.cpp" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1161" topLine="30" />
-		</Cursor>
-	</File>
 	<File name="src\Baraja.cpp" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="0" topLine="46" />
+			<Cursor1 position="964" topLine="46" />
 		</Cursor>
 	</File>
-	<File name="main.cpp" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="main.cpp" open="1" top="1" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="530" topLine="78" />
+			<Cursor1 position="8163" topLine="172" />
 		</Cursor>
 	</File>
-	<File name="src\ArrayList.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="include\Baraja.h" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="0" topLine="214" />
+			<Cursor1 position="0" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="include\Controladora.h" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src\Naipe.cpp" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1301" topLine="55" />
+		</Cursor>
+	</File>
+	<File name="include\Naipe.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="523" topLine="9" />
+		</Cursor>
+	</File>
+	<File name="include\Controladora.h" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="0" topLine="12" />
 		</Cursor>
 	</File>
-	<File name="src\Controladora.cpp" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src\Controladora.cpp" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="8447" topLine="265" />
+			<Cursor1 position="3190" topLine="55" />
+		</Cursor>
+		<Folding>
+			<Collapse line="13" />
+			<Collapse line="23" />
+			<Collapse line="32" />
+			<Collapse line="38" />
+			<Collapse line="54" />
+			<Collapse line="80" />
+			<Collapse line="85" />
+			<Collapse line="90" />
+			<Collapse line="95" />
+			<Collapse line="100" />
+			<Collapse line="105" />
+			<Collapse line="110" />
+			<Collapse line="115" />
+			<Collapse line="120" />
+			<Collapse line="125" />
+			<Collapse line="130" />
+			<Collapse line="135" />
+			<Collapse line="141" />
+			<Collapse line="153" />
+			<Collapse line="167" />
+		</Folding>
+	</File>
+	<File name="src\ArrayList.cpp" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="4870" topLine="206" />
+		</Cursor>
+	</File>
+	<File name="include\ArrayList.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="495" topLine="13" />
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>

@@ -1,4 +1,4 @@
-<?php //exec('socket.bat'); ?>
+<?php //system('logica\Veneno\bin\Debug\Veneno.exe'); ?>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />

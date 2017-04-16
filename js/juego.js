@@ -4,7 +4,9 @@ $(document).ready(function () {
 			$("#caldero1").order1();
 			$("#caldero2").order2();
 			$("#caldero3").order3();
-		});				
+		});	
+		
+
 		$.fn.val_carta = function (carta) {
 				val_caldero = [];
 				$(this).each(function(index) {
@@ -77,6 +79,16 @@ $(document).ready(function () {
 					alert("Carta Incorrecta");
 					location.reload();
 				}
+				
+				$.post('Logica/jugar.php',{
+					jugador: $("#jugador").attr('value'),
+					carta: $(ui.item).attr('type'),
+					caldero: 1},function( data ) {
+					
+
+				});
+				
+				
 			}
 		});
 				
@@ -94,6 +106,14 @@ $(document).ready(function () {
 					alert("Carta Incorrecta");
 					location.reload();
 				}
+				$.post('Logica/jugar.php',{
+					jugador: $("#jugador").attr('value'),
+					carta: $(ui.item).attr('type'),
+					caldero: 2},function( data ) {
+					
+
+				});
+				
 			}
 		});
 				
@@ -111,6 +131,15 @@ $(document).ready(function () {
 					alert("Carta Incorrecta");
 					location.reload();
 				}
+				$.post('Logica/jugar.php',{
+					jugador: $("#jugador").attr('value'),
+					carta: $(ui.item).attr('type'),
+					caldero: 3},function( data ) {
+					
+
+				});
+	
+				
 			}
 		});
 		
