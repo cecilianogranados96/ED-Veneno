@@ -9,7 +9,7 @@ class Controladora
         Controladora();
         ~Controladora();
         void setJugadores(DLinkedListJ* jugadores);
-        void setJugadoresActual(DLinkedListJ* jugadoresActual);
+        void setJugadoresActual(DLinkedListJ* jugadores);
         void setNumJugadores(int numJugadores);
         void setNumJugadoresActual(int numJugadoresActual);
         void setRondas(DLinkedListR* rondas);

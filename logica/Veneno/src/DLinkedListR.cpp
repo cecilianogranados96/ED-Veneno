@@ -115,7 +115,7 @@ Ronda* DLinkedListR::remove()
 {
     try
     {
-        if((getPos() == size-1 ) || size == 0 || curr == NULL)
+        if((curr == last ) || size == 0)
         {
             throw runtime_error("No element to remove");
         }

@@ -41,7 +41,6 @@ int main(void)
             controladora->crearJugadores(nombre);
             if(controladora->getNumJugadores() == controladora->getJugadores()->getSize()){
                 cout<<"\n\nSe crearon todos los jugadores\n\n";
-                controladora->setJugadoresActual(controladora->getJugadores());
                 controladora->crearRondas();
                 controladora->getRondas()->goToEnd();
                 controladora->getRondas()->getCurrValue()->barajar();
@@ -171,6 +170,7 @@ int main(void)
         }
     }
 }
+
 */
 
 

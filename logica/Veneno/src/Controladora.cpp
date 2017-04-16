@@ -14,6 +14,7 @@ Controladora::Controladora()
 {
     barajaOriginal = new Baraja('O', 52);
     jugadores = new DLinkedListJ();
+    jugadoresActual = new DLinkedListJ();
     bOrdenada = new ArrayList(52);
     rondas = new DLinkedListR();
     crearBOriginal();
@@ -32,6 +33,7 @@ Controladora::~Controladora()
 void Controladora::crearJugadores(string nombre)
 {
     jugadores->append(new Jugador(nombre, jugadores->getSize()));
+    jugadoresActual->append(new Jugador(nombre, jugadores->getSize()));
 }
 
 //Borra el jugador de la lista de jugadores actuales
@@ -40,8 +42,9 @@ void Controladora::borrarJugadores(Jugador* jugador)
     for(int i = 0; i<jugadoresActual->getSize(); i++){
         jugadoresActual->goToPos(i);
         if(jugador->getId() == jugadoresActual->getCurrValue()->getId()){
-            if(i == 0)
+            if(i == 0){
                 jugadoresActual->goToStart();
+            }
             else
                 jugadoresActual->goToPos(i-1);
             jugadoresActual->remove();
@@ -61,18 +64,28 @@ void Controladora::borrarJugadores()
     //busca el jugador con menos cartas veneno
     for(int i = 0; i<jugadoresActual->getSize(); i++){
         jugadoresActual->goToPos(i);
-        if(jugadoresActual->getCurrValue()->getBVenenos()->getSize()<temp->getBVenenos()->getSize()){
+        if(jugadoresActual->getCurrValue()->getBVenenos()->getSize() < temp->getBVenenos()->getSize()){
             temp = jugadoresActual->getCurrValue();
         }
     }
 
+    cout<<"\n\n Cantidad minima de venenos: "<<temp->getBVenenos()->getSize();
+
     //borra los jugadores con la menor cantidad de venenos
-    for(int i = 0; i<jugadoresActual->getSize(); i++){
-        jugadoresActual->goToPos(i);
-        if(jugadoresActual->getCurrValue()->getBVenenos()->getSize() == temp->getBVenenos()->getSize()){
-            borrarJugadores(jugadoresActual->getCurrValue());
-        }
-    }
+    int i = 0;
+    bool borrado = false;
+    do{
+            borrado = false;
+            jugadoresActual->goToPos(i);
+            if(jugadoresActual->getCurrValue()->getBVenenos()->getSize() == temp->getBVenenos()->getSize()){
+                borrarJugadores(jugadoresActual->getCurrValue());
+                borrado = true;
+            }
+            if(borrado == true)
+                i=0;
+            else
+                i++;
+    }while(i<jugadoresActual->getSize());
 
 }
 

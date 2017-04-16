@@ -128,7 +128,7 @@ Jugador* DLinkedListJ::remove()
 {
     try
     {
-        if((getPos() == size-1 ) || size == 0 || curr == NULL)
+        if((curr == last ) || size == 0)
         {
             throw runtime_error("No element to remove");
         }
@@ -141,6 +141,7 @@ Jugador* DLinkedListJ::remove()
         }
         else
         {
+            cout<<"HERE REMOVE";
             curr->setNext(curr->getNext()->getNext());
             curr = curr->getNext();
             curr->getNext()->setPrevious(curr);
