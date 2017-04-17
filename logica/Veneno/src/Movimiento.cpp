@@ -97,12 +97,10 @@ void Movimiento::undoMovimiento()
             bComidas->removeElement(naipe);
             caldero->setBaraja(bComidas);
             jugador->getBActual()->append(naipe);
-
             for(int i=0; i<bComidas->getSize(); i++){
                 bComidas->goToPos(i);
                 jugador->getBComidas()->removeElement(bComidas->getValue());
             }
-
             for(int i=0; i<bVenenos->getSize(); i++){
                 bVenenos->goToPos(i);
                 jugador->getBVenenos()->removeElement(bVenenos->getValue());

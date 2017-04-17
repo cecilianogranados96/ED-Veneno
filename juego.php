@@ -7,7 +7,7 @@
 	if ($_GET['jugadores']-1 == $_GET['jugador']){
 		$url_juego = "juego.php?jugadores=".$cant_jugadores."&jugador=0";
 	}else{
-		$url_juego = "juego.php?jugadores=".$cant_jugadores."&jugador=".($_GET['jugador']+1)."";
+		$url_juego = "juego.php?jugadores=".$_GET['jugadores']."&jugador=".($_GET['jugador']+1);
 	}
 ?>
 <html lang="es" class="no-js">
@@ -32,6 +32,7 @@
 		<script>
 			$.post('Logica/nombre.php',{nombre: <?php echo $_GET['jugador']; ?> },function( data ) {
 				var x = data.split("-");
+				console.log(data);
 				$("#nombre_jugador").text(x[0]);
 				$("#ronda").text(x[1]);
 				$("#venenos").text(x[2]);
@@ -95,7 +96,7 @@ function buscar(texto){
 	</head>
 	<body class="demo-2" style="overflow-x: hidden; overflow-y: hidden;">
 	<!--JQUERRY CARGA-->
-	<div class="bg_load"></div>
+	<div class="bg_load-"></div>
 	<div class="wrapper">
 		<div class="inner">
 			<span>V</span>

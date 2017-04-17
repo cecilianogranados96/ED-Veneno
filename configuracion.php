@@ -47,9 +47,8 @@
 					<a href="configuracion.php?jugadores=5&jugador=0"><img class="numeros" src="img/jugadores/5.png"></a>
 					<a href="configuracion.php?jugadores=6&jugador=0"><img class="numeros" src="img/jugadores/6.png"></a>
 				</center>
-				<?php }else{ ?>
+				<?php }else{ 
 				
-				<?php 
 				if ($_GET['jugador'] == 0){
 					echo "<script>
 							$.post('Logica/s.php', {mensaje: ".$_GET['jugadores']." },function( data ) {

@@ -438,7 +438,7 @@
 	<iostream>
 	"Ronda.h"
 
-1492392418 source:c:\xampp\htdocs\ed-veneno\logica\veneno\main.cpp
+1492400130 source:c:\xampp\htdocs\ed-veneno\logica\veneno\main.cpp
 	<iostream>
 	"Controladora.h"
 	"Server.h"
@@ -574,7 +574,7 @@
 1491923170 source:c:\xampp\htdocs\ed-veneno\logica\veneno\src\jugador.cpp
 	"Jugador.h"
 
-1491923170 source:c:\xampp\htdocs\ed-veneno\logica\veneno\src\movimiento.cpp
+1492400870 source:c:\xampp\htdocs\ed-veneno\logica\veneno\src\movimiento.cpp
 	"Movimiento.h"
 
 1492370068 source:c:\xampp\htdocs\ed-veneno\logica\veneno\src\naipe.cpp

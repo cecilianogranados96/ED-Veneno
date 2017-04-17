@@ -204,8 +204,12 @@ int main(void)
             MyServer.RunServer(1500,cant_jugadores);
             cout<<"Cantidad de jugadores:"<<cant_jugadores;
         }
+         //RESULTADOS
         if(opcion == 10){
+
             controladora->getJugadores()->print();
+
+
         }
         if(opcion == 11){
             controladora->getRondas()->goToEnd();
