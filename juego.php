@@ -1,9 +1,14 @@
 <?php
+	include("Logica/cant_jugadores.php");
+	//echo $cant_jugadores;
+	if ($cant_jugadores == 1){
+		echo "<script>window.location='resultados.php'</script>";
+	}
 	if ($_GET['jugadores']-1 == $_GET['jugador']){
-		$url_juego = "juego.php?jugadores=".$_GET['jugadores']."&jugador=0";
+		$url_juego = "juego.php?jugadores=".$cant_jugadores."&jugador=0";
 	}else{
-		$url_juego = "juego.php?jugadores=".$_GET['jugadores']."&jugador=".($_GET['jugador']+1)."";
-	}	
+		$url_juego = "juego.php?jugadores=".$cant_jugadores."&jugador=".($_GET['jugador']+1)."";
+	}
 ?>
 <html lang="es" class="no-js">
 	<head>
@@ -102,7 +107,7 @@ function buscar(texto){
 		</div>
 	</div>
 	<!--DATOS QUE USA JQUERRY PARA MANEJO-->
-	<input type='text' id='jugadores' value="<?php echo $_GET['jugadores']; ?>" hidden>
+	<input type='text' id='jugadores' value="<?php echo $cant_jugadores; ?>" hidden>
 	<input type='text' id='jugador' value="<?php echo $_GET['jugador']; ?>" hidden>
 		<main>
 			<!--MANEJO-->
