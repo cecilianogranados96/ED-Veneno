@@ -141,3 +141,17 @@ void Movimiento::redoMovimiento()
         undo = false;
     }
 }
+
+void Movimiento::print()
+{
+    cout<<"\nJugador: ";
+    jugador->print();
+    cout<<"\nNaipe: ";
+    naipe->print();
+    cout<<"\nCaldero: ";
+    caldero->getBaraja()->print();
+    cout<<"\nCartas comidas: ";
+    bComidas->print();
+    cout<<"\nCartas venenos: ";
+    bVenenos->print();
+}

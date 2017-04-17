@@ -22,6 +22,7 @@ class Movimiento
         ArrayList* getBVenenos();
         void undoMovimiento();
         void redoMovimiento();
+        void print();
 
     protected:
 
@@ -32,7 +33,6 @@ class Movimiento
         ArrayList* bComidas;
         ArrayList* bVenenos;
         bool undo;
-
 };
 
 #endif // MOVIMIENTO_H

@@ -126,7 +126,7 @@ Baraja* Ronda::getCaldero3()
 
 void Ronda::addMovimiento(Jugador* jugador, Naipe* naipe, Baraja* caldero, ArrayList* bComidas, ArrayList* bVenenos)
 {
-    if(posMovimiento == movimientos->getSize()-1){
+    if(posMovimiento == movimientos->getSize()-1 || posMovimiento == 0){
         movimientos->append(new Movimiento(jugador, naipe, caldero, bComidas, bVenenos));
         posMovimiento++;
     }
@@ -235,6 +235,10 @@ bool Ronda::addCaldero3(Naipe* naipe, Jugador* jugador)
                 validarTotal(bCaldero3, jugador, naipe);
                 return true;
             }
+            else{
+                cout<<"\n\nNO SE PUEDE COLOCAR LA CARTA\n\n";
+                return false
+            }
         }
         else{
             if(bCaldero3->getTipo() == naipe->getNomenclatura()){
@@ -243,6 +247,10 @@ bool Ronda::addCaldero3(Naipe* naipe, Jugador* jugador)
                 jugador->getBActual()->removeElement(naipe);
                 validarTotal(bCaldero3, jugador, naipe);
                 return true;
+            }
+            else{
+                cout<<"\n\nNO SE PUEDE COLOCAR LA CARTA\n\n";
+                return false
             }
         }
         cout<<"\n\nNO SE PUEDE COLOCAR LA CARTA\n\n";
@@ -289,7 +297,8 @@ bool Ronda::validarTotal(Baraja* bCaldero, Jugador* jugador, Naipe* naipe)
         //addMovimiento(jugador, naipe, bCaldero, tempComidas, tempVenenos);
         return false;
     }
-    //addMovimiento(jugador, naipe, bCaldero, tempComidas, tempVenenos);
+    addMovimiento(jugador, naipe, bCaldero, tempComidas, tempVenenos);
+    cout<<"\n\nCREA UN MOVIMIENTO\n\n";
     return true;
 }
 
@@ -371,9 +380,8 @@ void Ronda::redoMovimiento()
         posMovimiento++;
     }
     else{
-        cout<<"No hay más movimientos por rehacer";
+        cout<<"No hay mas movimientos por rehacer";
     }
-
 
 }
 
@@ -381,7 +389,7 @@ void Ronda::redoMovimiento()
 void Ronda::undoMovimiento()
 {
     if(posMovimiento <= movimientos->getSize() && posMovimiento >= 0){
-        movimientos->goToPos(posMovimiento);
+        movimientos->goToPos(posMovimiento-1);
         movimientos->getCurrValue()->undoMovimiento();
         posMovimiento--;
     }
