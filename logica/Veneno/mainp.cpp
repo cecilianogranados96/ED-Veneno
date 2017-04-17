@@ -20,7 +20,7 @@ int main(void)
     while(true)
     {
        // WSockServer MyServer(REQ_WINSOCK_VER);
-        cout<<"\n\nMenu\n\n0. Asignar cantidad jugadores\n1. Crear jugador(n)\n2. Ver jugador(cartas en mano)\n3. Ver nombre Jugador\n4. Ver caldero (s)\n5. Jugar (recibe jugador y carta, caldero a mover)\n6. Verificar ronda\n7. Ver ronda\n8. Ver jugadores actuales\n9. Ver jugadores\n10. Ver resultados\n11. Redo\n12. Undo\n13. Reset\n14. Buscar carta\n15. Ver jugador total\n\nDigite su eleccion: ";
+        cout<<"\n\nMenu\n\n0. Asignar cantidad jugadores\n1. Crear jugador(n)\n2. Ver jugador(cartas en mano)\n3. Ver nombre Jugador\n4. Ver caldero (s)\n5. Jugar (recibe jugador y carta, caldero a mover)\n6. Verificar ronda\n7. Ver ronda\n8. Ver jugadores actuales\n9. Ver jugadores\n10. Ver resultados\n11. Redo\n12. Undo\n13. Reset\n14. Buscar carta\n15. Ver jugador total\n16. Ver movimiento\n\nDigite su eleccion: ";
         cin>>opcion;
         //opcion = toint(MyServer.RunServer(1500,"Opcion OK"));
 
@@ -116,18 +116,21 @@ int main(void)
                 }
             }
             else{
-                cout<<"\n\TERMINA EL JUEGO\n\n";
+                cout<<"\n\nTERMINA EL JUEGO\n\n";
             }
         }
         if(opcion == 6){
-            if(controladora->getRondas()->getCurrValue()->getBEnJuego()->getSize() >= (controladora->getRondas()->getCurrValue()->getCantidad() * controladora->getRondas()->getCurrValue()->getJugadores()->getSize())){
-                controladora->getRondas()->getCurrValue()->barajar();
-                cout<<"\n\nBARAJA\n\n";
-            }
-            else{
-                controladora->getRondas()->getCurrValue()->setState(false);
-                controladora->crearRondas();
-                cout<<"\n\NUEVA RONDA\n\n";
+            controladora->getRondas()->goToEnd();
+            if(controladora->getRondas()->getCurrValue()->totalNaipes() == 0){
+                if(controladora->getRondas()->getCurrValue()->getBEnJuego()->getSize() >= (controladora->getRondas()->getCurrValue()->getCantidad() * controladora->getRondas()->getCurrValue()->getJugadores()->getSize())){
+                    controladora->getRondas()->getCurrValue()->barajar();
+                    cout<<"\n\nBARAJA\n\n";
+                }
+                else{
+                    controladora->getRondas()->getCurrValue()->setState(false);
+                    controladora->crearRondas();
+                    cout<<"\n\nNUEVA RONDA\n\n";
+                }
             }
         }
         if(opcion == 7){
@@ -167,6 +170,12 @@ int main(void)
             controladora->getRondas()->goToEnd();
             controladora->getRondas()->getCurrValue()->getJugadores()->goToPos(jugador);
             controladora->getRondas()->getCurrValue()->getJugadores()->getCurrValue()->print();
+        }
+        if(opcion == 16){
+            controladora->getRondas()->goToEnd();
+            //controladora->getRondas()->getCurrValue()->getMovimientos()->goToPos(controladora->getRondas()->getCurrValue()->getPosMovimiento());
+            controladora->getRondas()->getCurrValue()->getMovimientos()->goToEnd();
+            controladora->getRondas()->getCurrValue()->getMovimientos()->getCurrValue()->print();
         }
     }
 }
