@@ -1,1 +1,0 @@
-start logica\Veneno\bin\Debug\Veneno.exe

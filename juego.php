@@ -53,7 +53,6 @@
 								$("#caldero2").append('<img src="img/cartas/'+S[1]+S[0]+'.png" id="'+S[1]+S[0]+'"  class="dock_cartas">');	
 							}
 							$.post('Logica/calderos.php',{id: 3 },function(data2){
-								console.log("CARTAS:" + data2);
 								var x = data2.split("-");
 								for (i=0;i<x.length-1;i++){
 									var S = x[i].split(":");
@@ -72,35 +71,7 @@
 						});
 					});
 				});
-			});
-
-		function buscar(texto){
-			$("#busqueda").css("display", "block");
-			$("#busqueda span").text(texto.value);
-			texto.value = "";
-			setTimeout(function() {
-				$("#busqueda").fadeOut("slow");
-			}, 1000);
-		}
-
-		$.fn.parpadear = function()
-		{
-			this.each(function parpadear()
-			{
-				$(this).fadeIn(500).delay(250).fadeOut(500, parpadear);
-			});
-		}
-		
-		function reset() {
-			alert("RESET");
-		};
-		function anterior() {
-			alert("ANTERIOR");
-		};
-		function siguiente() {
-			alert("SIGUIENTE");
-		};
-	
+			});	
 	</script>
 	</head>
 	<body class="demo-2" style="overflow-x: hidden; overflow-y: hidden;">
@@ -122,7 +93,7 @@
 		<main>
 			<!--MANEJO-->
 			<div class="codrops-links">
-				<a class="codrops-icon codrops-icon--prev" href="configuracion.php">Atras</a>
+				<a class="codrops-icon codrops-icon--prev" href="configuracion.php">Atrás</a>
 				<a class="codrops-icon codrops-icon--drop" href="ayuda.php">Ayuda</a>
 			</div>
 			<!--BUSQUEDA-->

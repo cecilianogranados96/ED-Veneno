@@ -1,4 +1,26 @@
 $(document).ready(function () {		
+
+		function reset() {
+			alert("RESET");
+		};
+		function anterior() {
+			alert("ANTERIOR");
+		};
+		function siguiente() {
+			alert("SIGUIENTE");
+		};
+
+		function buscar(texto){
+			$("#busqueda").css("display", "block");
+			$("#busqueda span").text(texto.value);
+			texto.value = "";
+			setTimeout(function() {
+				$("#busqueda").fadeOut("slow");
+			}, 1000);
+		}
+
+		
+		
 		$('#caldero1').sortable({
 			revert: 'invalid',
 			connectWith: "#dock_cartas",
@@ -19,7 +41,7 @@ $(document).ready(function () {
 						$(".bg_load").fadeOut("slow");
 						$(".wrapper").fadeOut("slow");
 						$('#jugar').parpadear();
-						$('#caldero1 img').puntos1();
+						//$('#caldero1 img').puntos1();
 						$('#jugar').removeClass('jugar').addClass('jugar_activo');
 					});
 				}
@@ -45,7 +67,7 @@ $(document).ready(function () {
 						$(".bg_load").fadeOut("slow");
 						$(".wrapper").fadeOut("slow");
 						$('#jugar').parpadear();
-						$('#caldero2 img').puntos2();
+						//$('#caldero2 img').puntos2();
 						$('#jugar').removeClass('jugar').addClass('jugar_activo');
 					});
 				}
@@ -72,7 +94,7 @@ $(document).ready(function () {
 						$(".bg_load").fadeOut("slow");
 						$(".wrapper").fadeOut("slow");
 						$('#jugar').parpadear();
-						$('#caldero3 img').puntos3();
+						//$('#caldero3 img').puntos3();
 						$('#jugar').removeClass('jugar').addClass('jugar_activo');
 					});
 				}
@@ -103,10 +125,14 @@ $(document).ready(function () {
 						}
 						tam++;
 				});
-				if (tam == 1){
+				if (cal[0] == undefined){
 					return "";
 				}
-				return cal[0];
+				if (cal[0].length == 2){
+					return cal[0][1];
+				}else{
+					return cal[0];
+				}
 		}
 		
 		
@@ -296,5 +322,14 @@ $(document).ready(function () {
 				$('#caldero3 img:nth-child(9)').addClass('c2');
 				$('#caldero3 img:nth-child(10)').addClass('c2');
 		};
+		
+		$.fn.parpadear = function()
+		{
+			this.each(function parpadear()
+			{
+				$(this).fadeIn(500).delay(250).fadeOut(500, parpadear);
+			});
+		}
+		
 
 });

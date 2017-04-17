@@ -11,11 +11,15 @@
 		<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
 		<script>
 		$.post("Logica/s.php",{mensaje: "Inicial"},function(data){});	
-	
-		/*$.post( "Logica/start.php", {mensaje: "Inicial" },function( data ) {
-			console.log(data);
+		
+		/*
+		$.post("Logica/down.php", {mensaje: "Inicial" },function( data ) {
+			$.post("Logica/start.php", {mensaje: "Inicial" },function( data ) {
+				console.log(data);
+			});
 		});
 		*/
+		
 		</script>
 		<!--[if IE]>
 			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
