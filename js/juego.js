@@ -1,21 +1,15 @@
-$(document).ready(function () {				
-		/*
-		$.post( "Logica/controller.php", {p1: "a", p2: "B" },function( data ) {
-			$("#caldero2").append(data);
-			$("#caldero1").order1();
-			$("#caldero2").order2();
-			$("#caldero3").order3();
-		});	
-		*/
-		//DRAG AND DROP
-
-		
+$(document).ready(function () {		
 		$('#caldero1').sortable({
 			revert: 'invalid',
 			connectWith: "#dock_cartas",
 			items: "img.inbound",
 			update: function(event, ui){
-				$('#caldero1').order2();
+				$('#caldero1').order1();
+				//$("#caldero1 h1").remove();
+				
+				$(".bg_load").fadeIn("slow");
+				$(".wrapper").fadeIn("slow");
+				
 				$('#jugar').removeClass('jugar').addClass('jugar_activo');
 				$('#dock_cartas').sortable("disable");
 				$('#jugar').unbind('click');
@@ -24,7 +18,10 @@ $(document).ready(function () {
 					alert("Carta Incorrecta");
 					location.reload();
 				}else{
-					$.post('Logica/jugar.php',{caldero: 1,jugador: $("#jugador").attr('value'),carta: $(ui.item).attr('type')},function( data ) {});
+					$.post('Logica/jugar.php',{caldero: 1,jugador: $("#jugador").attr('value'),carta: $(ui.item).attr('type')},function( data ) {
+						$(".bg_load").fadeOut("slow");
+						$(".wrapper").fadeOut("slow");
+					});
 				}
 			}
 		});
@@ -35,6 +32,12 @@ $(document).ready(function () {
 			items: "img.inbound",
 			update: function(event, ui){
 				$('#caldero2').order2();
+				//$("#caldero2 h1").remove();
+				
+				$(".bg_load").fadeIn("slow");
+				$(".wrapper").fadeIn("slow");
+				
+				
 				$('#jugar').removeClass('jugar').addClass('jugar_activo');
 				$('#dock_cartas').sortable("disable");
 				$('#jugar').unbind('click');
@@ -43,7 +46,10 @@ $(document).ready(function () {
 					alert("Carta Incorrecta");
 					location.reload();
 				}else{
-					$.post('Logica/jugar.php',{caldero: 2,jugador: $("#jugador").attr('value'),carta: $(ui.item).attr('type')},function(data) {});
+					$.post('Logica/jugar.php',{caldero: 2,jugador: $("#jugador").attr('value'),carta: $(ui.item).attr('type')},function(data) {
+						$(".bg_load").fadeOut("slow");
+						$(".wrapper").fadeOut("slow");
+					});
 				}
 
 			}
@@ -54,8 +60,13 @@ $(document).ready(function () {
 			connectWith: "#dock_cartas",
 			items: "img.inbound",
 			update: function(event, ui){
-				$('#caldero3').order2();
+				$('#caldero3').order3();
+				//$("#caldero3 h1").remove();
 				$('#jugar').removeClass('jugar').addClass('jugar_activo');
+				
+				$(".bg_load").fadeIn("slow");
+				$(".wrapper").fadeIn("slow");
+				
 				$('#dock_cartas').sortable("disable");
 				$('#jugar').unbind('click');
 				$("#caldero3").sortable( "option", "revert", false );
@@ -63,7 +74,10 @@ $(document).ready(function () {
 					alert("Carta Incorrecta");
 					location.reload();
 				}else{
-					$.post('Logica/jugar.php',{caldero: 3,jugador: $("#jugador").attr('value'),carta: $(ui.item).attr('type')},function( data ) {});
+					$.post('Logica/jugar.php',{caldero: 3,jugador: $("#jugador").attr('value'),carta: $(ui.item).attr('type')},function( data ) {
+						$(".bg_load").fadeOut("slow");
+						$(".wrapper").fadeOut("slow");
+					});
 				}
 			}
 		});
@@ -79,7 +93,6 @@ $(document).ready(function () {
 				e.preventDefault();
 				alert('Mueve una carta');
 		})
-		
 		
 		$.fn.tipo_caldero = function () {
 				cal = [];

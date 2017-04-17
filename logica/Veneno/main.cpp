@@ -14,6 +14,13 @@ int toint(string val){
     geek >> x;
     return x;
 }
+string tostring(int val){
+    stringstream ss;
+    ss << val;
+    string str = ss.str();
+    return str;
+}
+
 int main(void)
 {
     cout<<"\t\t\t VENENO GAME \n"<<endl;
@@ -25,7 +32,7 @@ int main(void)
     while(true)
     {
         WSockServer MyServer(REQ_WINSOCK_VER);
-        cout<<"\t\t\tVENENO GAME\n\nMenu\n\n0. Asignar cantidad jugadores\n1. Crear jugador(n)\n2. Ver jugador(cartas en mano)\n3. Ver nombre Jugador\n4. Ver caldero (s)\n5. Jugar (recibe jugador y carta, caldero a mover)\n6. Verificar ronda\n7. Ver ronda\n8. Ver jugadores actuales\n9. Ver jugadores\n10. Ver resultados\n11. Redo\n12. Undo\n13. Reset\n14. Buscar carta\n\nDigite su eleccion: ";
+        cout<<"\t\t\tVENENO GAME\n\nMenu\n\n0. Asignar cantidad jugadores\n1. Crear jugador(n)\n2. Ver jugador(cartas en mano)\n3. Ver nombre Jugador\n4. Ver caldero (s)\n5. Jugar (recibe jugador y carta, caldero a mover)\n6. Verificar ronda\n7. Ver ronda\n8. Ver jugadores actuales\n9. Ver numero de jugadores\n10. Ver resultados\n11. Redo\n12. Undo\n13. Reset\n14. Buscar carta\n15. Ver jugador total\n\nDigite su eleccion: ";
         //cin>>opcion;
         opcion = toint(MyServer.RunServer(1500,"Opcion OK"));
          ////////////////////LISTO/////////////////////
@@ -88,8 +95,12 @@ int main(void)
             controladora->getRondas()->getCurrValue()->getJugadores()->goToPos(jugador);
 
             WSockServer MyServer2(REQ_WINSOCK_VER);
-            MyServer2.RunServer(1500,controladora->getRondas()->getCurrValue()->getJugadores()->getCurrValue()->getNombre());
-            cout<<"NOMBRE JUGADOR: "<<controladora->getRondas()->getCurrValue()->getJugadores()->getCurrValue()->getNombre();
+            string venenos = tostring(controladora->getRondas()->getCurrValue()->getJugadores()->getCurrValue()->getBComidas()->getSize());
+            string ronda = tostring(controladora->getRondas()->getSize());
+            string nombre = controladora->getRondas()->getCurrValue()->getJugadores()->getCurrValue()->getNombre();
+            string val = nombre + "-" + ronda  + "-" + venenos;
+            MyServer2.RunServer(1500,val);
+            cout<<"NOMBRE JUGADOR: "<<val;
         }
 
         if(opcion == 4)
@@ -166,46 +177,65 @@ int main(void)
             controladora->getRondas()->goToEnd();
             cout<<controladora->getRondas()->getCurrValue()->totalNaipes();
             if(controladora->getRondas()->getCurrValue()->totalNaipes() == 0){
-                cout<<"entre";
+                cout<<"ENTRE";
                 if(controladora->getRondas()->getCurrValue()->getBEnJuego()->getSize() >= (controladora->getRondas()->getCurrValue()->getCantidad() * controladora->getRondas()->getCurrValue()->getJugadores()->getSize())){
                     controladora->getRondas()->getCurrValue()->barajar();
-                    cout<<"BAraje";
+                    cout<<"BARAJE";
                 }
                 else{
                     controladora->getRondas()->getCurrValue()->setState(false);
                     controladora->crearRondas();
-                    cout<<"Cree ronda";
+                    cout<<"CREE RONDA";
                 }
             }
         }
+
+        //LISTO LO DEVUELVE CON EL NOMBRE
         if(opcion == 7){
-            controladora->getRondas()->getSize();
+            cout<<controladora->getRondas()->getSize();
         }
         if(opcion == 8){
-            controladora->getRondas()->getCurrValue()->getJugadores();
+            controladora->getRondas()->getCurrValue()->getJugadores()->print();
         }
+        //VER JUGADORES ACTUALES
         if(opcion == 9){
-            controladora->getJugadores();
+            WSockServer MyServer(REQ_WINSOCK_VER);
+            string cant_jugadores = tostring(controladora->getJugadores()->getSize());
+            MyServer.RunServer(1500,cant_jugadores);
+            cout<<"Cantidad de jugadores:"<<cant_jugadores;
         }
         if(opcion == 10){
-            controladora->getJugadores();
+            controladora->getJugadores()->print();
         }
         if(opcion == 11){
             controladora->getRondas()->goToEnd();
             controladora->getRondas()->getCurrValue()->redoMovimiento();
+            cout<<"REDO MOVIMIENTO";
         }
         if(opcion == 12){
             controladora->getRondas()->goToEnd();
             controladora->getRondas()->getCurrValue()->undoMovimiento();
+            cout<<"UNDO MOVIMIENTO";
         }
         if(opcion == 13){
             controladora->getRondas()->goToEnd();
             controladora->getRondas()->getCurr()->setValue(new Ronda(controladora->getJugadoresActual(), controladora->getBOrdenada()));
+            cout<<"RESET MOVIMIENTO";
         }
         if(opcion == 14){
             //busca la carta
+            cout<<"BUSCAR CARTA MOVIMIENTO";
+        }
+        if(opcion == 15){
+            int jugador;
+             WSockServer MyServer(REQ_WINSOCK_VER);
+            cout<<"Digite el numero de jugador a ver: ";
+            //cin>>jugador;
+            jugador = toint(MyServer.RunServer(1500,"OPT JUGADOR OK"));
+            controladora->getRondas()->goToEnd();
+            controladora->getRondas()->getCurrValue()->getJugadores()->goToPos(jugador);
+            controladora->getRondas()->getCurrValue()->getJugadores()->getCurrValue()->print();
         }
         //system("cls");
     }
 }
-
