@@ -75,7 +75,6 @@ string Naipe::r_print()
     string s2;
     ss2 << numero;
     ss2 >> s2;
-
     return s+":"+s2+"-";
 }
 

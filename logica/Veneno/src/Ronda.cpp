@@ -237,7 +237,7 @@ bool Ronda::addCaldero3(Naipe* naipe, Jugador* jugador)
             }
             else{
                 cout<<"\n\nNO SE PUEDE COLOCAR LA CARTA\n\n";
-                return false
+                return false;
             }
         }
         else{
@@ -250,7 +250,7 @@ bool Ronda::addCaldero3(Naipe* naipe, Jugador* jugador)
             }
             else{
                 cout<<"\n\nNO SE PUEDE COLOCAR LA CARTA\n\n";
-                return false
+                return false;
             }
         }
         cout<<"\n\nNO SE PUEDE COLOCAR LA CARTA\n\n";

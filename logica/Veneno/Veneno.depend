@@ -443,7 +443,7 @@
 	<iostream>
 	"Ronda.h"
 
-1492375538 source:c:\xampp\htdocs\ed-veneno\logica\veneno\main.cpp
+1492452132 source:c:\xampp\htdocs\ed-veneno\logica\veneno\main.cpp
 	<iostream>
 	"Controladora.h"
 	"Server.h"
@@ -464,7 +464,7 @@
 1492303577 c:\xampp\htdocs\ed-veneno\logica\veneno\include\arraylist.h
 	"Naipe.h"
 
-1492270950 c:\xampp\htdocs\ed-veneno\logica\veneno\include\jugador.h
+1492451860 c:\xampp\htdocs\ed-veneno\logica\veneno\include\jugador.h
 	"ArrayList.h"
 
 1492270950 c:\xampp\htdocs\ed-veneno\logica\veneno\include\dlinkedlistj.h
@@ -548,7 +548,7 @@
 	<iostream>
 	"Movimiento.h"
 
-1492270950 c:\xampp\htdocs\ed-veneno\logica\veneno\include\movimiento.h
+1492443453 c:\xampp\htdocs\ed-veneno\logica\veneno\include\movimiento.h
 	"Jugador.h"
 	"Baraja.h"
 
@@ -576,19 +576,19 @@
 	<cstddef>
 	"Ronda.h"
 
-1491923170 source:c:\xampp\htdocs\ed-veneno\logica\veneno\src\jugador.cpp
+1492452084 source:c:\xampp\htdocs\ed-veneno\logica\veneno\src\jugador.cpp
 	"Jugador.h"
 
-1491923170 source:c:\xampp\htdocs\ed-veneno\logica\veneno\src\movimiento.cpp
+1492443453 source:c:\xampp\htdocs\ed-veneno\logica\veneno\src\movimiento.cpp
 	"Movimiento.h"
 
-1492370068 source:c:\xampp\htdocs\ed-veneno\logica\veneno\src\naipe.cpp
+1492450069 source:c:\xampp\htdocs\ed-veneno\logica\veneno\src\naipe.cpp
 	"Naipe.h"
 	<iostream>
 	<sstream>
 	<string>
 
-1492375667 source:c:\xampp\htdocs\ed-veneno\logica\veneno\src\ronda.cpp
+1492447022 source:c:\xampp\htdocs\ed-veneno\logica\veneno\src\ronda.cpp
 	"Ronda.h"
 	"Baraja.h"
 	"ArrayListN.h"
@@ -620,7 +620,13 @@
 	<string>
 	<cstdlib>
 
-1492365947 source:c:\xampp\htdocs\ed-veneno\logica\veneno\mainp.cpp
+1492443453 source:c:\xampp\htdocs\ed-veneno\logica\veneno\mainp.cpp
+	<iostream>
+	"Controladora.h"
+	"Server.h"
+	<sstream>
+	<string>
+	<cstdlib>
 	<iostream>
 	"Controladora.h"
 	"Server.h"

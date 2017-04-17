@@ -11,8 +11,8 @@
 		<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
 		<script>
 		$.post("Logica/s.php",{mensaje: "Inicial"},function(data){});	
-		/*console.log("ENTRE");
-		$.post( "Logica/start.php", {mensaje: "Inicial" },function( data ) {
+	
+		/*$.post( "Logica/start.php", {mensaje: "Inicial" },function( data ) {
 			console.log(data);
 		});
 		*/

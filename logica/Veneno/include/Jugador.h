@@ -18,6 +18,7 @@ class Jugador
         ArrayList* getBComidas();
         ArrayList* getBActual();
         void print();
+        string print_r();
 
     protected:
 

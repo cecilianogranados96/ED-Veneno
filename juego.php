@@ -1,9 +1,13 @@
 <?php
+	include("Logica/cant_jugadores.php");
+	if ($cant_jugadores == 1){
+		echo "<script>window.location='resultados.php'</script>";
+	}
 	if ($_GET['jugadores']-1 == $_GET['jugador']){
-		$url_juego = "juego.php?jugadores=".$_GET['jugadores']."&jugador=0";
+		$url_juego = "juego.php?jugadores=".$cant_jugadores."&jugador=0";
 	}else{
-		$url_juego = "juego.php?jugadores=".$_GET['jugadores']."&jugador=".($_GET['jugador']+1)."";
-	}	
+		$url_juego = "juego.php?jugadores=".$_GET['jugadores']."&jugador=".($_GET['jugador']+1);
+	}
 ?>
 <html lang="es" class="no-js">
 	<head>
@@ -12,6 +16,7 @@
 		<title>Veneno Game</title>
 		<link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="css/demo.css" />
+		<link rel="stylesheet" type="text/css" href="css/loading.css" />
 		<link rel="stylesheet" type="text/css" href="css/decolines.css" />
 		<link href="https://fonts.googleapis.com/css?family=Roboto+Mono:100,300" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="css/normalize.css" />
@@ -23,17 +28,18 @@
 		<link rel="stylesheet" type="text/css" href="css/cartas.css" />
 		<!--<script src="https://raw.githubusercontent.com/furf/jquery-ui-touch-punch/master/jquery.ui.touch-punch.min.js"></script>-->
 		<script src="js/juego.js"></script>
-	<script>
+		<script>
 			$.post('Logica/nombre.php',{nombre: <?php echo $_GET['jugador']; ?> },function( data ) {
-				$("#nombre_jugador").text(data);
+				var x = data.split("-");
+				$("#nombre_jugador").text(x[0]);
+				$("#ronda").text(x[1]);
+				$("#venenos").text(x[2]);
 				$.post('Logica/cartas_mano.php',{id:  <?php echo $_GET['jugador']; ?> },function(data2){
 					var x = data2.split("-");
-					console.log(x);
 					for (i=0;i<x.length-1;i++){
 						var S = x[i].split(":");
 						$("#dock_cartas").append('<img src="img/cartas/'+S[1]+S[0]+'.png" id="'+S[1]+S[0]+'" type="'+i+'" class="dock_cartas inbound">');	
 					}
-					
 					$.post('Logica/calderos.php',{id: 1 },function(data2){
 						var x = data2.split("-");
 						for (i=0;i<x.length-1;i++){
@@ -57,24 +63,77 @@
 								$("#caldero2").order2();
 								$("#caldero3").order3();
 								console.log("TERMINE DE CARGAR");
+								$("#bg_load").remove();
+								$("#wrapper").remove();
+								$(".bg_load").fadeOut("slow");
+								$(".wrapper").fadeOut("slow");
+								
 							});
 						});
 					});
 				});
 			});
+
+		function buscar(texto){
+			$("#busqueda").css("display", "block");
+			$("#busqueda span").text(texto.value);
+			texto.value = "";
+			setTimeout(function() {
+				$("#busqueda").fadeOut("slow");
+			}, 1000);
+		}
+
+		$.fn.parpadear = function()
+		{
+			this.each(function parpadear()
+			{
+				$(this).fadeIn(500).delay(250).fadeOut(500, parpadear);
+			});
+		}
+		
+		function reset() {
+			alert("RESET");
+		};
+		function anterior() {
+			alert("ANTERIOR");
+		};
+		function siguiente() {
+			alert("SIGUIENTE");
+		};
+	
 	</script>
 	</head>
-	<body class="demo-2" style="overflow-x: hidden; overflow-y: hidden;" >
-	<input type='text' id='jugadores' value="<?php echo $_GET['jugadores']; ?>" hidden>
+	<body class="demo-2" style="overflow-x: hidden; overflow-y: hidden;">
+	<!--JQUERRY CARGA-->
+	<div class="bg_load-"></div>
+	<div class="wrapper">
+		<div class="inner">
+			<span>V</span>
+			<span>e</span>
+			<span>n</span>
+			<span>e</span>
+			<span>n</span>
+			<span>o</span>
+		</div>
+	</div>
+	<!--DATOS QUE USA JQUERRY PARA MANEJO-->
+	<input type='text' id='jugadores' value="<?php echo $cant_jugadores; ?>" hidden>
 	<input type='text' id='jugador' value="<?php echo $_GET['jugador']; ?>" hidden>
 		<main>
+			<!--MANEJO-->
 			<div class="codrops-links">
 				<a class="codrops-icon codrops-icon--prev" href="configuracion.php">Atras</a>
 				<a class="codrops-icon codrops-icon--drop" href="ayuda.php">Ayuda</a>
 			</div>
+			<!--BUSQUEDA-->
+			<div class="buscar" id="buscar">
+				  <input type="text" class="form-control" name="carta" placeholder="Buscar Carta..." onchange="buscar(this);">
+			</div>
+			<div class="busqueda" id="busqueda"><center>La tiene:<br><span>Jugador #1</span></center></div>
 			<!--OPCIONES-->
-			<a class="anterior" id="anterior" href="anterior.php" ><center>Anterior</center></a>
-			<a class="siguiente" id="siguiente" href="anterior.php" ><center>Siguiente</center></a>
+			<a class="reset" id="reset" onclick="reset();"><center>Reset</center></a>
+			<a class="anterior" id="anterior" onclick="anterior();"><center>Undo</center></a>
+			<a class="siguiente" id="siguiente" onclick="siguiente();" ><center>Redo</center></a>
 			<a class="jugar" id="jugar" href="<?php echo $url_juego; ?>"><center>Jugar</center></a>
 			<center>
 				<!--NOMBRE DEL JUGADOR-->
@@ -82,18 +141,17 @@
 			</center>
 			<div class="puntos">
 				<!--PUNTOS-->
-				<h1>Ronda</h1><br>
-				<h1><center>0</center></h1><hr>
-				<h1>Turno</h1><br>
-				<h1><center>0</center></h1><hr>
-				<h1>Puntos</h1><br>
-				<h1><center>0</center></h1>
+				<h1><center>Ronda</center></h1><br>
+				<h1><center id="ronda">Ronda</center></h1><hr>
+				<h1><center>Turno</center></h1><br>
+				<h1><center><?php echo $_GET['jugador']+1; ?></center></h1><hr>
+				<h1><center>Venenos</center></h1><br>
+				<h1><center id="venenos">Venenos</center></h1>
 			</div>
-			<div class="calero1 caldero" id="caldero1">	  
+			<div class="calero1 caldero" id="caldero1">	  	
 				<!--CALDERO 1-->
 			</div>
-			<div class="calero2 caldero" id="caldero2">
-			
+			<div class="calero2 caldero" id="caldero2">			
 				<!--CALDERO 2-->
 			</div>
 			<div class="calero3 caldero" id="caldero3">

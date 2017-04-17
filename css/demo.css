@@ -202,7 +202,7 @@ a:hover, a:focus { color: #666c7b; }
 
 .puntos {
     margin: calc(19vh + 0px) 0 0 calc(0% + 0px);
-    padding: 2em;
+    padding: 1em;
     width: calc(10vw - 0px);
     min-height: calc(60vh - 1px);
     position: absolute;
@@ -211,71 +211,116 @@ a:hover, a:focus { color: #666c7b; }
 	color:#000000;
 }
 
-.anterior {
-    margin: calc(20vh + 0px) 0 0 calc(88% + 0px);
-    padding: 1.5em 4em 1em 1em;
+
+
+.reset {
+    margin: calc(10vh + 2px) 0 0 calc(88% + 0px);
+    padding: 0.9em 3em 0em 1.6em;
     width: calc(10vw - 0px);
     min-height: calc(11vh - 0px);
     position: absolute;
     z-index: 100;
     color: #FFFFFF;
-    background-image: 	linear-gradient(to bottom,#337ab7 0,#265a88 100%);
-    font-size: medium;
+    background-image: linear-gradient(to bottom,#CCC 0,#CCC 100%);
+    font-size: 1.5em;
 	border-radius: 10px 10px 10px 10px;
--moz-border-radius: 10px 10px 10px 10px;
--webkit-border-radius: 10px 10px 10px 10px;
-border: 0px solid #000000;
+	-moz-border-radius: 10px 10px 10px 10px;
+	-webkit-border-radius: 10px 10px 10px 10px;
+	border: 2px solid #000000;
+}
+
+
+.anterior {
+    margin: calc(25vh + 0px) 0 0 calc(88% + 0px);
+    padding: 0.9em 3em 0em 1.6em;
+    width: calc(10vw - 0px);
+    min-height: calc(11vh - 0px);
+    position: absolute;
+    z-index: 100;
+    color: #FFFFFF;
+    background-image: 	linear-gradient(to bottom,#337ab7 0,#337ab7 100%);
+    font-size: 1.5em;
+	border-radius: 10px 10px 10px 10px;
+	-moz-border-radius: 10px 10px 10px 10px;
+	-webkit-border-radius: 10px 10px 10px 10px;
+	border: 2px solid #000000;
 }
 
 
 .siguiente {
-    margin: calc(35vh + 0px) 0 0 calc(88% + 0px);
-    padding: 1.5em 4em 1em 1em;
+    margin: calc(40vh + 0px) 0 0 calc(88% + 0px);
+    padding: 0.9em 3em 0em 1.6em;
     width: calc(10vw - 0px);
     min-height: calc(11vh - 0px);
     position: absolute;
     z-index: 100;
     color: #FFFFFF;
-    background-image: linear-gradient(to bottom,#5bc0de 0,#2aabd2 100%);
-    font-size: medium;
+    background-image: linear-gradient(to bottom,#5bc0de 0,#5bc0de 100%);
+    font-size: 1.5em;
 	border-radius: 10px 10px 10px 10px;
--moz-border-radius: 10px 10px 10px 10px;
--webkit-border-radius: 10px 10px 10px 10px;
-border: 0px solid #000000;
+	-moz-border-radius: 10px 10px 10px 10px;
+	-webkit-border-radius: 10px 10px 10px 10px;
+	border: 2px solid #000000;
 }
+
 .jugar {
-    margin: calc(50vh + 0px) 0 0 calc(88% + 0px);
-    padding: 1.5em 4em 1em 1em;
+    margin: calc(55vh + 0px) 0 0 calc(88% + 0px);
+    padding: 0.9em 3em 0em 1.6em;
     width: calc(10vw - 0px);
     min-height: calc(11vh - 0px);
     position: absolute;
     z-index: 100;
     color: #000000;
-    background-image: linear-gradient(to bottom,#fff 0,#e0e0e0 100%);
-    font-size: medium;
+    background-image: linear-gradient(to bottom,#fff 0,#fff 100%);
+    font-size: 1.5em;
 	border-radius: 10px 10px 10px 10px;
 	-moz-border-radius: 10px 10px 10px 10px;
 	-webkit-border-radius: 10px 10px 10px 10px;
-	border: 0px solid #000000;
+	border: 2px solid #000000;
 }
 
 .jugar_activo {
-    margin: calc(50vh + 0px) 0 0 calc(88% + 0px);
-    padding: 1.5em 4em 1em 1em;
+    margin: calc(55vh + 0px) 0 0 calc(88% + 0px);
+    padding: 0.9em 3em 0em 1.6em;
     width: calc(10vw - 0px);
     min-height: calc(11vh - 0px);
     position: absolute;
     z-index: 100;
     color: #FFFFFF;
-    background-image: linear-gradient(to bottom,#5cb85c 0,#419641 100%);
-    font-size: medium;
+    background-image: linear-gradient(to bottom,#5cb85c 0,#5cb85c 100%);
+    font-size: 1.5em;
 	border-radius: 10px 10px 10px 10px;
 	-moz-border-radius: 10px 10px 10px 10px;
 	-webkit-border-radius: 10px 10px 10px 10px;
-	border: 0px solid #000000;
+	border: 2px solid #000000;
 }
 
 
+.busqueda {
+    margin: calc(8vh + -2px) 0 0 calc(76% + 0px);
+    padding: 0em 0em 0em 0em;
+    width: calc(18vw - 0px);
+    min-height: calc(11vh - 0px);
+    position: absolute;
+    z-index: 200;
+    color: #FFFFFF;
+    background-image: linear-gradient(to bottom,#5cb85c 0,#5cb85c 100%);
+    font-size: 2em;
+    border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border: 2px solid #000000;
+	display:none;
+}
+
+
+
+.buscar{
+	width: 12em;
+    margin-left: 77em;
+    position: absolute;
+    margin-top: 1.2em;
+}
 
 /*linear-gradient(to bottom,#fff 0,#e0e0e0 100%)*/
 

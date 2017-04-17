@@ -80,3 +80,17 @@ void Jugador::print()
     cout<<"Cartas veneno: ";
     bVenenos->print();
 }
+
+string Jugador::print_r()
+{
+    /*
+    cout<<"\nNombre: "<<nombre<<" ID: "<<id<<"\n";
+    cout<<"Cartas en mano: ";
+    bActual->r_print();
+    cout<<"Cartas comidas: ";
+    bComidas->r_print();
+    cout<<"Cartas veneno: ";
+    bVenenos->r_print();
+    */
+    return nombre+"~"+bActual->r_print()+"~"+bComidas->r_print()+"~"+bVenenos->r_print();
+}

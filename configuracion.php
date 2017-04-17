@@ -34,11 +34,6 @@
 				<p class="codrops-header__tagline">Configuraremos algunas cosas antes de inciar el juego. </p>
 			</header>
 			<?php if(!isset($_GET['jugadores'])){ ?>
-			<script>
-			$.post( "Logica/s.php", {mensaje: "0" },function( data ) {
-				console.log(data); 
-			});	
-			</script>
 				<p class="codrops-header__tagline" style="margin-left:22%;">Selecciona la cantidad de jugadores. </p>
 				<center>
 					<a href="configuracion.php?jugadores=2&jugador=0"><img class="numeros" src="img/jugadores/2.png"></a>
@@ -47,43 +42,27 @@
 					<a href="configuracion.php?jugadores=5&jugador=0"><img class="numeros" src="img/jugadores/5.png"></a>
 					<a href="configuracion.php?jugadores=6&jugador=0"><img class="numeros" src="img/jugadores/6.png"></a>
 				</center>
-				<?php }else{ ?>
-				
-				<?php 
-				if ($_GET['jugador'] == 0){
-					echo "<script>
-							$.post('Logica/s.php', {mensaje: ".$_GET['jugadores']." },function( data ) {
-								console.log(data);
-							});	
-						</script>";
-				}
-
-				if(isset($_GET['nom'])){
+				<?php }else{
 					
-					//echo $_GET['nom'];
-					echo "<script>
-							$.post('Logica/s.php', {mensaje: 1 },function( data ) {
-								console.log(data);
-								$.post('Logica/s.php', {mensaje: '".$_GET['nom']."' },function( data ) {
-									console.log(data);
-								});
-							});
-					</script>";
-					if(($_GET['jugadores']) == $_GET['jugador']){
-						echo "<script>window.location='juego.php?jugadores=".$_GET['jugadores']."&jugador=0'</script>";
-					}
+				if ($_GET['jugador'] == 0){
+					echo "<script>$.post('Logica/reg_cant_jugadores.php', {cantidad: ".$_GET['jugadores']."},function(data){});</script>";
 				}
-				
+				if(isset($_GET['nom'])){
+					//echo $_GET['nom'];
+					echo "<script>$.post('Logica/reg_nom.php', {nombre: '".$_GET['nom']."' },function(data){ ";
+					
+					if(($_GET['jugadores']) == $_GET['jugador']){
+						 echo "window.location='juego.php?jugadores=".$_GET['jugadores']."&jugador=0'; ";
+					}
+						
+					echo "});</script>";
+				}
 				if(($_GET['jugadores']-1) == $_GET['jugador']){
-					//$url = "juego.php";
 					$text = "JUEGO";
 				}else{
-					//$url = "configuracion.php?jugadores=".$_GET['jugadores']."&jugador=".($_GET['jugador']+1)."";
 					$text = "Siguiente";
 				}
-				
 				$url = "configuracion.php?jugadores=".$_GET['jugadores']."&jugador=".($_GET['jugador']+1)."";
-				
 				?>
 				<form action="<?php echo $url; ?>" method="GET">
 					<p class="codrops-header__tagline" style="margin-left:22%;">Digita los nombres de los jugadores. </p>

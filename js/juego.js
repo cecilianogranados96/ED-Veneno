@@ -1,22 +1,13 @@
-$(document).ready(function () {				
-		/*
-		$.post( "Logica/controller.php", {p1: "a", p2: "B" },function( data ) {
-			$("#caldero2").append(data);
-			$("#caldero1").order1();
-			$("#caldero2").order2();
-			$("#caldero3").order3();
-		});	
-		*/
-		//DRAG AND DROP
-
-		
+$(document).ready(function () {		
 		$('#caldero1').sortable({
 			revert: 'invalid',
 			connectWith: "#dock_cartas",
 			items: "img.inbound",
 			update: function(event, ui){
-				$('#caldero1').order2();
-				$('#jugar').removeClass('jugar').addClass('jugar_activo');
+				$('#caldero1').order1();
+				//$("#caldero1 h1").remove();
+				$(".bg_load").fadeIn("slow");
+				$(".wrapper").fadeIn("slow");
 				$('#dock_cartas').sortable("disable");
 				$('#jugar').unbind('click');
 				$("#caldero1").sortable( "option", "revert", false );
@@ -24,18 +15,25 @@ $(document).ready(function () {
 					alert("Carta Incorrecta");
 					location.reload();
 				}else{
-					$.post('Logica/jugar.php',{caldero: 1,jugador: $("#jugador").attr('value'),carta: $(ui.item).attr('type')},function( data ) {});
+					$.post('Logica/jugar.php',{caldero: 1,jugador: $("#jugador").attr('value'),carta: $(ui.item).attr('type')},function( data ) {
+						$(".bg_load").fadeOut("slow");
+						$(".wrapper").fadeOut("slow");
+						$('#jugar').parpadear();
+						$('#caldero1 img').puntos1();
+						$('#jugar').removeClass('jugar').addClass('jugar_activo');
+					});
 				}
 			}
 		});
-				
+
 		$('#caldero2').sortable({
 			revert: 'invalid',
 			connectWith: "#dock_cartas",
 			items: "img.inbound",
 			update: function(event, ui){
 				$('#caldero2').order2();
-				$('#jugar').removeClass('jugar').addClass('jugar_activo');
+				$(".bg_load").fadeIn("slow");
+				$(".wrapper").fadeIn("slow");
 				$('#dock_cartas').sortable("disable");
 				$('#jugar').unbind('click');
 				$("#caldero2").sortable( "option", "revert", false );
@@ -43,7 +41,13 @@ $(document).ready(function () {
 					alert("Carta Incorrecta");
 					location.reload();
 				}else{
-					$.post('Logica/jugar.php',{caldero: 2,jugador: $("#jugador").attr('value'),carta: $(ui.item).attr('type')},function(data) {});
+					$.post('Logica/jugar.php',{caldero: 2,jugador: $("#jugador").attr('value'),carta: $(ui.item).attr('type')},function(data) {
+						$(".bg_load").fadeOut("slow");
+						$(".wrapper").fadeOut("slow");
+						$('#jugar').parpadear();
+						$('#caldero2 img').puntos2();
+						$('#jugar').removeClass('jugar').addClass('jugar_activo');
+					});
 				}
 
 			}
@@ -54,8 +58,9 @@ $(document).ready(function () {
 			connectWith: "#dock_cartas",
 			items: "img.inbound",
 			update: function(event, ui){
-				$('#caldero3').order2();
-				$('#jugar').removeClass('jugar').addClass('jugar_activo');
+				$('#caldero3').order3();
+				$(".bg_load").fadeIn("slow");
+				$(".wrapper").fadeIn("slow");
 				$('#dock_cartas').sortable("disable");
 				$('#jugar').unbind('click');
 				$("#caldero3").sortable( "option", "revert", false );
@@ -63,7 +68,13 @@ $(document).ready(function () {
 					alert("Carta Incorrecta");
 					location.reload();
 				}else{
-					$.post('Logica/jugar.php',{caldero: 3,jugador: $("#jugador").attr('value'),carta: $(ui.item).attr('type')},function( data ) {});
+					$.post('Logica/jugar.php',{caldero: 3,jugador: $("#jugador").attr('value'),carta: $(ui.item).attr('type')},function( data ) {
+						$(".bg_load").fadeOut("slow");
+						$(".wrapper").fadeOut("slow");
+						$('#jugar').parpadear();
+						$('#caldero3 img').puntos3();
+						$('#jugar').removeClass('jugar').addClass('jugar_activo');
+					});
 				}
 			}
 		});
@@ -83,29 +94,78 @@ $(document).ready(function () {
 		
 		$.fn.tipo_caldero = function () {
 				cal = [];
+				cal[0] = "";
 				tam = 0;
 				$(this).each(function(index) {
-						if($(this).attr("id")[1] != "C"){
-							cal[tam] = $(this).attr("id")[1]
+						splits =  $(this).attr("id").split(/(\d+)/);
+						if(splits[splits.length-1] != "C"){
+							cal[tam] = splits[splits.length-1];
 						}
 						tam++;
 				});
+				if (tam == 1){
+					return "";
+				}
 				return cal[0];
 		}
 		
+		
+		$.fn.puntos1 = function(){
+				tam = 0; 
+				$(this).each(function(index) {
+						splits =  $(this).attr("id").split(/(\d+)/);
+						tam = tam + splits[1];
+				});
+				if (tam >= 13){
+					$("#caldero1").css("background", "red");
+				}else{
+					console.log("no problema");
+				}
+		}
+		$.fn.puntos2 = function(){
+				tam = 0; 
+				$(this).each(function(index) {
+						splits =  $(this).attr("id").split(/(\d+)/);
+						tam = tam + splits[1];
+				});
+				if (tam >= 13){
+					$("#caldero2").css("background", "red");
+				}else{
+					console.log("no problema");
+				}
+		}
+		$.fn.puntos3 = function(){
+				tam = 0; 
+				$(this).each(function(index) {
+						splits =  $(this).attr("id").split(/(\d+)/);
+						tam = tam + splits[1];
+				});
+				if (tam >= 13){
+					$("#caldero3").css("background", "red");
+				}else{
+					console.log("no problema");
+					
+				}
+		}		
 		//////////VALIACIONES DE CARTAS DE CALDEROS///////////////
 		$.fn.val_carta1 = function (carta) {
-			if(carta[1] != 'C'){
-				console.log("TIPO CAL"+ $("#caldero2 img").tipo_caldero());
+			splits = carta.split(/(\d+)/);
+			carta2 = splits[splits.length-1]; 
+			console.log("TIPO CARTA: "+carta2[carta2.length-1]);
+			if(carta2[carta2.length-1] != 'C'){
+				console.log("---------------------------------------");
+				console.log("TIPO CAL "+ $("#caldero1 img").tipo_caldero() + "split "+ splits );
+				console.log("CALDERO ACTUAL"+$(this).tipo_caldero());
 				if($(this).tipo_caldero() == ""){
-					if($("#caldero2 img").tipo_caldero() != carta[1] || $("#caldero3 img").tipo_caldero() != carta[1]){
+					console.log("-------*************************-");
+					if($("#caldero2 img").tipo_caldero() != carta2[carta2.length-1] || $("#caldero3 img").tipo_caldero() != carta2[carta2.length-1]){
 						return true;
 					}else{
 						return false;
 					}
 				}
 				else{
-					if($(this).tipo_caldero() == carta[1]){
+					if($(this).tipo_caldero() == carta2[carta2.length-1]){
 						return true;
 					}else{
 						return false;
@@ -128,17 +188,19 @@ $(document).ready(function () {
 		
 		
 		$.fn.val_carta2 = function (carta) {
-			if(carta[1] != 'C'){
+			splits = carta.split(/(\d+)/);
+			carta2 = splits[splits.length-1]; 
+			if(carta2[carta2.length-1] != 'C'){
 				console.log("TIPO CAL"+ $("#caldero2 img").tipo_caldero());
 				if($(this).tipo_caldero() == ""){
-					if($("#caldero1 img").tipo_caldero() != carta[1] || $("#caldero3 img").tipo_caldero() != carta[1]){
+					if($("#caldero1 img").tipo_caldero() != carta2[carta2.length-1] || $("#caldero3 img").tipo_caldero() != carta2[carta2.length-1]){
 						return true;
 					}else{
 						return false;
 					}
 				}
 				else{
-					if($(this).tipo_caldero() == carta[1]){
+					if($(this).tipo_caldero() == carta2[carta2.length-1]){
 						return true;
 					}else{
 						return false;
@@ -160,17 +222,19 @@ $(document).ready(function () {
 		};
 		
 		$.fn.val_carta3 = function (carta) {
-			if(carta[1] != 'C'){
-				console.log("TIPO CAL"+ $("#caldero2 img").tipo_caldero());
+			splits = carta.split(/(\d+)/);
+			carta2 = splits[splits.length-1]; 
+			if(carta2[carta2.length-1] != 'C'){
+				console.log("TIPO CAL"+ $("#caldero3 img").tipo_caldero());
 				if($(this).tipo_caldero() == ""){
-					if($("#caldero1 img").tipo_caldero() != carta[1] || $("#caldero2 img").tipo_caldero() != carta[1]){
+					if($("#caldero1 img").tipo_caldero() != carta2[carta2.length-1] || $("#caldero2 img").tipo_caldero() != carta2[carta2.length-1]){
 						return true;
 					}else{
 						return false;
 					}
 				}
 				else{
-					if($(this).tipo_caldero() == carta[1]){
+					if($(this).tipo_caldero() == carta2[carta2.length-1]){
 						return true;
 					}else{
 						return false;
@@ -190,25 +254,6 @@ $(document).ready(function () {
 				}
 			}
 		};
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		
 		
 		
