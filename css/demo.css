@@ -201,7 +201,7 @@ a:hover, a:focus { color: #666c7b; }
 
 
 .puntos {
-    margin: calc(19vh + 0px) 0 0 calc(0% + 0px);
+    margin: calc(10vh + 0px) 0 0 calc(0% + 0px);
     padding: 1em;
     width: calc(10vw - 0px);
     min-height: calc(60vh - 1px);
@@ -314,6 +314,22 @@ a:hover, a:focus { color: #666c7b; }
 }
 
 
+.ver_jugador {
+    margin: calc(89vh + 0px) 0 0 calc(0% + 0px);
+    padding: 0.5em 0em 0em 0em;
+    width: calc(10vw - 0px);
+    min-height: calc(6vh - 0px);
+    position: absolute;
+    z-index: 100;
+    color: #FFFFFF;
+    background-image: linear-gradient(to bottom,#5cb85c 0,#5cb85c 100%);
+    font-size: 16px;
+    border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border: 2px solid #000000;
+}
+
 
 .buscar{
 	width: 12em;
@@ -322,6 +338,12 @@ a:hover, a:focus { color: #666c7b; }
     margin-top: 1.2em;
 }
 
+
+.cartas_mazo{
+	    margin-top: 1.5%;
+    margin-left: 11%;
+    position: absolute;
+}
 /*linear-gradient(to bottom,#fff 0,#e0e0e0 100%)*/
 
 .c1{
@@ -351,18 +373,32 @@ a:hover, a:focus { color: #666c7b; }
     margin-bottom: 5%;
 }
 
+.dock2 {
+    margin: calc(9vh + 5px) 0 0 calc(10% + 3px);
+    padding: 2em;
+    width: calc(80vw - 0px);
+    min-height: calc(40vh - 1px);
+    position: relative;
+    z-index: 100;
+    background: #fff;
+    margin-bottom: 5%;
+}
+
+
 .dock_cartas{
     width: 15%;
     margin-left: 0%;
-	
+}
+
+.dock_cartas2{
+    width: 13%;
+    margin-left: 0%;
 }
 
 .calero1 img{
 	width: 100%;
     margin-left: 0%;
 }
-
-
 
 
 .calero2 img{

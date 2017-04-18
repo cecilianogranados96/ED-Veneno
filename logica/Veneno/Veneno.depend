@@ -443,7 +443,7 @@
 	<iostream>
 	"Ronda.h"
 
-1492452132 source:c:\xampp\htdocs\ed-veneno\logica\veneno\main.cpp
+1492550866 source:c:\xampp\htdocs\ed-veneno\logica\veneno\main.cpp
 	<iostream>
 	"Controladora.h"
 	"Server.h"
@@ -588,7 +588,7 @@
 	<sstream>
 	<string>
 
-1492447022 source:c:\xampp\htdocs\ed-veneno\logica\veneno\src\ronda.cpp
+1492543102 source:c:\xampp\htdocs\ed-veneno\logica\veneno\src\ronda.cpp
 	"Ronda.h"
 	"Baraja.h"
 	"ArrayListN.h"

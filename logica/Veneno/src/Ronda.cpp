@@ -126,7 +126,7 @@ Baraja* Ronda::getCaldero3()
 
 void Ronda::addMovimiento(Jugador* jugador, Naipe* naipe, Baraja* caldero, ArrayList* bComidas, ArrayList* bVenenos)
 {
-    if(posMovimiento == movimientos->getSize()-1 || posMovimiento == 0){
+    if(posMovimiento == movimientos->getSize() || posMovimiento == 0){
         movimientos->append(new Movimiento(jugador, naipe, caldero, bComidas, bVenenos));
         posMovimiento++;
     }
@@ -296,10 +296,12 @@ bool Ronda::validarTotal(Baraja* bCaldero, Jugador* jugador, Naipe* naipe)
         cout<<"\n\nSE COME LAS CARTAS\n\n";
         //addMovimiento(jugador, naipe, bCaldero, tempComidas, tempVenenos);
         return false;
+    }else{
+        //addMovimiento(jugador, naipe, bCaldero, tempComidas, tempVenenos);
+        cout<<"\n\nCREA UN MOVIMIENTO\n\n";
+        return true;
     }
-    addMovimiento(jugador, naipe, bCaldero, tempComidas, tempVenenos);
-    cout<<"\n\nCREA UN MOVIMIENTO\n\n";
-    return true;
+
 }
 
 //Baraja el mazo con la cantidad de cartas indicadas

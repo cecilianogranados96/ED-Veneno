@@ -32,7 +32,7 @@ int main(void)
     while(true)
     {
         WSockServer MyServer(REQ_WINSOCK_VER);
-        cout<<"\t\t\tVENENO GAME\n\nMenu\n\n0. Asignar cantidad jugadores\n1. Crear jugador(n)\n2. Ver jugador(cartas en mano)\n3. Ver nombre Jugador\n4. Ver caldero (s)\n5. Jugar (recibe jugador y carta, caldero a mover)\n6. Verificar ronda\n7. Ver ronda\n8. Ver jugadores actuales\n9. Ver numero de jugadores\n10. Ver resultados\n11. Redo\n12. Undo\n13. Reset\n14. Buscar carta\n15. Ver jugador total\n16. Ver movimiento\n\nDigite su eleccion: ";
+        cout<<"\t\t\tVENENO GAME\n\nMenu\n\n0. Asignar cantidad jugadores\n1. Crear jugador(n)\n2. Ver jugador(cartas en mano)\n3. Ver nombre Jugador\n4. Ver caldero (s)\n5. Jugar (recibe jugador y carta, caldero a mover)\n6. Verificar ronda\n7. Ver ronda\n8. Ver jugadores actuales\n9. Ver numero de jugadores\n10. Ver resultados\n11. Redo\n12. Undo\n13. Reset\n14. Buscar carta\n15. Ver jugador total\n16. Ver movimiento\n17. Cartas en maso\n\nDigite su eleccion: ";
         //cin>>opcion;
         opcion = toint(MyServer.RunServer(1500,"Opcion OK"));
          ////////////////////LISTO/////////////////////
@@ -94,10 +94,12 @@ int main(void)
             controladora->getRondas()->getCurrValue()->getJugadores()->goToPos(jugador);
 
             WSockServer MyServer2(REQ_WINSOCK_VER);
-            string venenos = tostring(controladora->getRondas()->getCurrValue()->getJugadores()->getCurrValue()->getBComidas()->getSize());
+            string venenos = tostring(controladora->getRondas()->getCurrValue()->getJugadores()->getCurrValue()->getBVenenos()->getSize());
             string ronda = tostring(controladora->getRondas()->getSize());
             string nombre = controladora->getRondas()->getCurrValue()->getJugadores()->getCurrValue()->getNombre();
-            string val = controladora->getRondas()->getCurrValue()->getJugadores()->getCurrValue()->getNombre() + "-" + ronda  + "-" + venenos;
+
+            string pozo = tostring(controladora->getRondas()->getCurrValue()->getBEnJuego()->getSize());
+            string val = controladora->getRondas()->getCurrValue()->getJugadores()->getCurrValue()->getNombre() + "-" + ronda  + "-" + venenos + "-" + pozo;
             MyServer2.RunServer(1500,val);
             cout<<"NOMBRE JUGADOR: "<<val;
         }
@@ -189,6 +191,8 @@ int main(void)
         //LISTO LO DEVUELVE CON EL NOMBRE
         if(opcion == 7){
             cout<<controladora->getRondas()->getSize();
+            WSockServer MyServer(REQ_WINSOCK_VER);
+            MyServer.RunServer(1500,tostring(controladora->getRondas()->getSize()));
         }
         if(opcion == 8){
             controladora->getRondas()->getCurrValue()->getJugadores()->print();
@@ -245,8 +249,28 @@ int main(void)
             controladora->getRondas()->getCurrValue()->getMovimientos()->goToEnd();
             controladora->getRondas()->getCurrValue()->getMovimientos()->getCurrValue()->print();
         }
-
-
+		if(opcion == 17){
+            controladora->getRondas()->goToEnd();
+            WSockServer MyServer2(REQ_WINSOCK_VER);
+            MyServer2.RunServer(1500,tostring(controladora->getRondas()->getCurrValue()->getBEnJuego()->getSize()));
+            cout<<"CARTAS EN MASO:"<<controladora->getRondas()->getCurrValue()->getBEnJuego()->getSize();
+        }
+        if(opcion == 18){
+            int jugador;
+            cout<<"Digite el numero de jugador a ver: ";
+            //cin>>jugador;
+            WSockServer MyServer(REQ_WINSOCK_VER);
+            jugador = toint(MyServer.RunServer(1500,"RESPUESTA NOMBRE"));
+            controladora->getRondas()->goToEnd();
+            controladora->getRondas()->getCurrValue()->getJugadores()->goToPos(jugador);
+            WSockServer MyServer2(REQ_WINSOCK_VER);
+            string venenos_n = tostring(controladora->getRondas()->getCurrValue()->getJugadores()->getCurrValue()->getBVenenos()->getSize());
+            string nombre = controladora->getRondas()->getCurrValue()->getJugadores()->getCurrValue()->getNombre();
+            string venenos = controladora->getJugadores()->getCurrValue()->getBVenenos()->r_print();
+            string val = nombre + "~" + venenos_n  + "~" + venenos;
+            MyServer2.RunServer(1500,val);
+            cout<<"NOMBRE JUGADOR: "<<val;
+        }
 
         //system("cls");
     }
