@@ -271,7 +271,6 @@ int main(void)
             MyServer2.RunServer(1500,val);
             cout<<"NOMBRE JUGADOR: "<<val;
         }
-
         //system("cls");
     }
 }
