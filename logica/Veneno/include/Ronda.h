@@ -31,8 +31,7 @@ class Ronda
         void undoMovimiento();
         int totalNaipes();
         void barajar();
-
-    protected:
+        void unirJugadores(DLinkedListJ* jugadoresTotal);
 
     private:
         int posMovimiento;

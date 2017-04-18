@@ -108,7 +108,7 @@ Jugador* DLinkedListJ::getCurrValue()
     return curr->getValue();
 }
 
-void DLinkedListJ::append (Jugador* value)
+void DLinkedListJ::append(Jugador* value)
 {
     DNodeJ* dnode = new DNodeJ(value,last,last->getPrevious());
     last->getPrevious()->setNext(dnode);

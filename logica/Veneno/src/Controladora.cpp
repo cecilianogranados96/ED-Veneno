@@ -155,13 +155,37 @@ void Controladora::crearRondas()
 {
     if(rondas->getSize() > 0)
     {
+        rondas->goToEnd();
+        DLinkedListJ* tempJugador = new DLinkedListJ();
+        rondas->getCurrValue()->unirJugadores(jugadoresActual);
+        unirJugadores();
         borrarJugadores();
+        for(int i = 0; i < jugadoresActual->getSize(); i++)
+        {
+            jugadoresActual->goToPos(i);
+            ArrayList* tempVenenos = new ArrayList();
+            for(int j = 0; j <  jugadoresActual->getCurrValue()->getBVenenos()->getSize(); j++){
+                jugadoresActual->getCurrValue()->getBVenenos()->goToPos(i);
+                tempVenenos->append(jugadoresActual->getCurrValue()->getBVenenos()->getValue());
+            }
+            tempJugador->append(new Jugador(jugadoresActual->getCurrValue()->getNombre(), jugadoresActual->getCurrValue()->getId()));
+            tempJugador->goToEnd();
+            tempJugador->getCurrValue()->setBVenenos(tempVenenos);
+        }
         rondas->append(new Ronda(jugadoresActual, bOrdenada));
     }
     else{
+        DLinkedListJ* tempJugador = new DLinkedListJ();
+        for(int i = 0; i < jugadoresActual->getSize(); i++)
+        {
+            jugadoresActual->goToPos(i);
+            tempJugador->append(new Jugador(jugadoresActual->getCurrValue()->getNombre(), jugadoresActual->getCurrValue()->getId()));
+        }
         rondas->append(new Ronda(jugadoresActual, bOrdenada));
     }
+
 }
+
 //Asigna los nuevos valores de los jugadores actuales, en la lista de jugadores
 void Controladora::unirJugadores()
 {
@@ -171,7 +195,6 @@ void Controladora::unirJugadores()
             jugadores->goToPos(j);
             if(jugadores->getCurrValue()->getId() == jugadoresActual->getCurrValue()->getId())
                 jugadores->getCurr()->setValue(jugadoresActual->getCurrValue());
-
         }
     }
 }
