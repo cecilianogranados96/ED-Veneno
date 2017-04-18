@@ -443,6 +443,7 @@
 	<iostream>
 	"Ronda.h"
 
+<<<<<<< HEAD
 1492548815 source:c:\xampp\htdocs\ed-veneno\logica\veneno\main.cpp
 	<iostream>
 	"Controladora.h"
@@ -450,6 +451,9 @@
 	<sstream>
 	<string>
 	<cstdlib>
+=======
+1492550866 source:c:\xampp\htdocs\ed-veneno\logica\veneno\main.cpp
+>>>>>>> origin/master
 	<iostream>
 	"Controladora.h"
 	"Server.h"
@@ -594,7 +598,11 @@
 	<sstream>
 	<string>
 
+<<<<<<< HEAD
 1492543126 source:c:\xampp\htdocs\ed-veneno\logica\veneno\src\ronda.cpp
+=======
+1492543102 source:c:\xampp\htdocs\ed-veneno\logica\veneno\src\ronda.cpp
+>>>>>>> origin/master
 	"Ronda.h"
 	"Baraja.h"
 	"ArrayListN.h"

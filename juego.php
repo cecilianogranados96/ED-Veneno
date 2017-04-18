@@ -1,4 +1,13 @@
 <?php
+	session_start();
+	include("Logica/ver_ronda.php");
+	if(!isset($_SESSION["ronda"])){
+		$_SESSION["ronda"] = $ronda;
+	}else{
+		if ($_SESSION["ronda"] != $ronda){
+			echo "<script>window.location='ver_ronda.php'</script>";
+		}
+	}
 	include("Logica/cant_jugadores.php");
 	if ($cant_jugadores == 1){
 		echo "<script>window.location='resultados.php'</script>";
@@ -7,7 +16,7 @@
 		$url_juego = "juego.php?jugadores=".$cant_jugadores."&jugador=0";
 	}else{
 		$url_juego = "juego.php?jugadores=".$_GET['jugadores']."&jugador=".($_GET['jugador']+1);
-	}
+	}	
 ?>
 <html lang="es" class="no-js">
 	<head>
@@ -34,6 +43,7 @@
 				$("#nombre_jugador").text(x[0]);
 				$("#ronda").text(x[1]);
 				$("#venenos").text(x[2]);
+				$("#cartas_mazo").text("Pozo:" + x[3]);
 				$.post('Logica/cartas_mano.php',{id:  <?php echo $_GET['jugador']; ?> },function(data2){
 					var x = data2.split("-");
 					for (i=0;i<x.length-1;i++){
@@ -72,6 +82,28 @@
 					});
 				});
 			});	
+			
+		function reset() {
+			alert("RESET");
+		};
+		function anterior() {
+			alert("ANTERIOR");
+		};
+		function siguiente() {
+			alert("SIGUIENTE");
+		};
+
+		function buscar(texto){
+			$("#busqueda").css("display", "block");
+			$("#busqueda span").text(texto.value);
+			texto.value = "";
+			setTimeout(function() {
+				$("#busqueda").fadeOut("slow");
+			}, 1000);
+		}
+
+		
+		
 	</script>
 	</head>
 	<body class="demo-2" style="overflow-x: hidden; overflow-y: hidden;">
@@ -96,6 +128,7 @@
 				<a class="codrops-icon codrops-icon--prev" href="configuracion.php">Atrás</a>
 				<a class="codrops-icon codrops-icon--drop" href="ayuda.php">Ayuda</a>
 			</div>
+			<div class="cartas_mazo" id="cartas_mazo"></div>
 			<!--BUSQUEDA-->
 			<div class="buscar" id="buscar">
 				  <input type="text" class="form-control" name="carta" placeholder="Buscar Carta..." onchange="buscar(this);">
@@ -119,6 +152,10 @@
 				<h1><center>Venenos</center></h1><br>
 				<h1><center id="venenos">Venenos</center></h1>
 			</div>
+			
+			<a class="ver_jugador" id="ver_jugador" onclick="ver_jugador();"><center>Ver Ronda</center></a>
+			
+			
 			<div class="calero1 caldero" id="caldero1">	  	
 				<!--CALDERO 1-->
 			</div>
@@ -137,6 +174,27 @@
 		<script src="js/anime.min.js"></script>
 		<script src="js/main.js"></script>
 		<script src="js/main.js"></script>
-		<script src="js/lineas_juego.js"></script>
+		<script>	
+		(function() {
+			var lineMaker = new LineMaker({
+				position: 'fixed',
+				lines: [
+				{top: 0, left: '10vw', width: 1, height: '100%', color: '#7599E4', hidden: true, animation: { duration: 1000, easing: 'easeInOutSine', delay: 0, direction: 'TopBottom' }},
+				{top: 0, left: '30vw', width: 1, height: '100%', color: '#7599E4', hidden: true, animation: { duration: 1000, easing: 'easeInOutSine', delay: 20, direction: 'TopBottom' }},
+				{top: 0, left: '50vw', width: 1, height: '100%', color: '#7599E4', hidden: true, animation: { duration: 1000, easing: 'easeInOutSine', delay: 40, direction: 'TopBottom' }},
+				{top: 0, left: '70vw', width: 1, height: '100%', color: '#7599E4', hidden: true, animation: { duration: 1000, easing: 'easeInOutSine', delay: 60, direction: 'TopBottom' }},
+				{top: 0, left: '90vw', width: 1, height: '100%', color: '#7599E4', hidden: true, animation: { duration: 1000, easing: 'easeInOutSine', delay: 80, direction: 'TopBottom' }},
+				{top: '10vh', left: 0, width: '100%', height: 1, color: '#7599E4', hidden: true, animation: { duration: 1000, easing: 'easeInOutSine', delay: 20, direction: 'LeftRight' }},
+				{top: '30vh', left: 0, width: '100%', height: 1, color: '#7599E4', hidden: true, animation: { duration: 1000, easing: 'easeInOutSine', delay: 40, direction: 'LeftRight' }},
+				{top: '50vh', left: 0, width: '100%', height: 1, color: '#7599E4', hidden: true, animation: { duration: 1000, easing: 'easeInOutSine', delay: 60, direction: 'LeftRight' }},
+				{top: '70vh', left: 0, width: '100%', height: 1, color: '#7599E4', hidden: true, animation: { duration: 1000, easing: 'easeInOutSine', delay: 80, direction: 'LeftRight' }},
+				{top: '90vh', left: 0, width: '100%', height: 1, color: '#7599E4', hidden: true, animation: { duration: 1000, easing: 'easeInOutSine', delay: 180, direction: 'LeftRight' }}
+				]
+			});		
+			setTimeout(function() {
+				lineMaker.animateLinesIn();
+				}, 500);
+			})();
+		</script>
 	</body>
 </html>

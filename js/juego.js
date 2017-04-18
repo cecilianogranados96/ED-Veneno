@@ -1,24 +1,5 @@
 $(document).ready(function () {		
 
-		function reset() {
-			alert("RESET");
-		};
-		function anterior() {
-			alert("ANTERIOR");
-		};
-		function siguiente() {
-			alert("SIGUIENTE");
-		};
-
-		function buscar(texto){
-			$("#busqueda").css("display", "block");
-			$("#busqueda span").text(texto.value);
-			texto.value = "";
-			setTimeout(function() {
-				$("#busqueda").fadeOut("slow");
-			}, 1000);
-		}
-
 		
 		
 		$('#caldero1').sortable({
@@ -41,7 +22,7 @@ $(document).ready(function () {
 						$(".bg_load").fadeOut("slow");
 						$(".wrapper").fadeOut("slow");
 						$('#jugar').parpadear();
-						//$('#caldero1 img').puntos1();
+						$('#caldero1 img').puntos1();
 						$('#jugar').removeClass('jugar').addClass('jugar_activo');
 					});
 				}
@@ -67,7 +48,7 @@ $(document).ready(function () {
 						$(".bg_load").fadeOut("slow");
 						$(".wrapper").fadeOut("slow");
 						$('#jugar').parpadear();
-						//$('#caldero2 img').puntos2();
+						$('#caldero2 img').puntos2();
 						$('#jugar').removeClass('jugar').addClass('jugar_activo');
 					});
 				}
@@ -94,7 +75,7 @@ $(document).ready(function () {
 						$(".bg_load").fadeOut("slow");
 						$(".wrapper").fadeOut("slow");
 						$('#jugar').parpadear();
-						//$('#caldero3 img').puntos3();
+						$('#caldero3 img').puntos3();
 						$('#jugar').removeClass('jugar').addClass('jugar_activo');
 					});
 				}

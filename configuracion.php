@@ -43,7 +43,8 @@
 					<a href="configuracion.php?jugadores=6&jugador=0"><img class="numeros" src="img/jugadores/6.png"></a>
 				</center>
 				<?php }else{
-					
+					session_start();
+					$_SESSION["jugadores"] = $_GET['jugadores'];
 				if ($_GET['jugador'] == 0){
 					echo "<script>$.post('Logica/reg_cant_jugadores.php', {cantidad: ".$_GET['jugadores']."},function(data){});</script>";
 				}

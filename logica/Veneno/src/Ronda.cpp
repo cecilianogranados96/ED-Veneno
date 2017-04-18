@@ -296,12 +296,19 @@ bool Ronda::validarTotal(Baraja* bCaldero, Jugador* jugador, Naipe* naipe)
         cout<<"\n\nSE COME LAS CARTAS\n\n";
         addMovimiento(jugador, naipe, bCaldero, tempComidas, tempVenenos);
         return false;
+    }else{
+        //addMovimiento(jugador, naipe, bCaldero, tempComidas, tempVenenos);
+        cout<<"\n\nCREA UN MOVIMIENTO\n\n";
+        return true;
     }
+<<<<<<< HEAD
     else{
         addMovimiento(jugador, naipe, bCaldero, tempComidas, tempVenenos);
         cout<<"\n\nCREA UN MOVIMIENTO\n\n";
         return true;
     }
+=======
+>>>>>>> origin/master
 
 }
 
