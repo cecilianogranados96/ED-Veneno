@@ -51,12 +51,13 @@
 				if(isset($_GET['nom'])){
 					//echo $_GET['nom'];
 					echo "<script>$.post('Logica/reg_nom.php', {nombre: '".$_GET['nom']."' },function(data){ ";
-					
 					if(($_GET['jugadores']) == $_GET['jugador']){
-						 echo "window.location='juego.php?jugadores=".$_GET['jugadores']."&jugador=0'; ";
+						 echo "window.location='juego.php?jugadores=".$_GET['jugadores']."&jugador=0';";
 					}
-						
 					echo "});</script>";
+					if(($_GET['jugadores']) == $_GET['jugador']){
+						echo "<div style='display:none;'>";
+					}
 				}
 				if(($_GET['jugadores']-1) == $_GET['jugador']){
 					$text = "JUEGO";

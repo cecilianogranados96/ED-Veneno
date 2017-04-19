@@ -331,6 +331,25 @@ a:hover, a:focus { color: #666c7b; }
 }
 
 
+.atras {
+	margin: calc(10vh + 0px) 0 0 calc(158vh + 0px);
+    padding: 0.5em 0em 0em 0em;
+    width: calc(21vw - 0px);
+    min-height: calc(10vh - 0px);
+    position: fixed;
+    z-index: 101;
+    color: #FFFFFF;
+    background-image: linear-gradient(to bottom,#eb9316 0,#eb9316 100%);
+    font-size: 27px;
+    border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border: 2px solid #000000;
+}
+
+
+
+
 .buscar{
 	width: 12em;
     margin-left: 77em;
@@ -374,7 +393,7 @@ a:hover, a:focus { color: #666c7b; }
 }
 
 .dock2 {
-    margin: calc(9vh + 5px) 0 0 calc(10% + 3px);
+    margin: calc(9vh + 5px) 0 0 calc(2vh + 3px);
     padding: 2em;
     width: calc(80vw - 0px);
     min-height: calc(40vh - 1px);
@@ -386,13 +405,27 @@ a:hover, a:focus { color: #666c7b; }
 
 
 .dock_cartas{
-    width: 15%;
+    width: 14%;
     margin-left: 0%;
+	border-radius: 10px 10px 10px 10px;
+	-moz-border-radius: 10px 10px 10px 10px;
+	-webkit-border-radius: 10px 10px 10px 10px;
+	border: 0px solid #000000;
+	border: solid;
+	border-color: black;
+	border-width: 1px;
 }
 
 .dock_cartas2{
     width: 13%;
     margin-left: 0%;
+	border-radius: 10px 10px 10px 10px;
+	-moz-border-radius: 10px 10px 10px 10px;
+	-webkit-border-radius: 10px 10px 10px 10px;
+	border: 0px solid #000000;
+	border: solid;
+	border-color: black;
+	border-width: 1px;
 }
 
 .calero1 img{

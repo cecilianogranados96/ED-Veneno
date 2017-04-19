@@ -6,6 +6,7 @@
 	}else{
 		if ($_SESSION["ronda"] != $ronda){
 			echo "<script>window.location='ver_ronda.php'</script>";
+			break;
 		}
 	}
 	include("Logica/cant_jugadores.php");
@@ -84,18 +85,26 @@
 			});	
 			
 		function reset() {
-			alert("RESET");
+			alert("Reset Realizado");
+			
 		};
 		function anterior() {
-			alert("ANTERIOR");
+			$.post('Logica/undo_redo.php',{mensaje: 12 },function(data2){
+				alert("Undo Realizado");
+				location.reload();
+			});
 		};
 		function siguiente() {
-			alert("SIGUIENTE");
+			$.post('Logica/undo_redo.php',{mensaje: 11 },function(data2){
+				alert("Redo Realizado");
+				location.reload();
+			});
 		};
 
 		function buscar(texto){
 			$("#busqueda").css("display", "block");
-			$("#busqueda span").text(texto.value);
+			//texto.value
+			$("#busqueda span").text("Jugador 1");
 			texto.value = "";
 			setTimeout(function() {
 				$("#busqueda").fadeOut("slow");
@@ -153,7 +162,7 @@
 				<h1><center id="venenos">Venenos</center></h1>
 			</div>
 			
-			<a class="ver_jugador" id="ver_jugador" onclick="ver_jugador();"><center>Ver Ronda</center></a>
+			<a class="ver_jugador" id="ver_jugador" href="ver_ronda.php?jugadores=<?php echo $cant_jugadores; ?>&jugador=<?php echo $_GET['jugador']; ?>" ><center>Ver Ronda</center></a>
 			
 			
 			<div class="calero1 caldero" id="caldero1">	  	

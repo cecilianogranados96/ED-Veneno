@@ -30,6 +30,12 @@
 				<a class="codrops-icon codrops-icon--prev" href="configuracion.php">Atrás</a>
 				<a class="codrops-icon codrops-icon--drop" href="ayuda.php">Ayuda</a>
 			</div>
+			
+			<a class="atras" id="atras" href="juego.php?jugadores=<?php echo $_GET['jugadores']; ?>&jugador=<?php echo $_GET['jugador']; ?>" >
+			<center>Regresar al juego</center>
+			</a>
+			
+			
 			<h1 class="codrops-header__title"><center>RONDAS</center></h1>
 			<!--BUSQUEDA-->
 
@@ -60,8 +66,6 @@
 			<center>';
 	}
 ?>
-
-
 		</main>
 		<script src="js/anime.min.js"></script>
 		<script src="js/main.js"></script>

@@ -445,7 +445,7 @@
 
 1492540107 D
 
-1492550866 source:c:\xampp\htdocs\ed-veneno\logica\veneno\main.cpp
+1492551809 source:c:\xampp\htdocs\ed-veneno\logica\veneno\main.cpp
 	<iostream>
 	"Controladora.h"
 	"Server.h"
@@ -608,7 +608,7 @@
 	<sstream>
 	<string>
 
-1492551742 source:c:\xampp\htdocs\ed-veneno\logica\veneno\src\ronda.cpp
+1492564780 source:c:\xampp\htdocs\ed-veneno\logica\veneno\src\ronda.cpp
 	"Ronda.h"
 	"Baraja.h"
 	"ArrayListN.h"
@@ -640,7 +640,13 @@
 	<string>
 	<cstdlib>
 
-1492543269 source:c:\xampp\htdocs\ed-veneno\logica\veneno\mainp.cpp
+1492551742 source:c:\xampp\htdocs\ed-veneno\logica\veneno\mainp.cpp
+	<iostream>
+	"Controladora.h"
+	"Server.h"
+	<sstream>
+	<string>
+	<cstdlib>
 	<iostream>
 	"Controladora.h"
 	"Server.h"

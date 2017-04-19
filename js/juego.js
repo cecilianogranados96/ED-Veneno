@@ -1,7 +1,4 @@
-$(document).ready(function () {		
-
-		
-		
+$(document).ready(function () {
 		$('#caldero1').sortable({
 			revert: 'invalid',
 			connectWith: "#dock_cartas",
@@ -151,9 +148,9 @@ $(document).ready(function () {
 					$("#caldero3").css("background", "red");
 				}else{
 					console.log("no problema");
-					
 				}
-		}		
+		}
+		
 		//////////VALIACIONES DE CARTAS DE CALDEROS///////////////
 		$.fn.val_carta1 = function (carta) {
 			splits = carta.split(/(\d+)/);
