@@ -1,3 +1,21 @@
+//##########################################################################################
+//# 
+//# OBJETIVO:
+//# =========
+//#
+//# Script inicial de juego en jquerry.
+//#
+//# Parametros:
+//# ===========
+//# -------------
+//#
+//# Desarrollo:
+//# 
+//# - Jose Andres Ceciliano Granados
+//#
+//#
+//#########################################################################################
+
 $(document).ready(function () {
 		$('#caldero1').sortable({
 			revert: 'invalid',
@@ -157,9 +175,7 @@ $(document).ready(function () {
 			carta2 = splits[splits.length-1]; 
 			console.log("TIPO CARTA: "+carta2[carta2.length-1]);
 			if(carta2[carta2.length-1] != 'C'){
-				console.log("---------------------------------------");
-				console.log("TIPO CAL "+ $("#caldero1 img").tipo_caldero() + "split "+ splits );
-				console.log("CALDERO ACTUAL"+$(this).tipo_caldero());
+				console.log("CALDERO ACTUAL "+$(this).tipo_caldero());
 				if($(this).tipo_caldero() == ""){
 					console.log("-------*************************-");
 					if($("#caldero2 img").tipo_caldero() != carta2[carta2.length-1] || $("#caldero3 img").tipo_caldero() != carta2[carta2.length-1]){
@@ -177,16 +193,23 @@ $(document).ready(function () {
 				}
 			}
 			else{
-				if($(this).tipo_caldero() != ""){
-					return true;
+				console.log("CALDERO ACTUAL2 "+ $(this).tipo_caldero());
+				if($(this).tipo_caldero() != "" || $(this).tipo_caldero() != "C" ){
+					if ($(this).tipo_caldero() == "C"){
+						return false;
+					}else{
+						return true
+					}
 				}
 				else{
+					console.log("ME VINE PARA ACA");
 					if($(this).tipo_caldero() == "" || $("#dock_cartas img").length == 1){
 						return true;
 					}else{
 						return false;
 					}
 				}
+				return false; 
 			}
 		};
 		
@@ -212,16 +235,23 @@ $(document).ready(function () {
 				}
 			}
 			else{
-				if($(this).tipo_caldero() != ""){
-					return true;
+				console.log("CALDERO ACTUAL2 "+ $(this).tipo_caldero());
+				if($(this).tipo_caldero() != "" || $(this).tipo_caldero() != "C" ){
+					if ($(this).tipo_caldero() == "C"){
+						return false;
+					}else{
+						return true
+					}
 				}
 				else{
+					console.log("ME VINE PARA ACA");
 					if($(this).tipo_caldero() == "" || $("#dock_cartas img").length == 1){
 						return true;
 					}else{
 						return false;
 					}
 				}
+				return false; 
 			}
 		};
 		
@@ -246,16 +276,23 @@ $(document).ready(function () {
 				}
 			}
 			else{
-				if($(this).tipo_caldero() != ""){
-					return true;
+				console.log("CALDERO ACTUAL2 "+ $(this).tipo_caldero());
+				if($(this).tipo_caldero() != "" || $(this).tipo_caldero() != "C" ){
+					if ($(this).tipo_caldero() == "C"){
+						return false;
+					}else{
+						return true
+					}
 				}
 				else{
+					console.log("ME VINE PARA ACA");
 					if($(this).tipo_caldero() == "" || $("#dock_cartas img").length == 1){
 						return true;
 					}else{
 						return false;
 					}
 				}
+				return false; 
 			}
 		};
 		
