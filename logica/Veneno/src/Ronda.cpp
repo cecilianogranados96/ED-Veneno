@@ -124,6 +124,9 @@ Baraja* Ronda::getCaldero3()
     return bCaldero3;
 }
 
+//Autora: Silvia Calderón Navarro
+//Fecha: 10 de abril del 2017
+//Descripción: añade un nuevo movimiento, a la baraja de movimiento
 void Ronda::addMovimiento(Jugador* jugador, Naipe* naipe, Baraja* caldero, ArrayList* bComidas, ArrayList* bVenenos)
 {
     if(posMovimiento == movimientos->getSize() || posMovimiento == 0){
@@ -137,7 +140,9 @@ void Ronda::addMovimiento(Jugador* jugador, Naipe* naipe, Baraja* caldero, Array
     }
 }
 
-//Añade naipes al caldero
+//Autora: Silvia Calderón Navarro
+//Fecha: 10 de abril del 2017
+//Descripción: Añade naipes al caldero 1
 bool Ronda::addCaldero1(Naipe* naipe, Jugador* jugador)
 {
     if(naipe->getNomenclatura() != 'C'){
@@ -180,7 +185,9 @@ bool Ronda::addCaldero1(Naipe* naipe, Jugador* jugador)
     }
 }
 
-//Añade naipes al caldero
+//Autora: Silvia Calderón Navarro
+//Fecha: 10 de abril del 2017
+//Descripción: Añade naipes al caldero 2
 bool Ronda::addCaldero2(Naipe* naipe, Jugador* jugador)
 {
     if(naipe->getNomenclatura() != 'C'){
@@ -223,7 +230,9 @@ bool Ronda::addCaldero2(Naipe* naipe, Jugador* jugador)
     }
 }
 
-//Añade naipes al caldero
+//Autora: Silvia Calderón Navarro
+//Fecha: 10 de abril del 2017
+//Descripción: Añade naipes al caldero 3
 bool Ronda::addCaldero3(Naipe* naipe, Jugador* jugador)
 {
     if(naipe->getNomenclatura() != 'C'){
@@ -275,7 +284,9 @@ bool Ronda::addCaldero3(Naipe* naipe, Jugador* jugador)
 
 }
 
-//Verifica si el valor total del caldero es menor que 13, si es así retorna true, sino el jugador se come las cartas
+//Autora: Silvia Calderón Navarro
+//Fecha: 10 de abril del 2017
+//Descripción: Verifica si el valor total del caldero es menor que 13, si es así retorna true, sino el jugador se come las cartas
 bool Ronda::validarTotal(Baraja* bCaldero, Jugador* jugador, Naipe* naipe)
 {
     ArrayList *tempComidas = new ArrayList();
@@ -304,7 +315,9 @@ bool Ronda::validarTotal(Baraja* bCaldero, Jugador* jugador, Naipe* naipe)
 
 }
 
-//Baraja el mazo con la cantidad de cartas indicadas
+//Autora: Silvia Calderón Navarro
+//Fecha: 10 de abril del 2017
+//Descripción: Baraja el mazo con la cantidad de cartas indicadas
 void Ronda::barajar()
 {
     int max = cantidad * jugadores->getSize();
@@ -362,7 +375,9 @@ void Ronda::barajar()
     }
 }
 
-//Devuelve el total de cartas en las manos de los jugadores
+//Autora: Silvia Calderón Navarro
+//Fecha: 10 de abril del 2017
+//Descripción: Devuelve el total de cartas en las manos de los jugadores
 int Ronda::totalNaipes()
 {
     int total = 0;
@@ -373,7 +388,9 @@ int Ronda::totalNaipes()
     return total;
 }
 
-//Devuelve al movimiento anterior
+//Autora: Silvia Calderón Navarro
+//Fecha: 12 de abril del 2017
+//Descripción: Devuelve al movimiento anterior
 void Ronda::redoMovimiento()
 {
     if(posMovimiento+1 < movimientos->getSize()){
@@ -387,7 +404,9 @@ void Ronda::redoMovimiento()
 
 }
 
-//Vuelve al movimiento siguiente
+//Autora: Silvia Calderón Navarro
+//Fecha: 12 de abril del 2017
+//Descripción: Vuelve al movimiento siguiente
 void Ronda::undoMovimiento()
 {
     if(posMovimiento <= movimientos->getSize() && posMovimiento >= 0){
@@ -400,7 +419,9 @@ void Ronda::undoMovimiento()
     }
 }
 
-//Asigna los nuevos valores de los jugadores actuales, en la lista de jugadores
+//Autora: Silvia Calderón Navarro
+//Fecha: 12 de abril del 2017
+//Descripción: Asigna los nuevos valores de los jugadores actuales, en la lista de jugadores
 void Ronda::unirJugadores(DLinkedListJ* jugadoresTotal)
 {
     for(int i = 0; i<jugadores->getSize(); i++){

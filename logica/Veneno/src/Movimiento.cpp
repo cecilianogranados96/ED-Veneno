@@ -82,7 +82,9 @@ ArrayList* Movimiento::getBVenenos()
     return bVenenos;
 }
 
-//Devuelve un movimiento realizado
+//Autora: Silvia Calderón Navarro
+//Fecha: 12 de abril del 2017
+//Descripción: Devuelve un movimiento realizado
 void Movimiento::undoMovimiento()
 {
     if(undo == false)
@@ -112,7 +114,9 @@ void Movimiento::undoMovimiento()
     }
 }
 
-//Vuelve a realizar un movimiento
+//Autora: Silvia Calderón Navarro
+//Fecha: 12 de abril del 2017
+//Descripción: Vuelve a realizar un movimiento
 void Movimiento::redoMovimiento()
 {
     if(undo == true)
@@ -142,6 +146,7 @@ void Movimiento::redoMovimiento()
     }
 }
 
+//Imprime los movimientos
 void Movimiento::print()
 {
     cout<<"\nJugador: ";

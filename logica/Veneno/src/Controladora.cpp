@@ -53,7 +53,9 @@ void Controladora::borrarJugadores(Jugador* jugador)
     numJugadoresActual--;
 }
 
-//Borra el jugador de la lista de jugadores actuales
+//Autora: Silvia Calderón Navarro
+//Fecha: 10 de abril del 2017
+//Descripción: Borra el jugador de la lista de jugadores actuales
 void Controladora::borrarJugadores()
 {
     jugadoresActual->goToStart();
@@ -150,7 +152,9 @@ DLinkedListR* Controladora::getRondas()
     return rondas;
 }
 
-//Crea ujna nueva ronda
+//Autora: Silvia Calderón Navarro
+//Fecha: 11 de abril del 2017
+//Descripción: Crea una nueva ronda.
 void Controladora::crearRondas()
 {
     if(rondas->getSize() > 0)
@@ -186,7 +190,9 @@ void Controladora::crearRondas()
 
 }
 
-//Asigna los nuevos valores de los jugadores actuales, en la lista de jugadores
+//Autora: Silvia Calderón Navarro
+//Fecha: 11 de abril del 2017
+//Descripción: Asigna los nuevos valores de los jugadores actuales, en la lista de jugadores
 void Controladora::unirJugadores()
 {
     for(int i = 0; i<jugadoresActual->getSize(); i++){
@@ -199,7 +205,9 @@ void Controladora::unirJugadores()
     }
 }
 
-//Crea la baraja original ordenada
+//Autora: Silvia Calderón Navarro
+//Fecha: 10 de abril del 2017
+//Descripción: Crea la baraja original ordenada
 void Controladora::crearBOriginal()
 {
     float f;
