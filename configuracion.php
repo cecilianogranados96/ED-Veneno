@@ -1,3 +1,24 @@
+<?php 
+##########################################################################################
+# 
+# OBJETIVO:
+# =========
+#
+# Configuracion inicial de los jugadores.
+#
+# Parametros:
+# ===========
+#
+# - Nombre de los jugadores 
+# - Cantidad de jugadores
+#
+# Desarrollo:
+# 
+# - Jose Andres Ceciliano Granados
+#
+#
+#########################################################################################
+?>
 <html lang="es">
 	<head>
 		<meta charset="UTF-8" />

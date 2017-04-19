@@ -1,4 +1,22 @@
 <?php
+##########################################################################################
+# 
+# OBJETIVO:
+# =========
+#
+# Desplegar los venenos por jugador de la ronda actual
+#
+# Parametros:
+# ===========
+#
+# - Variable session de jugadores totales ademas de jugador para volver al juego.
+#
+# Desarrollo:
+# 
+# - Jose Andres Ceciliano Granados
+#
+#
+#########################################################################################
 	session_start();
 ?>
 <html lang="es" class="no-js">

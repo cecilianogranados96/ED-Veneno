@@ -1,4 +1,27 @@
 <?php
+##########################################################################################
+# 
+# OBJETIVO:
+# =========
+#
+# Controladora de juego
+#
+# Parametros:
+# ===========
+#
+# - Variable de jugadores actuales
+# - Variable de jugador actual.
+#
+# Desarrollo por:
+# ===========
+# 
+# - Jose Andres Ceciliano Granados
+#
+# Verificado por:
+# ===========
+# 
+# - Silvia Calderón
+#########################################################################################
 	session_start();
 	include("Logica/ver_ronda.php");
 	if(!isset($_SESSION["ronda"])){

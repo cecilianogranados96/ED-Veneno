@@ -1,3 +1,22 @@
+<?php 
+##########################################################################################
+# 
+# OBJETIVO:
+# =========
+#
+# Mensaje inicial de juego, animacion incial.
+#
+# Parametros:
+# ===========
+#
+#
+# Desarrollo:
+# 
+# - Jose Andres Ceciliano Granados
+#
+#
+#########################################################################################
+?>
 <html lang="es">
 	<head>
 		<meta charset="UTF-8" />
@@ -10,8 +29,7 @@
 		<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
 		<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
 		<script>
-		$.post("Logica/s.php",{mensaje: "Inicial"},function(data){});	
-		
+		$.post("Logica/s.php",{mensaje: "Inicial"},function(data){});
 		/*
 		$.post("Logica/down.php", {mensaje: "Inicial" },function( data ) {
 			$.post("Logica/start.php", {mensaje: "Inicial" },function( data ) {
@@ -19,7 +37,6 @@
 			});
 		});
 		*/
-		
 		</script>
 		<!--[if IE]>
 			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
