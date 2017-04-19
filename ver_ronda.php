@@ -28,7 +28,7 @@
 			<!--MANEJO-->
 			<div class="codrops-links">
 				<a class="codrops-icon codrops-icon--prev" href="configuracion.php">Atrás</a>
-				<a class="codrops-icon codrops-icon--drop" href="ayuda.php">Ayuda</a>
+				<a class="codrops-icon codrops-icon--drop" href="Manual/index.html" target="_black">Ayuda</a>
 			</div>
 			
 			<a class="atras" id="atras" href="juego.php?jugadores=<?php echo $_GET['jugadores']; ?>&jugador=<?php echo $_GET['jugador']; ?>" >
@@ -38,8 +38,6 @@
 			
 			<h1 class="codrops-header__title"><center>RONDAS</center></h1>
 			<!--BUSQUEDA-->
-
-
 <?php
 	for($x=0;$x<$_SESSION["jugadores"];$x++){
 	$_GET['nombre'] = $x;
@@ -66,6 +64,7 @@
 			<center>';
 	}
 ?>
+
 		</main>
 		<script src="js/anime.min.js"></script>
 		<script src="js/main.js"></script>

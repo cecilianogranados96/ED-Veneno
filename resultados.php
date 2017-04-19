@@ -1,3 +1,6 @@
+<?php
+	session_start();
+?>
 <html lang="es">
 	<head>
 		<meta charset="UTF-8" />
@@ -17,71 +20,44 @@
 	<body class="demo-6">
 		<main>
 <center>
-	<table class="table">
-		<tr>
-		   <th colspan="3">
-			  <h1 class="codrops-header__title">
-				 <center>Resultados</center>
-			  </h1>
-		   </th>
-		</tr>
-		<tr>
-			<td>
-			  <h4  class="codrops-header__title" style="font-size: 2vw;"><center>
-			  JUGADORES
-		   </td>
-		   <td><h4  class="codrops-header__title" style="font-size: 2vw;"><center>
-			  Ronda 1 
-		   </td>
-		   <td><h4  class="codrops-header__title" style="font-size: 2vw;"><center>
-			  Ronda 2
-		   </td>
-		   <td><h4  class="codrops-header__title" style="font-size: 2vw;"> <center>
-			  Totales 
-		   </td>
-		</tr>
-		
-		<!------------->
-		<tr>
-		   <td>
-			  <h4  class="codrops-header__title" style="font-size: 2vw;">
-			  JUAN
-		   </td>
-		   <td>
-			  Ronda 1 <br>
-			  Total veneno por ronda
-		   </td>
-		   <td>
-			  Ronda 2
-			  <br>
-			  Total veneno por ronda
-		   </td>
-		   <td>
-			  Total 
-		   </td>
-		</tr>
-		
-		
-		   <td>
-			  <h4  class="codrops-header__title" style="font-size: 2vw;">
-			  ANA
-		   </td>
-		   <td>
-			  Ronda 1 <br>
-			  Total veneno por ronda
-		   </td>
-		   <td>
-			  Ronda 2
-			  <br>
-			  Total veneno por ronda
-		   </td>
-		   <td>
-			  Total 
-		   </td>
-		</tr>
 
-</table>
-	<h1 class="codrops-header__title" style="font-size: 2vw;" onclick="location.href='index.php'"><center>Nuevo Juego</center></a></h1>
+			<a class="atras2" id="atras2" href="configuracion.php" >
+			<center>Nuevo Juego</center>
+			</a>
+			
+			<!--BUSQUEDA-->
+<?php
+for ($e=0;$e<$_SESSION["ronda"];$e++){
+	echo '<h1 class="codrops-header__title"><center>RONDA : '.($e+1).'</center></h1>';
+	for($x=0;$x<$_SESSION["jugadores"];$x++){
+		$_GET['nombre'] = $x;
+		include("Logica/datos_ronda.php");
+		$result = explode("~", $result);
+		$venenos = explode("-", $result[2]);
+		$comidas = explode("-", $result[2]);
+		echo '<center>
+					<div class="dock2 caldero" id="dock_cartas">
+					<h1 id="nombre_jugador" style="color:#000000;">Jugador : '.$result[0].'</h1>
+					<h1 id="venenos" style="color:#000000;">Venenos : '.$result[1].'</h1>';
+		for($i=0;$i<count($venenos)-1;$i++){
+			$venenos_d = explode(":", $venenos[$i]);
+			echo "<img src='img/cartas/".$venenos_d[1]."".$venenos_d[0].".png' class='dock_cartas inbound'>" ;
+		}
+		echo '<h1 id="venenos" style="color:#000000;">Comidas : '.$result[1].'</h1>';
+		for($i=0;$i<count($venenos)-1;$i++){
+			$comidas_d = explode(":", $comidas[$i]);
+			echo "<img src='img/cartas/".$comidas_d[1]."".$comidas_d[0].".png' class='dock_cartas inbound'>" ;
+		}
+		echo '		</div>
+			  <center>';
+	}
+}
+
+?>
+<br><hr><br>
+
+
+
 	</main>
 		<script src="js/anime.min.js"></script>
 		<script src="js/main.js"></script>

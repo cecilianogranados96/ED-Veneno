@@ -29,7 +29,7 @@
 		<div class="snow"></div>
 		<div class="container">
 			<header class="codrops-header">
-				<a href="ayuda.php"><span>Ayuda</span></a>
+				<a href="Manual/index.html" target="_black"><span>Ayuda</span></a>
 				<h1>
 					<a href="configuracion.php">Veneno Game</a>
 				</h1>

@@ -135,7 +135,7 @@
 			<!--MANEJO-->
 			<div class="codrops-links">
 				<a class="codrops-icon codrops-icon--prev" href="configuracion.php">Atrás</a>
-				<a class="codrops-icon codrops-icon--drop" href="ayuda.php">Ayuda</a>
+				<a class="codrops-icon codrops-icon--drop" href="Manual/index.html" target="_black">Ayuda</a>
 			</div>
 			<div class="cartas_mazo" id="cartas_mazo"></div>
 			<!--BUSQUEDA-->

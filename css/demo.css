@@ -294,6 +294,22 @@ a:hover, a:focus { color: #666c7b; }
 	-webkit-border-radius: 10px 10px 10px 10px;
 	border: 2px solid #000000;
 }
+.atras2{
+	margin: calc(22vh + 0px) 0 0 calc(50vh + 0px);
+    padding: 0.5em 0em 0em 0em;
+    width: calc(21vw - 0px);
+    color: black !important;
+    min-height: calc(10vh - 0px);
+    position: fixed;
+    z-index: 101;
+    color: #FFFFFF;
+    background-image: linear-gradient(to bottom,#5cb85c 0,#5cb85c 100%);
+    font-size: 27px;
+    border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border: 2px solid #000000;
+}
 
 
 .busqueda {
