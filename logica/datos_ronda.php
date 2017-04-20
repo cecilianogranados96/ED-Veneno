@@ -1,4 +1,21 @@
 <?php
+##########################################################################################
+# 
+# OBJETIVO:
+# =========
+#
+# Regresar datos de la ronda para un usuario espeficico.
+#
+# Parametros:
+# ===========
+# -nombre
+#
+# Desarrollo:
+# 
+# - Jose Andres Ceciliano Granados
+#
+#
+#########################################################################################
 	$host    = "localhost";
 	$port    = 1500;
 	if (isset($_POST['nombre'])){		

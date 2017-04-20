@@ -1,4 +1,21 @@
 <?php
+##########################################################################################
+# 
+# OBJETIVO:
+# =========
+#
+# Interactual directamente con la consola.
+#
+# Parametros:
+# ===========
+# -mensaje
+#
+# Desarrollo:
+# 
+# - Jose Andres Ceciliano Granados
+#
+#
+#########################################################################################
 	$host    = "localhost";
 	$port    = 1500;
 	if (isset($_POST['mensaje'])){		

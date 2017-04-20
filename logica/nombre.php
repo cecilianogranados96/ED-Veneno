@@ -1,4 +1,21 @@
 <?php
+##########################################################################################
+# 
+# OBJETIVO:
+# =========
+#
+# Regresar nombre de los jugadores.
+#
+# Parametros:
+# ===========
+# -nombre
+#
+# Desarrollo:
+# 
+# - Jose Andres Ceciliano Granados
+#
+#
+#########################################################################################
 	$host    = "localhost";
 	$port    = 1500;
 	if (isset($_POST['nombre'])){		

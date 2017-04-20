@@ -1,4 +1,21 @@
 <?php
+##########################################################################################
+# 
+# OBJETIVO:
+# =========
+#
+# Obtener cartas en mano del jugador.
+#
+# Parametros:
+# ===========
+# -id 
+#
+# Desarrollo:
+# 
+# - Jose Andres Ceciliano Granados
+#
+#
+#########################################################################################
 	$host    = "localhost";
 	$port    = 1500;
 	if (isset($_POST['id'])){		

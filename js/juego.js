@@ -127,14 +127,18 @@ $(document).ready(function () {
 				if (cal[0].length == 2){
 					return cal[0][1];
 				}else{
-					return cal[0];
+					if (cal[0] == "C"){
+						return "";
+					}else{
+						return cal[0];
+					}
 				}
 		}
 		
 		
 		$.fn.puntos1 = function(){
 				tam = 0; 
-				$(this).each(function(index) {
+				$(this).each(function(index){
 						splits =  $(this).attr("id").split(/(\d+)/);
 						tam = tam + splits[1];
 				});

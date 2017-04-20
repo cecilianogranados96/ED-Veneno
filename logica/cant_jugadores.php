@@ -1,4 +1,21 @@
 <?php
+##########################################################################################
+# 
+# OBJETIVO:
+# =========
+#
+# Regresar jugadores en la mano.
+#
+# Parametros:
+# ===========
+#
+#
+# Desarrollo:
+# 
+# - Jose Andres Ceciliano Granados
+#
+#
+#########################################################################################
 	$host    = "localhost";
 	$port    = 1500;
 	$socket = socket_create(AF_INET, SOCK_STREAM, 0) or die("ERROR");
