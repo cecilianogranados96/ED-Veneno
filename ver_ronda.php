@@ -19,7 +19,7 @@
 #########################################################################################
 	session_start();
 	if (isset($_GET['cam'])){
-		$_SESSION["ronda"] = ($_SESSION["ronda"]+1);
+		//$_SESSION["ronda"] = ($_SESSION["ronda"]+1);
 	}
 ?>
 <html lang="es" class="no-js">
@@ -60,7 +60,7 @@
 			<h1 class="codrops-header__title"><center>RONDAS</center></h1>
 			<!--BUSQUEDA-->
 <?php
-	for($x=0;$x<$_SESSION["jugadores"];$x++){
+	for($x=0;$x<$_GET["jugadores"];$x++){
 		$_GET['nombre'] = $x;
 		include("Logica/datos_ronda.php");
 		$result = explode("~", $result);

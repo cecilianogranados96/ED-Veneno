@@ -34,6 +34,8 @@
 		$.post("Logica/down.php", {mensaje: "Inicial" },function( data ) {
 			$.post("Logica/start.php", {mensaje: "Inicial" },function( data ) {
 				console.log(data);
+						$.post("Logica/s.php",{mensaje: "Inicial"},function(data){});
+		
 			});
 		});
 		*/

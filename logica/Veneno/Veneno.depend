@@ -445,7 +445,13 @@
 
 1492540107 D
 
-1492653281 source:c:\xampp\htdocs\ed-veneno\logica\veneno\main.cpp
+1492659391 source:c:\xampp\htdocs\ed-veneno\logica\veneno\main.cpp
+	<iostream>
+	"Controladora.h"
+	"Server.h"
+	<sstream>
+	<string>
+	<cstdlib>
 	<iostream>
 	"Controladora.h"
 	"Server.h"
@@ -530,7 +536,7 @@
 	<cstdlib>
 	<time.h>
 
-1492653700 source:c:\xampp\htdocs\ed-veneno\logica\veneno\src\controladora.cpp
+1492658676 source:c:\xampp\htdocs\ed-veneno\logica\veneno\src\controladora.cpp
 	"Controladora.h"
 	"ArrayListN.h"
 	"ArrayList.h"
@@ -608,7 +614,7 @@
 	<sstream>
 	<string>
 
-1492630758 source:c:\xampp\htdocs\ed-veneno\logica\veneno\src\ronda.cpp
+1492662237 source:c:\xampp\htdocs\ed-veneno\logica\veneno\src\ronda.cpp
 	"Ronda.h"
 	"Baraja.h"
 	"ArrayListN.h"
@@ -640,13 +646,7 @@
 	<string>
 	<cstdlib>
 
-1492551396 source:c:\xampp\htdocs\ed-veneno\logica\veneno\mainp.cpp
-	<iostream>
-	"Controladora.h"
-	"Server.h"
-	<sstream>
-	<string>
-	<cstdlib>
+1492657807 source:c:\xampp\htdocs\ed-veneno\logica\veneno\mainp.cpp
 	<iostream>
 	"Controladora.h"
 	"Server.h"

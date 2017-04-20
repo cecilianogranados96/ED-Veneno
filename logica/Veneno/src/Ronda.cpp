@@ -358,7 +358,6 @@ void Ronda::barajar()
             posiciones->goToPos(j);
             bEnJuego->goToPos(posiciones->getValue());
             temp->append(bEnJuego->getValue());
-
         }
         sumCantidad = sumCantidad + cantidad;
         sumInicio = sumInicio + cantidad;
