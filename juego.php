@@ -191,7 +191,8 @@
 				<h1><center>Venenos</center></h1><br>
 				<h1><center id="venenos">Venenos</center></h1>
 			</div>
-			<?php 	
+			<?php 
+			/*			
 			if(!isset($_SESSION["ronda"])){
 				$_SESSION["ronda"] = $ronda;
 			}else{
@@ -200,10 +201,12 @@
 				<a class="ver_jugador" id="ver_jugador" href="ver_ronda.php?jugadores=<?php echo $cant_jugadores; ?>&jugador=<?php echo $_GET['jugador']; ?>" ><center>Ver Ronda</center></a>
 			<?php
 				}else{
-					echo "NOOO";
+					//echo "NOOO";
 				}
 			}
+			*/
 			?>
+			<a class="ver_jugador" id="ver_jugador" href="ver_ronda.php?jugadores=<?php echo $cant_jugadores; ?>&jugador=<?php echo $_GET['jugador']; ?>" ><center>Ver Ronda</center></a>
 			
 			<div class="calero1 caldero" id="caldero1">	  	
 				<!--CALDERO 1-->

@@ -15,13 +15,14 @@
 //#
 //#
 //#########################################################################################
-
 $(document).ready(function () {
+		
+		//Drag and Drop caldero 1 
 		$('#caldero1').sortable({
 			revert: 'invalid',
 			connectWith: "#dock_cartas",
 			items: "img.inbound",
-			update: function(event, ui){
+			update: function(event, ui){ //Al terminar de colocar la carta
 				$('#caldero1').order1();
 				//$("#caldero1 h1").remove();
 				$(".bg_load").fadeIn("slow");
@@ -140,7 +141,7 @@ $(document).ready(function () {
 				tam = 0; 
 				$(this).each(function(index){
 						splits =  $(this).attr("id").split(/(\d+)/);
-						tam = tam + splits[1];
+						tam = tam + parseInt(splits[1]);
 				});
 				if (tam >= 13){
 					$("#caldero1").css("background", "red");
@@ -152,8 +153,9 @@ $(document).ready(function () {
 				tam = 0; 
 				$(this).each(function(index) {
 						splits =  $(this).attr("id").split(/(\d+)/);
-						tam = tam + splits[1];
+						tam = tam + parseInt(splits[1]);
 				});
+				console.log(tam);
 				if (tam >= 13){
 					$("#caldero2").css("background", "red");
 				}else{
@@ -164,7 +166,7 @@ $(document).ready(function () {
 				tam = 0; 
 				$(this).each(function(index) {
 						splits =  $(this).attr("id").split(/(\d+)/);
-						tam = tam + splits[1];
+						tam = tam + parseInt(splits[1]);
 				});
 				if (tam >= 13){
 					$("#caldero3").css("background", "red");
@@ -299,10 +301,6 @@ $(document).ready(function () {
 				return false; 
 			}
 		};
-		
-		
-		
-		
 		
 		//Ordena cartas en desplegables
 		$.fn.order1 = function () {
