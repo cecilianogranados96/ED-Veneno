@@ -23,24 +23,31 @@
 # - Silvia Calderón
 #########################################################################################
 	session_start();
-	include("Logica/ver_ronda.php");
-	if(!isset($_SESSION["ronda"])){
-		$_SESSION["ronda"] = $ronda;
-	}else{
-		if ($_SESSION["ronda"] != $ronda){
-			echo "<script>window.location='ver_ronda.php'</script>";
-			break;
-		}
-	}
 	include("Logica/cant_jugadores.php");
 	if ($cant_jugadores == 1){
 		echo "<script>window.location='resultados.php'</script>";
 	}
 	if ($_GET['jugadores']-1 == $_GET['jugador']){
 		$url_juego = "juego.php?jugadores=".$cant_jugadores."&jugador=0";
+		$url_juego2 = "ver_ronda.php?jugadores=".$cant_jugadores."&jugador=0&cam=1";
 	}else{
 		$url_juego = "juego.php?jugadores=".$_GET['jugadores']."&jugador=".($_GET['jugador']+1);
+		$url_juego2 = "ver_ronda.php?jugadores=".$_GET['jugadores']."&jugador=".($_GET['jugador']+1)."&cam=1";
 	}	
+	
+	include("Logica/ver_ronda.php");
+	//$_SESSION["ronda"] = 2; 
+	if(!isset($_SESSION["ronda"])){
+		$_SESSION["ronda"] = $ronda;
+	}else{
+		if ($_SESSION["ronda"] != $ronda){
+			/*
+			header("Location: $url_juego2");
+			echo "<script>window.location='$url_juego2'</script>";
+			break;
+			*/
+		}
+	}
 ?>
 <html lang="es" class="no-js">
 	<head>
@@ -184,9 +191,19 @@
 				<h1><center>Venenos</center></h1><br>
 				<h1><center id="venenos">Venenos</center></h1>
 			</div>
-			
-			<a class="ver_jugador" id="ver_jugador" href="ver_ronda.php?jugadores=<?php echo $cant_jugadores; ?>&jugador=<?php echo $_GET['jugador']; ?>" ><center>Ver Ronda</center></a>
-			
+			<?php 	
+			if(!isset($_SESSION["ronda"])){
+				$_SESSION["ronda"] = $ronda;
+			}else{
+				if ($_SESSION["ronda"] == $ronda){
+			?>
+				<a class="ver_jugador" id="ver_jugador" href="ver_ronda.php?jugadores=<?php echo $cant_jugadores; ?>&jugador=<?php echo $_GET['jugador']; ?>" ><center>Ver Ronda</center></a>
+			<?php
+				}else{
+					echo "NOOO";
+				}
+			}
+			?>
 			
 			<div class="calero1 caldero" id="caldero1">	  	
 				<!--CALDERO 1-->

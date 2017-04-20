@@ -18,6 +18,9 @@
 #
 #########################################################################################
 	session_start();
+	if (isset($_GET['cam'])){
+		$_SESSION["ronda"] = ($_SESSION["ronda"]+1);
+	}
 ?>
 <html lang="es" class="no-js">
 	<head>
@@ -58,30 +61,30 @@
 			<!--BUSQUEDA-->
 <?php
 	for($x=0;$x<$_SESSION["jugadores"];$x++){
-	$_GET['nombre'] = $x;
-	include("Logica/datos_ronda.php");
-	$result = explode("~", $result);
-	$venenos = explode("-", $result[2]);
-	//print_r($venenos);
-	$cartas = "";
-	for($i=0;$i<count($venenos)-1;$i++){
-		$venenos_d = explode(":", $venenos[$i]);
-		$cartas = $cartas + "<img src='img/cartas/".$venenos_d[1]."".$venenos_d[0].".png' class='dock_cartas inbound'>" ;
-	}
-	echo '<center>
-				<div class="dock2 caldero" id="dock_cartas">
-				<h1 id="nombre_jugador" style="color:#000000;">Jugador : '.$result[0].'</h1>
-				<h1 id="venenos" style="color:#000000;">Venenos : '.$result[1].'</h1>';
-	for($i=0;$i<count($venenos)-1;$i++){
-		$venenos_d = explode(":", $venenos[$i]);
-		echo "<img src='img/cartas/".$venenos_d[1]."".$venenos_d[0].".png' class='dock_cartas inbound'>" ;
-	}
-	echo '
-				
-				</div>
-			<center>';
+		$_GET['nombre'] = $x;
+		include("Logica/datos_ronda.php");
+		$result = explode("~", $result);
+		$venenos = explode("-", $result[2]);
+		//print_r($venenos);
+		$cartas = "";
+		for($i=0;$i<count($venenos)-1;$i++){
+			$venenos_d = explode(":", $venenos[$i]);
+			$cartas = $cartas + "<img src='img/cartas/".$venenos_d[1]."".$venenos_d[0].".png' class='dock_cartas inbound'>" ;
+		}
+		echo '<center>
+					<div class="dock2 caldero" id="dock_cartas">
+					<h1 id="nombre_jugador" style="color:#000000;">Jugador : '.$result[0].'</h1>
+					<h1 id="venenos" style="color:#000000;">Venenos : '.$result[1].'</h1>';
+		for($i=0;$i<count($venenos)-1;$i++){
+			$venenos_d = explode(":", $venenos[$i]);
+			echo "<img src='img/cartas/".$venenos_d[1]."".$venenos_d[0].".png' class='dock_cartas inbound'>" ;
+		}
+		echo '</div>
+				<center>';
+		sleep(2);
 	}
 ?>
+
 
 		</main>
 		<script src="js/anime.min.js"></script>

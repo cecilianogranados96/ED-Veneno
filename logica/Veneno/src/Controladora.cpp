@@ -177,6 +177,7 @@ void Controladora::crearRondas()
             tempJugador->getCurrValue()->setBVenenos(tempVenenos);
         }
         rondas->append(new Ronda(jugadoresActual, bOrdenada));
+        cout<<"RONDA :"<<rondas->getSize();
     }
     else{
         DLinkedListJ* tempJugador = new DLinkedListJ();
@@ -186,6 +187,7 @@ void Controladora::crearRondas()
             tempJugador->append(new Jugador(jugadoresActual->getCurrValue()->getNombre(), jugadoresActual->getCurrValue()->getId()));
         }
         rondas->append(new Ronda(jugadoresActual, bOrdenada));
+        cout<<"RONDA :"<<rondas->getSize();
     }
 
 }
