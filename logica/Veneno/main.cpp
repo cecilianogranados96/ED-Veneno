@@ -365,6 +365,8 @@ int main(void)
                 else{
                     controladora->getRondas()->getCurrValue()->setState(false);
                     controladora->crearRondas();
+                    controladora->getRondas()->goToEnd();
+                    controladora->getRondas()->getCurrValue()->barajar();
                     cout<<"CREE RONDA";
                 }
             }

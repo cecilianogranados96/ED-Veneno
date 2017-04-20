@@ -41,11 +41,8 @@
 		$_SESSION["ronda"] = $ronda;
 	}else{
 		if ($_SESSION["ronda"] != $ronda){
-			/*
-			header("Location: $url_juego2");
-			echo "<script>window.location='$url_juego2'</script>";
+			//header("Location: ver_ronda.php?jugadores=".$cant_jugadores."&jugador=0");
 			break;
-			*/
 		}
 	}
 ?>
@@ -191,8 +188,9 @@
 				<h1><center>Venenos</center></h1><br>
 				<h1><center id="venenos">Venenos</center></h1>
 			</div>
+			
 			<?php 
-			/*			
+			/*	
 			if(!isset($_SESSION["ronda"])){
 				$_SESSION["ronda"] = $ronda;
 			}else{
@@ -201,13 +199,14 @@
 				<a class="ver_jugador" id="ver_jugador" href="ver_ronda.php?jugadores=<?php echo $cant_jugadores; ?>&jugador=<?php echo $_GET['jugador']; ?>" ><center>Ver Ronda</center></a>
 			<?php
 				}else{
-					//echo "NOOO";
+					echo "NOOO";
 				}
 			}
 			*/
 			?>
-			<a class="ver_jugador" id="ver_jugador" href="ver_ronda.php?jugadores=<?php echo $cant_jugadores; ?>&jugador=<?php echo $_GET['jugador']; ?>" ><center>Ver Ronda</center></a>
 			
+			<a class="ver_jugador" id="ver_jugador" href="ver_ronda.php?jugadores=<?php echo $cant_jugadores; ?>&jugador=<?php echo $_GET['jugador']; ?>" ><center>Ver Ronda</center></a>
+		
 			<div class="calero1 caldero" id="caldero1">	  	
 				<!--CALDERO 1-->
 			</div>
