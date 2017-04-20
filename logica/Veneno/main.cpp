@@ -75,7 +75,7 @@ int main(void)
             jugador = toint(MyServer.RunServer(1500,"MAZO"));
             controladora->getRondas()->goToEnd();
             controladora->getRondas()->getCurrValue()->getJugadores()->goToPos(jugador);
-            //El de arriba jugador recive la opcion y el de abajo la envia, si se te queda pegado solamente dijiste otra opcion
+            //El de arriba jugador recibe la opcion y el de abajo la envia, si se te queda pegado solamente dijiste otra opcion
             //Como este caso mira
             MyServer.RunServer(1500,controladora->getRondas()->getCurrValue()->getJugadores()->getCurrValue()->getBActual()->r_print());
             MyServer.send2(controladora->getRondas()->getCurrValue()->getJugadores()->getCurrValue()->getBActual()->r_print());

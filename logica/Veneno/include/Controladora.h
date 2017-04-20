@@ -34,7 +34,7 @@ class Controladora
         ArrayList* bOrdenada;       //baraja con todos los naipes ordenados
         Baraja* barajaOriginal;
         DLinkedListR* rondas;
-        void crearBOriginal();
+        ArrayList* crearBOriginal();
         void borrarJugadores(Jugador* jugador);
         void borrarJugadores();
 };
